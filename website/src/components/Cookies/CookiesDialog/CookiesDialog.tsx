@@ -196,8 +196,8 @@ const CookiesDialog = ({
             `
           }
         >
-          <Button onClick={handleAcceptRequired} variant="cta-secondary">
-            {t("cookies:necessaryOnly")}
+          <Button onClick={handleAcceptAll} variant="cta-primary">
+            {t("cookies:acceptAll")}
           </Button>
           {
             tabValue === "details" ?
@@ -219,8 +219,8 @@ const CookiesDialog = ({
                 </Button>
               )
           }
-          <Button onClick={handleAcceptAll} variant="cta-primary">
-            {t("cookies:acceptAll")}
+          <Button onClick={handleAcceptRequired} variant="cta-secondary">
+            {t("cookies:necessaryOnly")}
           </Button>
         </div>
       </DialogContent>

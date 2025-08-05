@@ -54,11 +54,11 @@ const Page = (): JSX.Element => {
           title: string
         } }>)
         .map(article => article.article)
+        .reverse()
         .slice(
           0,
           3,
-        )
-        .reverse();
+        );
     },
     [t],
   );
