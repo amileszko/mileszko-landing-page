@@ -1,0 +1,15 @@
+{
+  "title": "Błąd — coś poszło nie tak | Amadeusz Mileszko",
+  "500": {
+    "title": "Błąd serwera",
+    "info": "Coś poszło nie tak po mojej stronie. Spróbuj ponownie lub skontaktuj się ze mną bezpośrednio, jeśli problem będzie się powtarzał.",
+    "icon": "🛠️"
+  },
+  "404": {
+    "title": "Nie znaleziono strony",
+    "info": "Nie udało się znaleźć strony, której szukasz. Upewnij się, że adres jest poprawny lub skontaktuj się ze mną bezpośrednio, jeśli problem będzie się powtarzał.",
+    "icon": "🔍"
+  },
+  "back": "🏠 Wróć do strony głównej",
+  "callout": "Nie martw się — to się zdarza! Spróbuj wrócić do strony głównej lub skontaktuj się ze mną bezpośrednio."
+}

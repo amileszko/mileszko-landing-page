@@ -1,0 +1,398 @@
+{
+  "title": "Dla CTO — FinOps, refaktoryzacja, architektura, efekty | Amadeusz Mileszko",
+  "description": "Tnę OPEX chmury nawet o 80%, przyspieszam release’y 2×. Architektura bez długu, refaktoryzacja, automatyzacja, realne efekty dla CTO. Plan w 30 minut, bez przestojów.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Dla CTO",
+      "title": "💸 OPEX rośnie? Roadmapa się sypie?",
+      "subtitle": "Tnę koszty chmury ↓ 80%. Uporządkuję Twoją architekturę w 30 dni.",
+      "callout": "Projektuję architekturę, która rośnie razem z MRR — bez długu technicznego i bez ryzyka dla roadmapy. OPEX ↓ nawet o 80% w 3 tygodnie. Release speed ↑ 2×. Wspólnie z CTO wdrażam zmiany bez przestojów, bez utraty płynności biznesu. Wszystko na liczbach — pokazuję, gdzie są rezerwy i jak je wykorzystać.",
+      "cta": [
+        {
+          "title": "📆 Umów rozmowę",
+          "description": "Otrzymasz plan w 30 min."
+        },
+        {
+          "title": "📊 Sprawdź ofertę",
+          "description": "Poznasz ceny i pakiety."
+        }
+      ]
+    },
+    "problems": {
+      "id": "typowe-problemy",
+      "title": "😩 Typowe problemy",
+      "problems": [
+        {
+          "icon": "🏗️",
+          "title": "Monolit blokuje rozwój",
+          "description": "Release’y opóźniają się o tygodnie. Nowe feature’y to zawsze ryzyko regresji. Skalowanie zespołu nie przyspiesza delivery."
+        },
+        {
+          "icon": "💸",
+          "title": "Koszty chmury wymykają się spod kontroli",
+          "description": "OPEX ↑ 60–100% rok do roku. FinOps i optymalizacje na później. Wydatki rosną szybciej niż MRR."
+        },
+        {
+          "icon": "⏳",
+          "title": "Zespół tonie w utrzymaniu i bugach",
+          "description": "95% czasu na hotfixy, incydenty co tydzień. Roadmapa stoi. Support rośnie 2×."
+        },
+        {
+          "icon": "🔄",
+          "title": "Brak automatyzacji i powtarzalności",
+          "description": "Każdy deploy stresuje: manualne kroki, rollback co drugi tydzień. Testy pokrywają tylko nowy kod."
+        },
+        {
+          "icon": "🧩",
+          "title": "Chaos narzędzi i dług techniczny",
+          "description": "Stack rozrasta się bez kontroli – onboarding trwa tygodniami. Każda zmiana dotyka 10 miejsc, bugi wracają."
+        }
+      ],
+      "cta": {
+        "title": "Masz podobne problemy?",
+        "description": "Zobacz, jak je rozwiązałem w SaaS-ach takich jak Retrivis.",
+        "link": {
+          "title": "🧩 Sprawdź case studies",
+          "description": "Poznasz konkrety, stack i efekty."
+        }
+      }
+    },
+    "howIHelp": {
+      "id": "jak-pomagam",
+      "title": "✅ Jak pomagam CTO",
+      "howIHelp": [
+        {
+          "icon": "🏗️",
+          "title": "Architektura mikroserwisowa",
+          "subtitle": "Projektuję EDA, wdrażam CQRS – release speed ↑ 2×, incydenty ↓ 40%."
+        },
+        {
+          "icon": "💰",
+          "title": "FinOps i optymalizacja kosztów",
+          "subtitle": "Obniżam TCO nawet o 40%. Liczę koszty per klient w 2 dni. Alerty na runaway spend."
+        },
+        {
+          "icon": "🔄",
+          "title": "Refaktoryzacja systemów",
+          "subtitle": "Legacy bezpiecznie do prod. Roadmapa rusza, bugów ↓ 60%, zespół nie gasi pożarów."
+        },
+        {
+          "icon": "🤖",
+          "title": "MVP i AI tam, gdzie ROI się zgadza",
+          "subtitle": "Prototyp/demo w < 6 tygodni. ML/LLM/RAG wdrażam, jeśli zwiększa wartość produktu."
+        },
+        {
+          "icon": "🚀",
+          "title": "Audyt CI/CD i observability",
+          "subtitle": "Skracam release’y o połowę, w 3 dni wdrażam alerty i monitoring. Zespół dowozi szybciej."
+        },
+        {
+          "icon": "📌",
+          "title": "Wsparcie decyzyjne",
+          "subtitle": "Pomagam wybrać priorytety i tech stack – roadmapa wraca na tory, decyzyjność w 30 min."
+        }
+      ]
+    },
+    "miniCase": {
+      "id": "mini-case",
+      "title": "🧠 Mini-case – MVP systemu zamówień (apetit.io)",
+      "miniCase": {
+        "problem": {
+          "title": "Problem",
+          "description": "Szybki wzrost liczby zamówień blokowany przez offline’ową obsługę – kolejki, pomyłki, zagubione zamówienia (3 dziennie na lokal). Brak infrastruktury pod skalowanie, brak automatyzacji, a każda nowa lokalizacja = copy-paste procesów i powtarzane błędy."
+        },
+        "solution": {
+          "title": "Rozwiązanie",
+          "description": "Zbudowałem MVP systemu zamówień QR/NFC od zera: architektura cloud-ready, Real-time UI, .NET backend, React/Next frontend. Wdrożyłem CI/CD, monitoring i automatyczne testy E2E – zero manualnych deploymentów. Uruchomienie nowego lokalu trwało 15 min (zero local install)."
+        },
+        "effects": {
+          "title": "Efekt",
+          "effects": [
+            {
+              "icon": "⚡",
+              "title": "MVP prod w 8 tygodni",
+              "description": "Od idei do produkcji — system obsługuje setki zamówień dziennie, zero downtime.",
+              "number": "1"
+            },
+            {
+              "icon": "📍",
+              "title": "Pilotaż: 10+ lokali",
+              "description": "Automatyczny onboarding, szybka walidacja i iteracje pod realny load.",
+              "number": "2"
+            },
+            {
+              "icon": "🧱",
+              "title": "Architektura pod wzrost ×100",
+              "description": "System gotowy do skalowania na 1000+ lokalizacji — bez długu, bez przepisywania.",
+              "number": "3"
+            }
+          ]
+        },
+        "link": "Zobacz szczegóły →"
+      },
+      "hint": {
+        "title": "Chcesz jeszcze więcej konkretów?",
+        "linkTitle": "Wszystkie case studies i projekty →"
+      }
+    },
+    "process": {
+      "id": "wspolpraca",
+      "title": "💼 Przykładowy proces współpracy z CTO",
+      "timeline": [
+        {
+          "icon": "📞",
+          "title": "Pierwsza rozmowa",
+          "time": "30 min",
+          "subtitle": "Weryfikuję Twoje cele i problemy. Szybka diagnoza, priorytety, liczby."
+        },
+        {
+          "icon": "🧐",
+          "title": "Audyt/Przegląd",
+          "time": "2–3 dni",
+          "subtitle": "Analizuję architekturę, koszty, delivery i kluczowe ryzyka. Wyniki w liczbach."
+        },
+        {
+          "icon": "🗺️",
+          "title": "Plan działania",
+          "time": "1 dzień",
+          "subtitle": "Buduję prostą roadmapę zmian, oszacowanie efektów, wycena. Transparentnie."
+        },
+        {
+          "icon": "🚀",
+          "title": "Dowóz zmian",
+          "time": "od 1 tygodnia",
+          "subtitle": "Wdrażam rozwiązania razem z CTO i zespołem. Pełen transfer wiedzy."
+        },
+        {
+          "icon": "📊",
+          "title": "Monitoring i wsparcie",
+          "time": "ciągły",
+          "subtitle": "Pomiary efektów, iteracje, feedback dla zespołu. Daję wsparcie, gdy go potrzebujesz."
+        }
+      ],
+      "cta": {
+        "title": "Zobacz dostępne pakiety",
+        "description": "Wybierz model współpracy dopasowany do Twojego tempa i problemów.",
+        "links": [
+          {
+            "title": "📦 Przejdź do pakietów",
+            "description": "Dowiesz się więcej o FinOps, MVP i mentoringu."
+          },
+          {
+            "title": "🔍 Zobacz szczegółowy proces",
+            "description": "Sprawdzisz krok po kroku, jak działa współpraca."
+          }
+        ]
+      }
+    },
+    "stack": {
+      "id": "stack",
+      "title": "Kluczowe technologie produkcyjne",
+      "description": "Stosuję wyłącznie technologie wdrożone na produkcji: skalowalność, bezpieczne rollouty, monitoring kosztów i refaktoryzacje. Nie katalog możliwości – tylko fundament pod szybkie delivery.",
+      "categories": [
+        {
+          "title": "Architektura & API",
+          "description": "Skalowalność, refaktoring, szybkie wdrożenia nowych feature’ów bez długu technicznego.",
+          "technologies": [
+            { "icon": "🏛️", "title": "CQRS / DDD / Event Storming" },
+            { "icon": "🔄", "title": "Node.js (NestJS, Express)" },
+            { "icon": "🟣", "title": ".NET 8 / ASP.NET Core" },
+            { "icon": "🔗", "title": "REST / gRPC / GraphQL" }
+          ]
+        },
+        {
+          "title": "Cloud & DevOps",
+          "description": "Automatyzacja, koszt pod kontrolą, szybkie deploye i release strategies produkcyjnego SaaS.",
+          "technologies": [
+            { "icon": "☁️", "title": "AWS (ECS, Lambda, S3, RDS, VPC)" },
+            { "icon": "🐳", "title": "Docker/Kubernetes" },
+            { "icon": "🏗️", "title": "Terraform / AWS CDK" },
+            { "icon": "🚀", "title": "GitHub Actions (CI/CD)" },
+            { "icon": "✨", "title": "Blue-Green / Feature Flags" }
+          ]
+        },
+        {
+          "title": "Data & Messaging",
+          "description": "Skalowalne bazy i eventy – szybkie przetwarzanie, duży ruch, hermetyczny reporting i szybkie recovery.",
+          "technologies": [
+            { "icon": "🐘", "title": "PostgreSQL" },
+            { "icon": "🧲", "title": "Kafka / Redpanda" },
+            { "icon": "🧮", "title": "Prisma / Entity Framework" },
+            { "icon": "🍃", "title": "MongoDB" },
+            { "icon": "🔄", "title": "RabbitMQ" }
+          ]
+        },
+        {
+          "title": "Monitoring & Observability",
+          "description": "Proaktywna reakcja na incydenty, utrzymanie SLA i szybki root cause.",
+          "technologies": [
+            { "icon": "📊", "title": "Prometheus + Grafana" },
+            { "icon": "🎯", "title": "OpenTelemetry" },
+            { "icon": "📈", "title": "Jaeger/Tempo" },
+            { "icon": "🛡️", "title": "Sentry" }
+          ]
+        },
+        {
+          "title": "Security & Quality",
+          "description": "Bezpieczne API, code quality, automatyczne testy, compliance bez ryzyka.",
+          "technologies": [
+            { "icon": "🛡️", "title": "IAM, OAuth2/OIDC, JWT" },
+            { "icon": "🔐", "title": "Vault, Secrets Manager" },
+            { "icon": "🚨", "title": "SonarQube, Semgrep" },
+            { "icon": "🔁", "title": "TDD/BDD/E2E" }
+          ]
+        },
+        {
+          "title": "FinOps & Cost Control",
+          "description": "OPEX i TCO pod kontrolą od pierwszego dnia, bez ukrytych kosztów.",
+          "technologies": [
+            {
+              "icon": "💰",
+              "title": "FinOps (AWS budgets, tagging, dashboards)"
+            }
+          ]
+        }
+      ],
+      "hint": {
+        "title": "Potrzebujesz pełnego przekroju stacku lub chcesz sprawdzić inne kompetencje?",
+        "linkTitle": "Zobacz cały stack →"
+      }
+    },
+    "effects": {
+      "id": "efekty",
+      "title": "🎯 Efekty, które liczą się dla Ciebie",
+      "effects": [
+        {
+          "icon": "💰",
+          "title": "OPEX ↓ 80% w 3 tygodnie",
+          "description": "Drastyczne obniżenie kosztów chmury dzięki FinOps i szybkim optymalizacjom.",
+          "number": "1"
+        },
+        {
+          "icon": "🚀",
+          "title": "Release speed ↑ 2× w 1 kwartale",
+          "description": "Dwukrotnie szybsze wdrożenia nowych funkcji dzięki automatyzacji CI/CD.",
+          "number": "2"
+        },
+        {
+          "icon": "📉",
+          "title": "Incydenty P1 ↓ 40–70%",
+          "description": "Mniej poważnych awarii – stabilność i pewność działania produkcji.",
+          "number": "3"
+        },
+        {
+          "icon": "⏰️",
+          "title": "MVP < 6 tygodni, bez długu",
+          "description": "Gotowe MVP produkcyjne – testujesz PMF u realnych klientów po 6 tygodniach.",
+          "number": "4"
+        },
+        {
+          "icon": "⚡",
+          "title": "P99 latency ↓ 120ms",
+          "description": "Lepsza wydajność aplikacji przy SLA 99,95%. Użytkownicy widzą różnicę.",
+          "number": "5"
+        },
+        {
+          "icon": "🔄",
+          "title": "MTTR ↓ 60%",
+          "description": "Czas powrotu systemu po awarii skrócony: szybciej wracasz do normalnej pracy.",
+          "number": "6"
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Często zadawane pytania",
+      "faqs": [
+        {
+          "question": "Nie mamy czasu na pisanie briefów ani budowanie roadmapy od zera. Od czego zaczynam?",
+          "answer": "Zaczynamy od 30-minutowej rozmowy. Diagnozuję bottlenecki na konkretnych liczbach i priorytetach – wystarczy dostęp do kodu lub główne dane. Brief nie jest wymagany, roadmapę buduję razem z Tobą."
+        },
+        {
+          "question": "Czy poradzisz sobie z legacy, gdzie kod zna jedna osoba, a release straszy całą firmę?",
+          "answer": "Tak. Pracowałem z monolitami i systemami, gdzie wiedza była tylko w głowach ludzi. Zaczynam od testów tam, gdzie boli najmocniej. Iteracyjne wdrożenia – od pierwszego tygodnia widzisz rezultat, bez ryzyka dla bieżącej produkcji."
+        },
+        {
+          "question": "Chmura kosztuje coraz więcej, nie wiem, co zjada budżet. Jak wycinasz koszty?",
+          "answer": "W 2–3 dni audytu pokazuję największe „money leaks” i konkretne liczby. Proponuję szybkie, mierzalne zmiany – po tygodniu masz plan OPEX ↓, referencje i wskazane obszary do działania."
+        },
+        {
+          "question": "Czy muszę zwiększać zespół po Twoim wejściu?",
+          "answer": "Nie. Najpierw eliminuję wąskie gardła w architekturze i procesie release. W praktyce: automatyzacja i usprawnienia pozwalają zwiększyć wydajność obecnego zespołu zanim pojawi się temat rekrutacji."
+        },
+        {
+          "question": "Jak wygląda wdrożenie zmian organizacyjnych lub architektonicznych – czy nie zakopię roadmapy na miesiące?",
+          "answer": "Działam iteracyjnie. Najpierw szybkie wygrane: optymalizacje, automatyzacja, monitoring, porządkowanie kosztów. Większe zmiany wprowadzam etapami, bez przestojów i bez wstrzymywania developmentu."
+        },
+        {
+          "question": "Czy zobaczę progres „na żywo”, czy tylko raport mailowy?",
+          "answer": "Każdy etap to demo lub checkpoint. Udostępniam repozytorium kodu, pokazuję konkretne zmiany, zostawiam checklistę decyzji. Masz pełną transparentność – wiesz, co się dzieje na każdym kroku."
+        },
+        {
+          "question": "Jak oceniasz efekt – po czym widzę, że wdrożenie zadziałało?",
+          "answer": "Wyznaczam precyzyjne KPI na starcie (np. OPEX, prędkość release, liczba incydentów). Wszystko mierzymy: z bazową wartością i wynikiem po wdrożeniu. Liczą się realne liczby, nie deklaracje."
+        },
+        {
+          "question": "Potrzebuję „sparringu decyzyjnego” albo krótkiej konsultacji – czy to ma sens?",
+          "answer": "Tak. W zależności od problemu często wystarcza konsultacja (1–3h), micro-audyt lub decision sprint. Dostajesz konkretne rekomendacje i ocenę ryzyka — nie przeciągam współpracy na siłę."
+        }
+      ]
+    },
+    "contact": {
+      "id": "kontakt",
+      "title": "🤝 Masz problem z OPEX, release’ami albo architekturą?",
+      "callout": "W 30 minut ułożymy plan – architektura, koszty, delivery. Zero sprzedaży – tylko realna ocena, czy warto.",
+      "cta": [
+        {
+          "title": "Strategy Call (30 min)",
+          "description": "Techniczna rozmowa o architekturze, OPEX i bottleneckach. Wspólnie narysujemy plan działania – w 30 min.",
+          "icon": "⚡️",
+          "info": "Jestem dostępny: Pon–Pt 9–17.",
+          "linkLabel": "📅 Umów rozmowę"
+        },
+        {
+          "title": "Wyślij brief",
+          "description": "Opisz problem – odpiszę w 24h z oceną sytuacji i możliwym planem technicznym.",
+          "icon": "📋",
+          "info": "Odpowiadam w ciągu 24h.",
+          "linkLabel": "📬 Wypełnij formularz"
+        }
+      ]
+    },
+    "links": {
+      "id": "przydatne-linki",
+      "title": "📄 Przydatne linki",
+      "links": [
+        {
+          "icon": "📂",
+          "title": "Projekty",
+          "subtitle": "Portfolio i case studies",
+          "linkLabel": "Przejdź do projektów →",
+          "link": "$t(paths:projects)"
+        },
+        {
+          "icon": "📋",
+          "title": "Proces współpracy",
+          "subtitle": "Współpraca krok po kroku",
+          "linkLabel": "Zobacz proces →",
+          "link": "$t(paths:process)"
+        },
+        {
+          "icon": "📦",
+          "title": "Oferta i pakiety",
+          "subtitle": "Pakiety, ceny, zakres",
+          "linkLabel": "Zobacz pakiety →",
+          "link": "$t(paths:offer)"
+        },
+        {
+          "icon": "🧰",
+          "title": "Stack technologiczny",
+          "subtitle": "Z czego korzystam w produkcji",
+          "linkLabel": "Zobacz stack →",
+          "link": "$t(paths:stack)"
+        }
+      ]
+    }
+  }
+}

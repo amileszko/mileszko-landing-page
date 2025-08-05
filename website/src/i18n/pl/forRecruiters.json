@@ -1,0 +1,383 @@
+{
+  "title": "Dla Rekrutera — Senior Full-Stack, AI/Cloud/FinOps, gotowy od zaraz | Amadeusz Mileszko",
+  "description": "Senior Full-Stack / AI / Cloud / FinOps – samodzielny start, bez wdrożenia. 12 MVP w produkcji, OPEX ↓ 80%, release’y 2× szybciej. Dostępny B2B PL/EU. Sprawdź CV i projekty.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Dla Rekrutera",
+      "title": "🎯 Senior Full-Stack / AI / Cloud / FinOps – gotowy do startu",
+      "subtitle": "Dowożę od pierwszego dnia – bez wdrożenia, bez długu",
+      "callout": "12 MVP dowiezionych do produkcji. OPEX ↓ 80% w 3 tygodnie, release speed ↑ 2×. Stack: cloud-native, AI-ready, FinOps. Pracuję samodzielnie – wchodzę w projekt bez wdrożenia, przyspieszam delivery od pierwszych sprintów. Dostępny od zaraz, w modelu B2B lub kontrakt – szybko i bez ryzyka przestojów. ",
+      "cta": [
+        {
+          "title": "📅 Umów rozmowę",
+          "description": "Omówimy stack, dostępność i stawkę – w 30 min."
+        },
+        {
+          "title": "📄 Pobierz aktualne CV",
+          "description": "Sprawdzisz moje projekty, stack i dostępność."
+        }
+      ]
+    },
+    "fitCheck": {
+      "id": "fit-check",
+      "title": "✅ Sprawdź dopasowanie",
+      "yes": {
+        "title": "Pasujemy, jeśli:",
+        "bullets": [
+          "Szukasz kontraktu B2B (PL/EU/global), min. 3 miesiące, start: sierpień 2025.",
+          "Rozliczenie: stawka godzinowa/dzienna od 150zł/h netto – ustalana indywidualnie (porozmawiajmy o budżecie podczas rozmowy).",
+          "Stack: AWS, SaaS, AI/LLM, FinOps – realne wdrożenia, nie eksperymenty.",
+          "Potrzebujesz samodzielnego seniora, który dowozi od dnia 1 (bez wdrożenia).",
+          "Ważny jest mentoring, komunikacja bezpośrednio z CTO, PO lub scrum-teamem."
+        ]
+      },
+      "no": {
+        "title": "Nie pasujemy, jeśli:",
+        "bullets": [
+          "Projekt trwa poniżej 3 miesięcy, mobile-only, legacy PHP/Java, pure maintenance/UI-only, UoP.",
+          "Szukasz testowania manualnego, wsparcia tylko juniorów, designerskiego frontu."
+        ]
+      }
+    },
+    "tldr": {
+      "id": "tldr",
+      "title": "🧾 TL;DR – co warto wiedzieć w 30 sek.",
+      "tldrs": [
+        {
+          "icon": "⚡",
+          "title": "Samodzielny start, bez wdrożenia",
+          "description": "Od pierwszego dnia przejmuję odpowiedzialność – działam solo lub w zespole, mentoring juniorów, odciążam innych."
+        },
+        {
+          "icon": "📉",
+          "title": "Dowiezione efekty biznesowe",
+          "description": "12 MVP, 6 SaaS w produkcji. OPEX ↓ 80% (w 3 tyg.), release'y 2× szybciej, incydenty ↓ 60%."
+        },
+        {
+          "icon": "☁️",
+          "title": "Cloud & FinOps na produkcji",
+          "description": "AWS (CDK, ECS, Lambda, Terraform), automatyzacja CI/CD, pełna kontrola kosztów od startu projektu."
+        },
+        {
+          "icon": "🔧",
+          "title": "Stack produkcyjny end-to-end",
+          "description": "Fullstack web, skalowalne architektury, domain-driven design, event-driven, microservices, API-first, automatyzacje DevOps. Dobór technologii do projektu – realne wdrożenia, nie eksperymenty."
+        },
+        {
+          "icon": "🇪🇺",
+          "title": "Elastyczność i formalności",
+          "description": "B2B (PL/EU), faktura VAT/UE lub reverse charge, zdalnie/hybrydowo, relokacja możliwa. Start: sierpień 2025, min. 3 miesiące. Stawka od 150zł/h netto."
+        }
+      ],
+      "cta": {
+        "title": "Działamy?",
+        "description": "Umów rozmowę lub napisz – odpowiem w 24h.",
+        "links": [
+          {
+            "title": "📅 Umów rozmowę",
+            "description": "W 30 min omówimy stack, dostępność i stawkę."
+          },
+          {
+            "title": "📧 Napisz bezpośrednio",
+            "description": "$t(paths:email)"
+          }
+        ]
+      }
+    },
+    "stack": {
+      "id": "stack",
+      "title": "🧰 Kluczowe technologie i efekty rekrutacyjne",
+      "description": "Każda technologia niżej – produkcja. Dowożę efekty jako fullstack/lead/interim, bez długiego wdrażania, mentoring juniorów/zespołu. Stack i narzędzia z tej listy są potwierdzone realnymi wdrożeniami – pełen przekrój do SaaS, AI, B2B, integracji i legacy.",
+      "categories": [
+        {
+          "title": "Fullstack produkcyjny",
+          "description": "Samodzielny delivery od MVP do skalowalnych wdrożeń. Gotowy działać solo, dołączyć do zespołu lub prowadzić tech pair-review.",
+          "technologies": [
+            { "icon": "⚛️", "title": "React/Next.js/TypeScript" },
+            { "icon": "🟦", "title": "Node.js / .NET 8" },
+            { "icon": "🐘", "title": "PostgreSQL/MongoDB" }
+          ]
+        },
+        {
+          "title": "AI, automatyzacja, integracje",
+          "description": "Wdrażam nowoczesne rozwiązania bez eksperymentów – AI (chatboty, integracje RAG), płatności, onboarding, automaty.",
+          "technologies": [
+            { "icon": "🧠", "title": "OpenAI/GPT-4" },
+            { "icon": "🔗", "title": "LangChain" },
+            { "icon": "💳", "title": "Stripe / Supabase / Notion API" },
+            { "icon": "⚡", "title": "Zapier/Make" }
+          ]
+        },
+        {
+          "title": "Cloud & DevOps produkcyjnie",
+          "description": "Chmura to nie buzzword – wdrażam od podstaw do cięcia kosztów, nie potrzebuję oddzielnego DevOps.",
+          "technologies": [
+            { "icon": "☁️", "title": "AWS (ECS, S3, Lambda)" },
+            { "icon": "🐳", "title": "Docker / CI/CD (GitHub Actions)" },
+            { "icon": "📈", "title": "Grafana / Sentry (monitoring live)" }
+          ]
+        },
+        {
+          "title": "Mentoring & onboarding",
+          "description": "Doświadczony w wdrażaniu juniorów i teamów – transfer wiedzy, dokumentacja, audyty i standaryzacja pracy.",
+          "technologies": [
+            { "icon": "👥", "title": "Mentor / Team onboarding" },
+            { "icon": "🔁", "title": "Code review / best practices" },
+            { "icon": "📄", "title": "Dokumentacja/checklisty" }
+          ]
+        }
+      ],
+      "hint": {
+        "title": "Szukasz konkretnej technologii?",
+        "linkTitle": "Zobacz cały stack →"
+      }
+    },
+    "effects": {
+      "id": "efekty",
+      "title": "🎯 Co realnie zyskasz rekrutując mnie?",
+      "effects": [
+        {
+          "icon": "💼",
+          "title": "Samodzielność od pierwszego dnia",
+          "description": "Startuję bez wdrożenia – pracuję solo lub przejmuję ownership w zespole. Nie blokuję innych, nie trzeba mnie pilnować.",
+          "number": "1"
+        },
+        {
+          "icon": "🚀",
+          "title": "Dowiezione wdrożenia",
+          "description": "12 MVP, 6 produkcyjnych SaaS-ów, end-to-end: od pierwszej linii kodu do produkcji.",
+          "number": "2"
+        },
+        {
+          "icon": "📉",
+          "title": "Mierzalne efekty",
+          "description": "OPEX ↓ 80%, release’y ↑ 2×, incydenty ↓ 60%. Dowody, nie deklaracje.",
+          "number": "3"
+        },
+        {
+          "icon": "🤝",
+          "title": "Bezproblemowa współpraca",
+          "description": "Szybki onboarding, płynna komunikacja. Mentoring dla juniorów, spokojny proces dla zespołu.",
+          "number": "4"
+        },
+        {
+          "icon": "🌍",
+          "title": "Elastyczność i dopasowanie",
+          "description": "Zespół PL/EU/global, angielski/polski, zdalnie lub hybrydowo. Dopasowuję się do procesu i narzędzi.",
+          "number": "5"
+        },
+        {
+          "icon": "📄",
+          "title": "Formalności – bez blokad",
+          "description": "B2B, szybki kontrakt, faktura VAT UE / reverse charge. Start od sierpnia 2025, min. 3 mies.",
+          "number": "6"
+        }
+      ]
+    },
+    "timeline": {
+      "id": "timeline",
+      "title": "🗺 Kariera w liczbach (2017–2025+)",
+      "timeline": [
+        {
+          "title": "Full-stack → Senior → Architekt @ aveneo",
+          "subtitle": "12 projektów SaaS: MVP, refaktoryzacje, FinOps. Release ↑ 2×, OPEX ↓ 80%.",
+          "icon": "🏢",
+          "date": "2017–2024"
+        },
+        {
+          "title": "Co-founder / Tech Lead @ apetit.io",
+          "subtitle": "MVP → 10 lokali. AI rekomendacje ↑ order size, ↓ bounce rate.",
+          "icon": "🍕",
+          "date": "2020–2022"
+        },
+        {
+          "title": "Founder / Full-stack Architect @ Retrivis",
+          "subtitle": "AI RAG chatbot. MVP < 6 mies., 50+ leadów w 30 dni.",
+          "icon": "🚀",
+          "date": "2024–2025"
+        },
+        {
+          "title": "Dostępny od sierpnia 2025",
+          "subtitle": "Gotowy na 1 projekt: MVP, refaktoryzacja lub FinOps. Bez wdrożenia, z efektem w tygodniach.",
+          "icon": "🟢",
+          "date": "2025+"
+        }
+      ]
+    },
+    "certifications": {
+      "id": "certyfikaty",
+      "title": "🧾 Certyfikaty i szkolenia",
+      "certifications": {
+        "title": "🎯 Potwierdzone kompetencje",
+        "description": "Praktyczne potwierdzenie umiejętności w cloud, architekturze i refaktoryzacji systemów.",
+        "certifications": [
+          {
+            "icon": "☁️",
+            "title": "AWS Certified Solutions Architect – Professional (w trakcie)",
+            "subtitle": "Zaawansowane scenariusze multi-account, hybrid cloud, cost-aware architektury."
+          },
+          {
+            "icon": "☁️",
+            "title": "AWS Certified Solutions Architect – Associate (AWS, sierpień 2025)",
+            "subtitle": "Projektowanie skalowalnych i kosztowo efektywnych architektur w AWS."
+          },
+          {
+            "icon": "🛠️",
+            "title": "Legacy Fighter (Devstyle, czerwiec 2022)",
+            "subtitle": "Refaktoryzacja systemów legacy – bez ryzyka, z roadmapą i metrykami efektów."
+          },
+          {
+            "icon": "🧠",
+            "title": "DNA – Droga Nowoczesnego Architekta (Devstyle, grudzień 2020)",
+            "subtitle": "Podejmowanie decyzji architektonicznych, komunikacja, roadmapy, odpowiedzialność techniczna."
+          }
+        ]
+      }
+    },
+    "github": {
+      "id": "github",
+      "title": "💻 GitHub i produkcyjne projekty",
+      "cta": [
+        {
+          "icon": "💻",
+          "title": "github.com/amileszko",
+          "subtitle": "Wybrane publiczne repozytoria (MVP, CI/CD, integracje). Większość kodu produkcyjnego pokazuję na rozmowie technicznej lub po NDA.",
+          "linkLabel": "Zobacz GitHub →"
+        },
+        {
+          "icon": "📦",
+          "title": "Wybrane projekty w produkcji",
+          "subtitle": "Case studies: stack, decyzje techniczne, realne efekty.",
+          "linkLabel": "Zobacz projekty →"
+        }
+      ]
+    },
+    "where": {
+      "id": "szukam",
+      "title": "🛠️ Gdzie dowożę najlepiej",
+      "where": [
+        {
+          "icon": "⚡",
+          "title": "Fullstack produkty od zera do demo",
+          "description": "Buduję MVP (frontend + backend + cloud), wdrażam produkcyjnie w 6 tygodni. Demo/proof-of-concept testowany z realnymi użytkownikami."
+        },
+        {
+          "icon": "☁️",
+          "title": "Cloud-native & AI-ready SaaS",
+          "description": "Projektuję architekturę pod szybkie wdrożenie AI/LLM/RAG, skalowanie na AWS, automatyzację CI/CD, API otwarte na integracje."
+        },
+        {
+          "icon": "🛠️",
+          "title": "Refaktoryzacje i modernizacje",
+          "description": "Przepisuję lub ulepszam legacy (monolit → mikroserwisy, CQRS, event-driven). Release'y ↑ 2×, incydenty ↓ 60%, OPEX↓."
+        },
+        {
+          "icon": "🧭",
+          "title": "Projekty produktowe z roadmapą",
+          "description": "Najlepiej działam, gdy są jasne cele biznesowe, roadmapa i dostęp do decyzyjnych. Tylko minimum 3 miesiące B2B. Stawka od 150zł/h netto."
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Często zadawane pytania",
+      "faqs": [
+        {
+          "question": "Jakie formalności lub dokumenty są potrzebne, żeby zacząć współpracę?",
+          "answer": "Wystarczy kontrakt B2B — podpisuję NDA i dostarczam fakturę VAT/UE lub reverse charge. Po stronie klienta decydujemy, czy onboarding obejmuje dostęp do systemów czy też dodatkowe zabezpieczenia (np. background check)."
+        },
+        {
+          "question": "Jaka jest Twoja stawka i na jakich warunkach rozliczamy współpracę?",
+          "answer": "Współpraca wyceniana jest indywidualnie w zależności od zakresu, długości projektu i trybu pracy. Minimalna stawka wynosi 150zł/h netto (B2B). Najczęściej rozliczenie godzinowe lub dzienne (możliwe orientacyjne widełki przed rozmową – wystarczy napisać). Stała miesięczna dla współpracy FTE też możliwa. "
+        },
+        {
+          "question": "Czy mogę poddać Cię testowi technicznemu, code review lub krótkiej rozmowie technicznej z zespołem?",
+          "answer": "Tak — jestem gotów na realne zadanie, code review lub rozmowę z technicznym leadem. Najlepiej, jeśli test sprawdza stack i problemy realne dla projektu."
+        },
+        {
+          "question": "Na jak długo możesz się zaangażować? Czy możliwy jest okres próbny?",
+          "answer": "Możemy zacząć od okresu próbnego (np. 1 miesiąc) lub od razu na pełen zakres. Minimalna długość współpracy to 3 miesiące. Współpraca FTE lub rozliczenie godzinowe (od 80 do 160 godzin/mies)."
+        },
+        {
+          "question": "Czy możesz przeprowadzać code review, wspierać młodszych deweloperów lub wdrożyć standardy?",
+          "answer": "Tak — mam doświadczenie w mentoringu, code review i wdrażaniu standardów. Przekazuję feedback zrozumiale, bez blokowania pracy zespołu. Mogę też poprowadzić onboarding i wspierać rozwój juniorów."
+        },
+        {
+          "question": "Jaki jest Twój standard pracy w kontekście zdalności, godzin pracy, urlopu?",
+          "answer": "Pracuję zdalnie (PL/EU/global) lub hybrydowo / w biurze, jeśli wymagane. Zakres godzin uzgadniam na start (8:00–18:00 CET). Urlopy, święta czy absencje są komunikowane z wyprzedzeniem – tylko płatny czas pracy, bez ukrytych kosztów."
+        },
+        {
+          "question": "Czy możesz szybko udostępnić referencje, CV lub próbki kodu?",
+          "answer": "Tak — CV, portfolio projektowe, case studies oraz dostęp do wybranych repozytoriów GitHub są dostępne od ręki. Na życzenie przedstawiam referencje lub kontakt do wcześniejszych klientów."
+        },
+        {
+          "question": "Czy przejmiesz komunikację z klientem końcowym, Product Ownerem lub zespołem bezpośrednio?",
+          "answer": "Tak — komunikuję się z PO, CTO czy team leadem bezpośrednio. Ustalamy flow komunikacji na początku współpracy. Mail, Slack, Teams lub system ticketowy – dostosowuję się do procesu."
+        },
+        {
+          "question": "Czy zachowasz poufność i podpiszesz NDA, także w przypadku klienta końcowego?",
+          "answer": "Oczywiście. NDA podpisuję zarówno z agencją, software housem, jak i bezpośrednio z końcowym klientem. Nie dzielę się kodem ani know-how z zewnątrz."
+        }
+      ]
+    },
+    "contact": {
+      "id": "kontakt",
+      "title": "🤝 Szukasz seniora, który dowozi od dnia 1?",
+      "callout": "W 30 minut przejdziemy przez stack, dostępność i formę współpracy. Zero wdrożenia – dowożę od razu.",
+      "cta": [
+        {
+          "title": "Rozmowa rekrutacyjna (30 min)",
+          "description": "Stack, dostępność, forma współpracy. Konkretna rozmowa 1:1 – bez buzzwordów.",
+          "icon": "📅",
+          "info": "Jestem dostępny: Pon–Pt 9–17.",
+          "linkLabel": "📅 Umów rozmowę"
+        },
+        {
+          "title": "Bezpośredni kontakt",
+          "description": "Napisz maila – odpowiem w 24h z oceną dopasowania i dostępnością.",
+          "icon": "📧",
+          "info": "$t(paths:email)",
+          "linkLabel": "📧 Napisz email"
+        }
+      ]
+    },
+    "links": {
+      "id": "linki",
+      "title": "📎 Przydatne linki",
+      "links": [
+        {
+          "icon": "📄",
+          "title": "CV",
+          "subtitle": "Doświadczenie, projekty, certyfikaty.",
+          "linkLabel": "Pobierz CV →",
+          "link": "$t(paths:cv)",
+          "download": true
+        },
+        {
+          "icon": "💻",
+          "title": "GitHub",
+          "subtitle": "Repozytoria z MVP, CI/CD, narzędziami CLI i integracjami.",
+          "linkLabel": "github.com/amileszko →",
+          "link": "$t(paths:github)",
+          "external": true
+        },
+        {
+          "icon": "🔗",
+          "title": "LinkedIn",
+          "subtitle": "Profil zawodowy, aktywność i rekomendacje.",
+          "linkLabel": "linkedin.com →",
+          "link": "$t(paths:linkedin)",
+          "external": true
+        },
+        {
+          "icon": "📦",
+          "title": "Projekty z produkcji",
+          "subtitle": "Stack, decyzje techniczne, efekty – 12 MVP dostarczonych.",
+          "linkLabel": "Zobacz projekty →",
+          "link": "$t(paths:projects)"
+        }
+      ]
+    }
+  }
+}

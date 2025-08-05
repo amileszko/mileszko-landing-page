@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "title": "nawigacja",
+    "projects": "projekty",
+    "stack": "stack",
+    "blog": "blog",
+    "aboutMe": "o mnie",
+    "offer": "oferta",
+    "process": "proces",
+    "forCto": "dla CTO",
+    "forFounders": "dla Foundera",
+    "forRecruiters": "dla Rekrutera",
+    "contact": "kontakt"
+  },
+  "shortcuts": {
+    "title": "skróty",
+    "cv": "📄 CV",
+    "github": "🐙 GitHub",
+    "linkedin": "💼 LinkedIn"
+  },
+  "copyright": "© {{year}} Amadeusz Mileszko",
+  "privacyPolicy": "polityka prywatności",
+  "cookiesPolicy": "polityka cookies",
+  "status": "status"
+}

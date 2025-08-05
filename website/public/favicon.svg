@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#000000"></rect>
+
+<svg height="26" x="8" y="18.4" viewBox="-10 0 610 1000" preserveAspectRatio="xMinYMin meet">
+   <path fill="#F5F5F5" d="M495 800q-47 0 -67 -24t-25 -60h-5q-17 45 -54.5 70.5t-100.5 25.5q-81 0 -129 -42t-48 -115q0 -72 52.5 -111t169.5 -39h110v-51q0 -57 -32 -85.5t-91 -28.5q-52 0 -85 20.5t-53 55.5l-54 -40q10 -20 27 -39t42 -33.5t57 -23t71 -8.5q91 0 144.5 46t53.5 128v284h72v70
+h-55zM257 745q31 0 56.5 -7.5t44.5 -20t29.5 -30t10.5 -37.5v-85h-110q-72 0 -105 20t-33 58v21q0 40 28.5 60.5t78.5 20.5z"></path>
+</svg>
+
+<svg x="24" y="18.7" height="26" viewBox="-10 0 610 1000" preserveAspectRatio="xMinYMin meet">
+   <path fill="#F5F5F5" d="M54 800v-516h74v60h4q12 -30 34 -51t65 -21q45 0 67 22.5t27 58.5h3q14 -35 40 -58t72 -23q63 0 84.5 44t21.5 126v358h-74v-345q0 -66 -13.5 -91.5t-49.5 -25.5q-32 0 -52 20.5t-20 62.5v379h-74v-345q0 -66 -13.5 -91.5t-48.5 -25.5q-32 0 -52.5 20.5t-20.5 62.5v379
+h-74z"></path>
+</svg>
+
+<svg x="40" y="19.1" height="26" viewBox="-10 0 610 1000" preserveAspectRatio="xMinYMin meet">
+   <path fill="#F5F5F5" d="M85 701l355 -201v-8l-355 -201v-85l430 249v80l-430 249v-83z"></path>
+</svg>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

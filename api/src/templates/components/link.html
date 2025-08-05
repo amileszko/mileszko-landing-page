@@ -1,0 +1,14 @@
+<script props>
+  let textSize = props["text-size"] || "text-sm";
+
+  module.exports = {
+    textSize: textSize,
+  };
+</script>
+
+<a
+  class="inline cursor-pointer no-underline {{ textSize }} duration-200 ease-in-out text-brand-500 hover:text-brand-600 hover:underline"
+  attributes
+>
+  <yield />
+</a>

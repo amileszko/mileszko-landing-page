@@ -1,0 +1,396 @@
+{
+  "title": "Proces — jak buduję MVP, tnę OPEX i wdrażam zmiany | Amadeusz Mileszko",
+  "description": "Jak dowożę wynik? Od roadmapy, przez architekturę, po produkcję i optymalizację kosztów. MVP SaaS, FinOps i refaktoryzacja — krok po kroku, z demo i efektami na liczbach.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Proces współpracy",
+      "title": "🛠 Proces – krok po kroku",
+      "subtitle": "Projektuję. Dowożę. Optymalizuję.",
+      "callout": "Każdy projekt prowadzę od warsztatu po produkcję – bez zgadywania, bez chaosu. 1 osoba → 1 roadmapa → MVP w tygodniach, OPEX ↓ 80%, delivery w kontrolowanym tempie.",
+      "cta": [
+        {
+          "title": "🎯 Zamów roadmapę",
+          "description": "Przygotuję plan działania w 30 min."
+        },
+        {
+          "title": "📦 Zobacz modele współpracy",
+          "description": "Sprawdzisz pakiety – tempo, zakres i efekty."
+        }
+      ]
+    },
+    "fitCheck": {
+      "id": "czy-ten-proces-jest-dla-ciebie",
+      "title": "✅ Czy ten proces jest dla Ciebie?",
+      "yes": {
+        "title": "Działa najlepiej, jeśli:",
+        "bullets": [
+          "Potrzebujesz MVP, FinOps, refaktoryzacji lub szybkiego wdrożenia – od zera lub w trakcie projektu.",
+          "Masz wpływ na decyzje techniczne lub produktowe.",
+          "Ważny jest dla Ciebie jasny plan, regularny progres i mierzalne efekty."
+        ]
+      },
+      "no": {
+        "title": "Nie zadziała, jeśli:",
+        "bullets": [
+          "Szukasz wyłącznie krótkiego maintenance lub konsultacji ad hoc.",
+          "Chodzi tylko o front-end / mobile / UX bez backendu.",
+          "Nie możesz angażować się w decyzje w trakcie pracy."
+        ]
+      }
+    },
+    "stages": {
+      "id": "etapy",
+      "title": "🔍 Etapy",
+      "stages": [
+        {
+          "title": "🔍 Etap 1: Warsztat",
+          "goal": {
+            "title": "🎯 Cel",
+            "description": "Wiem, kto będzie korzystał z produktu i co konkretnie ma się poprawić: czas, koszt, konwersja lub SLA."
+          },
+          "scope": {
+            "title": "📋 Zakres",
+            "bullets": [
+              "Użytkownik – kim jest, jakie ma problemy.",
+              "Co mierzymy: np. czas wdrożenia, koszt, liczbę użytkowników.",
+              "Roadmapa – kluczowe kamienie milowe.",
+              "Ograniczenia i ryzyka na starcie."
+            ]
+          },
+          "result": {
+            "title": "🛠️ Efekt",
+            "description": "Jasne priorytety, wstępna architektura, lista ryzyk i podział odpowiedzialności."
+          }
+        },
+        {
+          "title": "🧱 Etap 2: Architektura",
+          "goal": {
+            "title": "🎯 Cel",
+            "description": "Projektuję stack, który pozwala zbudować MVP szybko i tanio — z jasną prognozą kosztów i możliwością skalowania."
+          },
+          "scope": {
+            "title": "📋 Zakres",
+            "bullets": [
+              "Wybór sprawdzonego stacku i narzędzi.",
+              "Schematy systemu i podział domen.",
+              "Monitoring, alerty, SLO/SLA.",
+              "Kalkulacja OPEX/TCO na start."
+            ]
+          },
+          "result": {
+            "title": "🛠️ Efekt",
+            "description": "Jasna decyzja: co budować, czego nie robić i jakie są przewidywane koszty (OPEX, TCO)."
+          }
+        },
+        {
+          "title": "🚧 Etap 3: MVP",
+          "goal": {
+            "title": "🎯 Cel",
+            "description": "Dostarczam działający produkt — nie prototyp. MVP ma spełniać konkretne założenia."
+          },
+          "scope": {
+            "title": "📋 Zakres",
+            "bullets": [
+              "Kluczowe funkcje MVP zgodnie z roadmapą.",
+              "Responsywny, szybki interfejs użytkownika.",
+              "Integracje z zewnętrznymi usługami lub API.",
+              "CI/CD, staging, testy E2E."
+            ]
+          },
+          "result": {
+            "title": "🛠️ Efekt",
+            "description": "Demo na stagingu w maks. 6 tygodni. Przekazuję produkt gotowy do testów, sprzedaży lub pokazania inwestorowi."
+          }
+        },
+        {
+          "title": "🔁 Etap 4: Iteracje",
+          "goal": {
+            "title": "🎯 Cel",
+            "description": "Wdrażam feedback. Wartość produktu rośnie każdego sprintu — szybciej docierasz do PMF lub ROI."
+          },
+          "scope": {
+            "title": "📋 Zakres",
+            "bullets": [
+              "Sprinty co 1–2 tygodnie.",
+              "Release notes (co dowiezione).",
+              "Loop feedback od userów.",
+              "Automatyczne wdrożenia po każdej iteracji."
+            ]
+          },
+          "result": {
+            "title": "🛠️ Efekt",
+            "description": "Nowe funkcje i poprawki trafiają do użytkowników regularnie — widzisz progres co sprint."
+          }
+        },
+        {
+          "title": "📉 Etap 5: FinOps i optymalizacja",
+          "goal": {
+            "title": "🎯 Cel",
+            "description": "Obniżam OPEX, przyspieszam działanie systemu i pilnuję SLA."
+          },
+          "scope": {
+            "title": "📋 Zakres",
+            "bullets": [
+              "Optymalizacja OPEX/TCO, tagging, alerty.",
+              "Koszt per funkcja / klient.",
+              "Wdrożenie monitoringu oraz raportowania.",
+              "Optymalizacja cache, skrócenie czasu uruchamiania, skalowanie i kontrola kosztów AI."
+            ]
+          },
+          "result": {
+            "title": "🛠️ Efekt",
+            "description": "OPEX ↓ nawet o 80%, krótsze czasy odpowiedzi, SLA > 99,9%. Wszystko poparte konkretnymi liczbami."
+          }
+        }
+      ],
+      "cta": {
+        "title": "🆘 Nie musisz zaczynać od zera",
+        "description": "Proces sprawdza się też w projektach „do ratunku” i tych, które są już w trakcie. Doprowadzę produkt do efektu – niezależnie od etapu.",
+        "links": [
+          {
+            "title": "📋 Zgłoś swój projekt",
+            "description": "W 24h dostaniesz wskazówkę co dalej."
+          },
+          {
+            "title": "🤝 Zobacz modele współpracy",
+            "description": "Sprawdzisz pakiety – tempo, zakres i efekty."
+          }
+        ]
+      }
+    },
+    "timeline": {
+      "id": "timeline",
+      "title": "📅 Przykładowy Timeline",
+      "timeline": [
+        {
+          "title": "Warsztat: cel, roadmapa, ryzyka",
+          "subtitle": "Na starcie ustalamy cele, metryki i blokery – konkret już od pierwszego dnia.",
+          "icon": "🎯",
+          "time": "Dzień 1"
+        },
+        {
+          "title": "Architektura i stack",
+          "subtitle": "W dniu 7 masz wybrany stack, podział domen i wstępnie oszacowane koszty wdrożenia.",
+          "icon": "🏗️",
+          "time": "Tydzień 1"
+        },
+        {
+          "title": "Pierwsze demo / core",
+          "subtitle": "Po około 2 tygodniach powstaje działające demo – zweryfikujesz pomysł i zebrzesz feedback.",
+          "icon": "🚀",
+          "time": "Tydzień 2"
+        },
+        {
+          "title": "Funkcje, testy, optymalizacja",
+          "subtitle": "Co sprint dorzucane są nowe funkcje, poprawki i optymalizacje. Progres i metryki są mierzalne.",
+          "icon": "🔁",
+          "time": "Tydzień 3–5"
+        },
+        {
+          "title": "MVP staging/produkcja + FinOps",
+          "subtitle": "Stabilny MVP / gotowy produkt na produkcji oraz pierwsze efekty FinOps – najczęściej już po 6 tygodniach.",
+          "icon": "📉",
+          "time": "Tydzień 6+"
+        }
+      ]
+    },
+    "miniCase": {
+      "id": "mini-case",
+      "title": "🧠 Mini-case – Refaktoryzacja systemu produkcyjnego (NDA)",
+      "case": {
+        "problem": {
+          "title": "Problem",
+          "description": "System legacy przestał nadążać za wzrostem firmy. Releasy opóźniały się tygodniami, każdy deployment wiązał się z ryzykiem przestoju produkcji. Liczba błędów rosła, zespół większość czasu gasił pożary."
+        },
+        "solution": {
+          "title": "Rozwiązanie",
+          "description": "Wszedłem jako delivery architect z mandatem na refaktoryzację przy działającej produkcji. Przebudowałem architekturę: CQRS, mikroserwisy, pełny monitoring zdarzeń i automatyczne testy E2E. Proces wdrażany iteracyjnie – bez przestojów, z gwarancją rollbacku."
+        },
+        "effect": {
+          "title": "Efekt",
+          "effects": [
+            {
+              "icon": "⚡",
+              "title": "Release speed ↑ 2×",
+              "description": "Wdrożenia skrócone z 2 tygodni do kilku dni. Zespół wrócił do regularnego delivery.",
+              "number": "1"
+            },
+            {
+              "icon": "📉",
+              "title": "Błędy prod ↓ 60%",
+              "description": "Krytyczne incydenty spadły o ponad połowę – monitoring i testy wyłapywały większość przed wdrożeniem.",
+              "number": "2"
+            },
+            {
+              "icon": "⏰",
+              "title": "Zero downtime przy migracji",
+              "description": "Wszystkie zmiany zaimplementowane bez zatrzymania produkcji. Utrzymanie ciągłości biznesu.",
+              "number": "3"
+            }
+          ]
+        },
+        "link": "Zobacz szczegóły →"
+      },
+      "hint": {
+        "title": "Chcesz więcej przykładów transformacji?",
+        "linkTitle": "Przejdź do case studies →"
+      }
+    },
+    "howIWork": {
+      "id": "jak-wyglada-wspolpraca-na-codzien",
+      "title": "💼 Jak wygląda współpraca na co dzień?",
+      "description": "Masz jasność, co dzieje się na bieżąco – transparentny proces, ciągły progres i szybka komunikacja. Możesz być blisko projektu lub delegować i kontrolować tylko efekty.",
+      "principles": [
+        {
+          "icon": "📅",
+          "title": "Cotygodniowe demo i podsumowanie",
+          "description": "Co tydzień pokazuję działające funkcje, nie tickety. Widzisz realny progres i możesz podejmować decyzje na bieżąco."
+        },
+        {
+          "icon": "💬",
+          "title": "Bieżący kontakt (Slack, Discord lub email)",
+          "description": "Odpowiadam zwykle w kilka godzin (max 1 dzień). Każda ważna sprawa jest odnotowana – masz pewność, że niczego nie przeoczysz."
+        },
+        {
+          "icon": "📋",
+          "title": "Regularne release notes",
+          "description": "Po każdej iteracji/sprincie dostajesz krótkie podsumowanie: co dowiezione, co wchodzi do następnej iteracji, jakie są proponowane zmiany."
+        },
+        {
+          "icon": "📂",
+          "title": "Stały dostęp do kodu i roadmapy",
+          "description": "Pełen dostęp do repozytorium, dokumentacji i postępu prac (Notion/Jira lub inne wg preferencji). Możesz sprawdzić stan projektu w dowolnej chwili."
+        },
+        {
+          "icon": "🛑",
+          "title": "Transparentność decyzji",
+          "description": "Wszystkie kluczowe zmiany architektury, zakresu czy stacka uzgadniam z Tobą – zero niespodzianek na końcu."
+        }
+      ]
+    },
+    "whereItLeads": {
+      "id": "gdzie-to-prowadzi",
+      "title": "📦 Gdzie to prowadzi?",
+      "callout": "Moje podejście prowadzi do mierzalnych efektów: MVP < 6 tygodni, OPEX ↓ 80%, release speed ↑ 2×. Wiesz, co dostaniesz, zanim zaczniesz.",
+      "effects": [
+        {
+          "title": "MVP w 6 tygodni",
+          "description": "Gotowy produkt – uruchamiasz, testujesz, pokazujesz inwestorowi.",
+          "icon": "🚀"
+        },
+        {
+          "title": "Architektura Cloud-native, AI-ready",
+          "description": "System, który rośnie z biznesem. Bez długu, blokad i vendor lock-inu.",
+          "icon": "🏗️"
+        },
+        {
+          "title": "↓ 80% OPEX",
+          "description": "Tnę koszty chmury w 3 tygodnie – tagging, monitoring, audyt.",
+          "icon": "📉"
+        },
+        {
+          "title": "Release speed ↑ 2×",
+          "description": "Dwukrotnie szybsze wdrożenia. Działający CI/CD, zero chaosu.",
+          "icon": "⚡"
+        },
+        {
+          "title": "Zero downtime, bezpieczna refaktoryzacja",
+          "description": "Wdrażam nowe architektury i funkcje bez zatrzymywania produkcji. Utrzymujesz ciągłość biznesu.",
+          "icon": "🛡️"
+        },
+        {
+          "title": "SLA > 99,9% i mniej incydentów",
+          "description": "Automatyczny monitoring, mniej awarii i szybsza reakcja. Produkcja działa stabilnie.",
+          "icon": "🔔"
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Najczęstsze pytania o proces",
+      "faqs": [
+        {
+          "question": "Czy mogę wejść do procesu w trakcie istniejącego projektu?",
+          "answer": "Tak – proces działa także w projektach wymagających ratunku, przyspieszenia lub refaktoryzacji. Zaczynam od audytu i roadmapy dostosowanej do aktualnego statusu."
+        },
+        {
+          "question": "Co jeśli nie mam jeszcze MVP, a tylko pomysł?",
+          "answer": "Startujemy od warsztatu i roadmapy. Pomagam przekuć koncepcję w konkretny zakres, a potem przeprowadzam przez kolejne etapy – do produkcyjnego MVP."
+        },
+        {
+          "question": "Jak wygląda adaptacja procesu do mojego zespołu?",
+          "answer": "Każdy krok wypracowujemy wspólnie – warsztat, architektura i iteracje przeprowadzam razem z kluczowymi osobami po Twojej stronie (CTO, Founder, dev). Współpracuję zarówno solo, jak i z zespołem klienta."
+        },
+        {
+          "question": "Czy proces jest sztywny – co jeśli zmienią się priorytety w trakcie?",
+          "answer": "Proces jest elastyczny: możesz zmieniać zakres, kolejność lub cele w miarę nowych informacji z rynku i feedbacku. Iteracje i feedback pozwalają szybko reagować."
+        },
+        {
+          "question": "Co ile są dema/progres? Jak wygląda feedback?",
+          "answer": "Demo co tydzień (lub co 2 tygodnie, jeśli sprinty są dłuższe). Na każdym etapie dostajesz podsumowanie, możesz ocenić efekt i zmienić priorytety przed następną iteracją."
+        },
+        {
+          "question": "Czy muszę być intensywnie zaangażowany na każdym etapie?",
+          "answer": "Największy udział to start – warsztat i validation roadmapy. Później wystarczy szybka decyzyjność co do rezultatów demo/progresu. Mogę prowadzić projekt niemal samodzielnie lub z Twoim udziałem – zależnie od Twojej dostępności."
+        },
+        {
+          "question": "Jak wygląda dostarczanie kodu i dostęp do bieżących prac?",
+          "answer": "Masz pełen dostęp do repozytorium, CI/CD oraz dokumentacji od pierwszego dnia. Możesz monitorować postępy, korzystać z roadmapy/progress trackingu, zgłaszać feedback bezpośrednio."
+        },
+        {
+          "question": "Czy w procesie przewidziane są testy, dokumentacja i wsparcie po oddaniu?",
+          "answer": "Tak – CI/CD, testy E2E, staging oraz dokumentacja są standardem. Po wdrożeniu masz 30 dni wsparcia na rynku oraz pełen transfer wiedzy."
+        }
+      ]
+    },
+    "nextSteps": {
+      "id": "co-dalej",
+      "title": "➡️ Co dalej?",
+      "links": [
+        {
+          "title": "Zobacz projekty",
+          "subtitle": "Dowiezione MVP, refaktoryzacje i AI w produkcji.",
+          "icon": "📂",
+          "linkLabel": "Zobacz efekty →",
+          "link": "$t(paths:projects)"
+        },
+        {
+          "title": "O mnie",
+          "subtitle": "Kim jestem, jak pracuję, jakie efekty dowożę.",
+          "icon": "👤",
+          "linkLabel": "Poznaj moje podejście →",
+          "link": "$t(paths:aboutMe)"
+        },
+        {
+          "title": "Sprawdź stack",
+          "subtitle": "Technologie, których używam w realnych wdrożeniach.",
+          "icon": "🧰",
+          "linkLabel": "Sprawdź stack →",
+          "link": "$t(paths:stack)"
+        },
+        {
+          "title": "Wybierz ścieżkę współpracy",
+          "subtitle": "Pakiety, modele, dostępność.",
+          "icon": "📦",
+          "linkLabel": "Sprawdź ofertę →",
+          "link": "$t(paths:offer)"
+        }
+      ],
+      "cta": {
+        "title": "Chcesz zobaczyć taki efekt u siebie?",
+        "description": "Zamów roadmapę albo szybki audyt – dostajesz plan działania, nie prezentację.",
+        "links": [
+          {
+            "title": "📅 Umów Strategy Call",
+            "description": "Otrzymasz roadmapę i plan działania w 30 min."
+          },
+          {
+            "title": "📬 Wyślij brief",
+            "description": "Odpowiem w 24h z konkretem."
+          }
+        ]
+      }
+    }
+  }
+}

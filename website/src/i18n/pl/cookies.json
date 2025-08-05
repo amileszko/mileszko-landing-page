@@ -1,0 +1,69 @@
+{
+  "title": "am >",
+  "accordion": {
+    "show": "Pokaż",
+    "hide": "Ukryj"
+  },
+  "necessaryOnly": "Tylko niezbędne",
+  "customize": "Dostosuj",
+  "acceptAll": "Zaakceptuj wszystkie",
+  "acceptSelected": "Zaakceptuj wybrane",
+  "duration": "Czas trwania",
+  "type": "Typ",
+  "agreement": {
+    "title": "Zgoda",
+    "description": "<strong>Ta strona korzysta z plików cookies, żeby Twoje doświadczenia były jeszcze lepsze.</strong><br/><br/> Dzięki nim dopasowuję treści do Twoich zainteresowań, pokazuję trafne reklamy i umożliwiam łatwe korzystanie z funkcji społecznościowych. Analizuję też ruch na stronie, aby wszystko działało jak najlepiej.<br/><br/> Nie martw się – Twoja prywatność jest dla mnie priorytetem. Współpracuję tylko z zaufanymi partnerami, którzy szanują Twoje dane. Możesz dowiedzieć się więcej lub zmienić ustawienia cookies w dowolnym momencie."
+  },
+  "details": {
+    "title": "Szczegóły"
+  },
+  "about": {
+    "title": "Ciasteczka",
+    "description": "<strong>Kontroluj ciasteczka – Ty decydujesz</strong><br/><br/> Chcę, aby korzystanie z mojej strony było dla Ciebie jak najwygodniejsze i przyjemne.<br/><br/> Pliki cookie pomagają mi dostosować treści, które widzisz, do Twoich potrzeb oraz sprawiają, że wszystko działa sprawnie. Nie martw się o swoją prywatność – używam tylko tych ciasteczek, które są naprawdę potrzebne. Na inne zapytam Cię o zgodę.<br/><br/>  W każdej chwili możesz zmienić swoje ustawienia, korzystając z tego banera lub z ustawień przeglądarki. Chcesz wiedzieć więcej? Zajrzyj do mojej <cookiesPolicyLink>Polityki Cookies</cookiesPolicyLink> – tam znajdziesz wszystkie szczegóły."
+  },
+  "categories": {
+    "necessary": {
+      "name": "Niezbędne",
+      "description": "Te pliki cookie dbają o Twoje bezpieczeństwo i komfort. Dzięki nim możesz bez przeszkód korzystać ze strony i mieć pewność, że wszystko działa tak, jak powinno."
+    },
+    "preferences": {
+      "name": "Preferencje",
+      "description": "Preferencje to Twój osobisty asystent na stronie. Zapamiętują Twoje wybory, takie jak język czy region, by strona była dokładnie taka, jak lubisz."
+    },
+    "statistics": {
+      "name": "Statystyka",
+      "description": "Wspólnie możemy być coraz lepsi. Te pliki cookie pokazują nam, co warto ulepszyć, analizując anonimowe dane o Twoim zachowaniu na stronie."
+    },
+    "marketing": {
+      "name": "Marketing",
+      "description": "Dzięki marketingowym plikom cookie Twoje reklamy przestają być przypadkowe. Pokazuję Ci tylko te oferty, które mają dla Ciebie wartość."
+    }
+  },
+  "providers": {
+    "mileszko": {
+      "name": "Amadeusz Mileszko",
+      "url": "https://mileszko.pl",
+      "cookies": {
+        "cookieConsent": {
+          "name": "cookieConsent",
+          "description": "Przechowuje informacje o zgodzie użytkownika na użycie plików cookie.",
+          "duration": "1 rok",
+          "type": "HTTP Cookie"
+        }
+      }
+    },
+    "googleAnalytics": {
+      "name": "Google Analytics",
+      "url": "https://analytics.google.com",
+      "cookies": {
+        "ga": {
+          "name": "_ga",
+          "description": "Służy do przesyłania danych do Google Analytics na temat urządzenia i zachowania odwiedzającego. Śledzi użytkownika na różnych urządzeniach i kanałach marketingowych.",
+          "duration": "2 lata",
+          "type": "HTTP Cookie"
+        }
+      }
+    }
+  },
+  "buttonLabel": "Kontroluj ciasteczka"
+}

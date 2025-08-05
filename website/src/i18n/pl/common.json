@@ -1,0 +1,41 @@
+{
+  "dialog": {
+    "closeButtonTitle": "zamknij"
+  },
+  "switch": {
+    "acceptButtonTitle": "zaakceptuj",
+    "rejectButtonTitle": "odrzuć"
+  },
+  "alert": {
+    "closeButtonTitle": "zamknij",
+    "error": "❌",
+    "info": "💡",
+    "success": "✅",
+    "warning": "⚠️"
+  },
+  "form": {
+    "message": {
+      "error": "❌",
+      "info": "💡",
+      "success": "✅",
+      "warning": "⚠️"
+    }
+  },
+  "select": {
+    "check": "✅",
+    "chevronDown": "▼",
+    "chevronUp": "▲"
+  },
+  "fileUpload": {
+    "selectFiles": "📂 Wybierz pliki",
+    "selectedFiles": "Wybrane pliki",
+    "removeFile": "usuń",
+    "dropFiles": "Upuść pliki tutaj..."
+  },
+  "structuredData": {
+    "owner": {
+      "name": "Amadeusz Mileszko",
+      "jobTitle": "Senior Full-Stack Architect & SaaS Consultant"
+    }
+  }
+}

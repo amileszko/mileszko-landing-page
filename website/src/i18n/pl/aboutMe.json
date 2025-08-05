@@ -1,0 +1,226 @@
+{
+  "title": "O mnie — MVP SaaS, FinOps, refaktoryzacje | Amadeusz Mileszko",
+  "description": "Buduję MVP SaaS w 6 tygodni, obniżam OPEX do 80%, bezpiecznie refaktoryzuję. Architekt IT, który dowozi efekt na produkcji — szybko, konkretnie, bez teorii.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "O mnie",
+      "title": "⚡ Amadeusz Mileszko",
+      "subtitle": "MVP SaaS w 6 tygodni. OPEX ↓ 80%. Architektury bez długu.",
+      "callout": "Buduję, co ma sens – nie to, co wygląda efektownie w prezentacji. Liczy się efekt na produkcji i zespół, który nie gasi pożarów. Od 8 lat dowożę to, co działa: MVP, refaktoryzacje, architektury cloud/AI. Szybko, konkretnie, z efektem w tygodniach, nie miesiącach.",
+      "avatarAlt": "Amadeusz Mileszko",
+      "hint": "⬇️ Przewiń niżej: podejście, filozofia, styl pracy, konkretne efekty i dla kogo realnie dowożę."
+    },
+    "whoAmI": {
+      "id": "kim-jestem",
+      "title": "🧭 Kim jestem",
+      "description": "Jestem architektem, który mierzy się z kodem i efektem – nie teorią. Jeśli nie mogę pokazać realnej zmiany w produkcji lub pracy zespołu – odmawiam projektu. Lubię proste, szybkie i skalowalne rozwiązania. Motywuje mnie moment, w którym zespół przestaje gasić pożary, a faktyczne wyniki rosną z tygodnia na tydzień. Nie handluję buzzwordami – dowożę to, co działa dla biznesu."
+    },
+    "techPhilosophy": {
+      "id": "filozofia-techniczna",
+      "title": "🧱 Filozofia Techniczna",
+      "description": "Stack wybieram pod runtime, TCO i możliwość skalowania — nie pod modne buzzwordy. Każdy commit ma być gotowy na produkcję, a architektura zawsze wspiera biznes, nie odwrotnie.",
+      "principles": [
+        "Technologie z produkcji, nie z tutoriali.",
+        "End-to-end: od roadmapy do metryk – bez łańcuszka pośredników.",
+        "MVP = produkt gotowy do testów i sprzedaży, nie demko.",
+        "Wartość > velocity > bajery stacku.",
+        "Automatyzuję co się da — CI/CD, monitoringi, rollbacki.",
+        "Nie raportuję dla raportowania – liczą się liczby, nie tickety."
+      ]
+    },
+    "workWith": {
+      "id": "dla-kogo-pracuje",
+      "title": "👥 Dla kogo pracuję?",
+      "description": "Wchodzę tam, gdzie trzeba dowieźć – nie tłumaczyć. Pracuję dla osób technicznych i decyzyjnych, które potrzebują efektu, a nie teorii.",
+      "personas": [
+        {
+          "icon": "🏗️",
+          "title": "CTO / Head of Engineering",
+          "description": "Architektura bez długu, FinOps, refaktoryzacja legacy, wdrożenia cloud/AI. Priorytetyzuję liczby, szybkość delivery i unikanie chaosu.",
+          "linkLabel": "Dla CTO →",
+          "link": "$t(paths:forCto)"
+        },
+        {
+          "icon": "🚀",
+          "title": "Founder / CEO",
+          "description": "Dowożę MVP SaaS/AI, kontroluję runway – od pomysłu, przez demo, po rollout i transfer zespołu.",
+          "linkLabel": "Dla Foundera →",
+          "link": "$t(paths:forFounders)"
+        },
+        {
+          "icon": "📋",
+          "title": "Rekruter / Talent Partner",
+          "description": "Szukasz samodzielnego seniora? Wchodzę bez wdrożenia, biorę ownership, dowożę od pierwszego dnia. Stack, certyfikaty i CV.",
+          "linkLabel": "Dla Rekrutera →",
+          "link": "$t(paths:forRecruiters)"
+        }
+      ],
+      "fitCheck": {
+        "title": "✅ Fit quick-check",
+        "checks": [
+          {
+            "title": "👍 Jestem dla Ciebie, jeśli:",
+            "description": "Liczy się efekt (MVP, FinOps, refaktoryzacja), możesz podejmować decyzje, projekt to SaaS/AI/Cloud, stawiasz na liczby i szybkie iteracje."
+          },
+          {
+            "title": "❌ Nie działam, jeśli:",
+            "description": "Chodzi wyłącznie o support, drobny maintenance, zadania bez realnego wpływu, projekt bez określonego decydenta."
+          }
+        ]
+      }
+    },
+    "styleOfWork": {
+      "id": "jak-wyglada-wspolpraca",
+      "title": "💡 Jak wygląda współpraca ze mną?",
+      "principles": [
+        {
+          "icon": "📅",
+          "title": "Cotygodniowe demo",
+          "description": "Pokazuję działający kod, nie slajdy. Progres mierzalny co tydzień.",
+          "number": "1"
+        },
+        {
+          "icon": "💬",
+          "title": "Kontakt bezpośredni",
+          "description": "Slack, Discord, mail – szybkie odpowiedzi, jasny feedback, zero managementu.",
+          "number": "2"
+        },
+        {
+          "icon": "📋",
+          "title": "Pełna transparentność",
+          "description": "Repo, roadmapa, decyzje projektowe – zawsze dostępne dla klienta.",
+          "number": "3"
+        },
+        {
+          "icon": "⚡",
+          "title": "Efekt > formalności",
+          "description": "Możliwie mało biurokracji, maksimum efektu – liczą się liczby, nie tickety.",
+          "number": "4"
+        }
+      ],
+      "hint": {
+        "title": "🤝 Szczegóły procesu współpracy i efekty?",
+        "linkTitle": "Zobacz jak pracuję →"
+      }
+    },
+    "timeline": {
+      "id": "moja-droga",
+      "title": "🗺 Moja droga w pigułce",
+      "bullets": [
+        "2017–2024: Architekt w SaaS (12 projektów, MVP, refaktoryzacje, FinOps, release ↑ 2×, OPEX ↓ 80%).",
+        "2020–2022: Co-founder / Tech Lead (apetit.io, offline ordering, AI, rollout do 10+ lokali).",
+        "2024–2025: Founder (Retrivis — AI RAG chatbot, 50+ leadów w 30 dni, MVP < 6 mies.)."
+      ],
+      "hint": {
+        "title": "🔎 Szczegółowa ścieżka kariery i certyfikaty?",
+        "ctaTitle": "Zobacz profil dla rekrutera →"
+      }
+    },
+    "proofs": {
+      "id": "skuteczne-efekty",
+      "title": "🎯 Skuteczne efekty – kilka dowodów",
+      "description": "Dowozę tam, gdzie trzeba zrobić różnicę w liczbach i w działaniu. Zobacz kilka moich case’ów:",
+      "projects": [
+        {
+          "icon": "⚡",
+          "title": "Retrivis – MVP SaaS w 6 tygodni",
+          "description": "Chatboty AI: MVP od zera, 50+ leadów, produkcja i testy z klientami w 6 tygodni."
+        },
+        {
+          "icon": "💰",
+          "title": "Legacy FinOps (NDA) – OPEX ↓ 80%",
+          "description": "Optymalizacja kosztów: tagging, audyt, monitoring – oszczędności w 3 tygodnie."
+        },
+        {
+          "icon": "🍽️",
+          "title": "apetit.io – MVP i rollout 10+ lokali",
+          "description": "System QR/NFC, wdrożenie w wielu lokalach, szybkie iteracje i feedback od użytkowników."
+        },
+        {
+          "icon": "🔧",
+          "title": "Refaktoryzacja (NDA) – bez downtime",
+          "description": "Legacy → mikroserwisy, CQRS, automatyzacje. Release speed ↑ 2×, błędy ↓ 60%."
+        }
+      ],
+      "cta": {
+        "title": "Chcesz więcej dowodów?",
+        "description": "Przejdź do case studies, gdzie pokazuję stack, efekty i decyzje krok po kroku.",
+        "link": {
+          "title": "📂 Zobacz wszystkie projekty",
+          "description": "Poznasz efekty, decyzje i stack."
+        }
+      }
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Często pytacie mnie...",
+      "cards": [
+        {
+          "question": "Co musiałby mieć projekt, żebym go odrzucił?",
+          "answer": "Zero realnego wpływu – maintenance bez celu, projekty „dla zajęcia”, kopiowanie starych schematów. Interesuje mnie tylko efekt na rynku lub w zespole."
+        },
+        {
+          "question": "Jak reaguję, gdy projekt zaczyna „płonąć”?",
+          "answer": "Diagnozuję problem, czyszczę priorytety, dostarczam plan. Nie potrzebuję 10 calli – liczy się czas do naprawy."
+        },
+        {
+          "question": "Jaki jest mój ulubiony kawałek procesu delivery?",
+          "answer": "Pierwszy moment, kiedy demo działa u klienta – i od razu widać, jak to wpływa na ludzi lub biznes. Wtedy kod staje się realnym efektem."
+        },
+        {
+          "question": "Stack, którego unikałbym jak ognia?",
+          "answer": "Legacy, który wszyscy boją się dotknąć, bez testów, bez jasnej roadmapy. Lubię ryzyko, ale tylko, gdy można je kontrolować liczbami."
+        }
+      ]
+    },
+    "nextSteps": {
+      "id": "co-dalej",
+      "title": "➡️ Co dalej?",
+      "links": [
+        {
+          "title": "Zobacz projekty",
+          "subtitle": "MVP, refaktoryzacje, AI – dowiezione do produkcji.",
+          "icon": "📂",
+          "linkLabel": "Zobacz efekty →",
+          "link": "$t(paths:projects)"
+        },
+        {
+          "title": "Poznaj proces",
+          "subtitle": "Jak pracuję: od roadmapy do wdrożenia.",
+          "icon": "📋",
+          "linkLabel": "Zobacz krok po kroku →",
+          "link": "$t(paths:process)"
+        },
+        {
+          "title": "Sprawdź stack",
+          "subtitle": "Technologie, których używam w produkcji.",
+          "icon": "🧰",
+          "linkLabel": "Sprawdź stack →",
+          "link": "$t(paths:stack)"
+        },
+        {
+          "title": "Wybierz ścieżkę współpracy",
+          "subtitle": "Pakiety, warunki, dostępność.",
+          "icon": "📦",
+          "linkLabel": "Sprawdź ofertę →",
+          "link": "$t(paths:offer)"
+        }
+      ],
+      "cta": {
+        "title": "Zaczynamy współpracę?",
+        "description": "Widzisz tu realny case dla siebie: MVP, FinOps, refaktoryzacja albo projekt „do ratowania”? Umów rozmowę — konkret, plan działania i decyzje w 30 min.",
+        "links": [
+          {
+            "title": "📅 Umów Strategy Call",
+            "description": "Otrzymasz roadmapę i plan działania w 30 min."
+          },
+          {
+            "title": "📬 Wyślij brief",
+            "description": "Odpowiem w 24h z konkretem."
+          }
+        ]
+      }
+    }
+  }
+}

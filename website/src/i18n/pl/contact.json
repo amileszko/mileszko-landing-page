@@ -1,0 +1,178 @@
+{
+  "title": "Kontakt — szybka analiza problemu i jasna decyzja | Amadeusz Mileszko",
+  "description": "Masz projekt, problem lub cel w IT? Wyślij brief lub umów rozmowę 1:1. Otrzymasz konkretną analizę, plan działania i jasną decyzję, czy mogę realnie pomóc. Odpowiedź w 24h — bez ogólników.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Kontakt",
+      "title": "🤝 Masz temat? Sprawdzę, czy warto działać razem.",
+      "subtitle": "Opisz problem lub cel — przeanalizuję konkrety, wyliczę efekt i podejmę decyzję czy mogę realnie pomóc.",
+      "callout": "Jeśli potrzebujesz roadmapy, cięcia OPEX albo MVP na produkcji — wyślij brief lub umów rozmowę. Dostaniesz analizę, jasny plan lub od razu powiem, gdy temat nie jest dla mnie.",
+      "whatNext": {
+        "title": "💡 Co dalej?",
+        "bullets": [
+          "Umów rozmowę 1:1 (30 min) – wspólna analiza problemu i szybki plan działania.",
+          "Wyślij brief/projekt/problem – odpowiedź w 24h: liczby, plan, propozycja lub jasna odmowa.",
+          "Wolisz NDA albo kontakt bezpośredni? – napisz na e-mail."
+        ]
+      }
+    },
+
+    "brief": {
+      "id": "brief",
+      "title": "📬 Brief/projekt/problem — formularz",
+      "description": "Opisz, czego dotyczy projekt, jaki efekt jest do osiągnięcia i co teraz blokuje zespół. Odpowiedź w 24h bez ogólników.",
+      "fields": {
+        "email": {
+          "label": "Twój e-mail",
+          "placeholder": "Podaj swój e-mail.",
+          "validation": {
+            "required": "E-mail jest wymagany.",
+            "maxLength": "E-mail może mieć maksymalnie 100 znaków.",
+            "email": "Nieprawidłowy format e-mail."
+          }
+        },
+        "topic": {
+          "label": "Temat/case",
+          "placeholder": "W 1–2 zdaniach: co chcesz osiągnąć?",
+          "validation": {
+            "required": "Temat jest wymagany.",
+            "maxLength": "Temat może mieć maksymalnie 100 znaków."
+          }
+        },
+        "description": {
+          "label": "Opis problemu / celu",
+          "placeholder": "Co się blokuje? Jaki efekt jest kluczowy? Stack, liczby, bottlenecki – im konkretniej, tym lepiej.",
+          "validation": {
+            "required": "Opis jest wymagany.",
+            "maxLength": "Opis może mieć maksymalnie 1000 znaków."
+          }
+        },
+        "cooperation": {
+          "label": "Preferowany model współpracy",
+          "placeholder": "Wybierz model współpracy",
+          "options": [
+            "Audyt architektury / kosztów (FinOps)",
+            "MVP Sprint",
+            "Refaktoryzacja",
+            "Mentoring Tech/CTO/AI",
+            "Inny / jeszcze nie wiem"
+          ],
+          "validation": {
+            "required": "Wybór jest wymagany."
+          }
+        },
+        "attachments": {
+          "label": "Załączniki (opcjonalnie)",
+          "placeholder": "Dodaj pliki: specyfikacja, diagram, kod, dokumenty.",
+          "description": "Maksymalnie 4 pliki, każdy do 2MB (PDF, DOC, DOCX, TXT, obrazy)."
+        },
+        "nda": {
+          "label": "Dane do NDA (opcjonalnie)",
+          "placeholder": "Potrzebujesz NDA? Podaj dane lub napisz – podpiszę przed wejściem w szczegóły.",
+          "validation": {
+            "maxLength": "Dane do NDA mogą mieć maksymalnie 1000 znaków."
+          }
+        }
+      },
+      "status": {
+        "success": "Dzięki! Otrzymasz odpowiedź w 24 godziny – roadmapa, konkret lub jasna decyzja.",
+        "error": "Coś poszło nie tak. Spróbuj ponownie lub skontaktuj się ze mną bezpośrednio, jeśli problem będzie się powtarzał."
+      },
+      "submit": {
+        "title": "✉️ Wyślij",
+        "description": "Otrzymasz odpowiedź w 24h."
+      }
+    },
+    "calendar": {
+      "id": "kalendarz",
+      "title": "📅 Umów rozmowę 1:1",
+      "description": "30 minut online (Google Meet / Teams). Szybko przechodzimy przez problem, estymuję czas i koszt, proponuję możliwe kolejne kroki. Termin wybierasz sam:",
+      "link": {
+        "title": "📅 Wybierz termin rozmowy",
+        "description": "Zarezerwujesz slot w kalendarzu."
+      }
+    },
+    "directInfo": {
+      "id": "kontakt-bezposredni",
+      "title": "✉️ Kontakt bezpośredni",
+      "items": [
+        {
+          "label": "E-mail",
+          "value": "Najkrótsza droga – najczęściej odpowiadam w kilka godzin.",
+          "icon": "✉️",
+          "href": "mailto:$t(paths:email)",
+          "linkLabel": "$t(paths:email) →"
+        },
+        {
+          "label": "LinkedIn",
+          "value": "Preferujesz kontakt przez sieć? Napisz na LinkedIn – odpowiem równie szybko.",
+          "icon": "🔗",
+          "href": "$t(paths:linkedin)",
+          "external": true,
+          "linkLabel": "linkedin.com →"
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Najczęstsze pytania",
+      "faqs": [
+        {
+          "question": "Jak szybko odpowiadam?",
+          "answer": "Brief/problem – zawsze w 24h. Rozmowę możesz zazwyczaj umówić na kolejny dzień roboczy."
+        },
+        {
+          "question": "Czy podpisuję NDA przed wymianą szczegółów?",
+          "answer": "Tak – podaj dane lub prześlij własny wzór przed konkretnymi informacjami technicznymi."
+        },
+        {
+          "question": "Czy zobaczę realne projekty lub fragment kodu?",
+          "answer": "Po NDA udostępniam wybrane repozytoria lub fragmenty kodu oraz opis procesu."
+        },
+        {
+          "question": "Jak wygląda start współpracy?",
+          "answer": "Na początek roadmapa lub audyt – decyzję i wycenę dostajesz po rozmowie lub analizie briefu. Dalej decydujesz: działać razem, czy nie."
+        },
+        {
+          "question": "Co jeśli temat nie pasuje do mojego profilu?",
+          "answer": "Odpowiadam wprost — jeśli nie jestem dobrym wyborem, dostaniesz diagnozę i rekomendację do kogo warto pójść."
+        }
+      ]
+    },
+    "links": {
+      "id": "linki",
+      "title": "🔗 Zobacz też",
+      "links": [
+        {
+          "icon": "📂",
+          "title": "Zobacz projekty i efekty",
+          "subtitle": "MVP, FinOps, AI — wdrożone, policzone, dowiezione na produkcji.",
+          "linkLabel": "Case studies →",
+          "link": "$t(paths:projects)"
+        },
+        {
+          "icon": "🛠️",
+          "title": "Oferta i modele współpracy",
+          "subtitle": "Pakiety, zasady, rozliczenia – zero lock-inu.",
+          "linkLabel": "Modele współpracy →",
+          "link": "$t(paths:offer)"
+        },
+        {
+          "icon": "🧪",
+          "title": "Proces krok po kroku",
+          "subtitle": "Jak wyglądają wdrożenia i na jakim etapie masz wpływ na decyzje.",
+          "linkLabel": "Proces współpracy →",
+          "link": "$t(paths:process)"
+        },
+        {
+          "icon": "👤",
+          "title": "O mnie i podejście",
+          "subtitle": "Bezpośrednio: doświadczenie, efekty, decyzje na liczbach.",
+          "linkLabel": "O mnie →",
+          "link": "$t(paths:aboutMe)"
+        }
+      ]
+    }
+  }
+}

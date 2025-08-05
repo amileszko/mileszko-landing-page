@@ -1,0 +1,611 @@
+{
+  "title": "Projekty — produkcyjne efekty: SaaS, AI, fintech, refaktoryzacje | Amadeusz Mileszko",
+  "description": "Zobacz wdrożone projekty: MVP SaaS, AI, migracje legacy, automatyzacje FinOps. Każdy case to mierzalny rezultat i stack gotowy na produkcję – zero buzzwordów, same efekty.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Projekty",
+      "title": "⚡ Efekty dowiezione produkcyjnie",
+      "subtitle": "Każdy projekt to mierzalny rezultat na działającej produkcji.",
+      "callout": "Nie znajdziesz tu katalogu demo ani teoretycznych wdrożeń. Tylko realne case’y: AI, SaaS, fintech, e-commerce, produkcja i B2B – wszystko uruchomione z sukcesem.",
+      "highlights": [
+        {
+          "icon": "⚡",
+          "title": "9 wdrożeń SaaS i produkcyjnych MVP",
+          "description": "Od AI chatbotów po platformy fintech – faktyczne użycie, nie „proof of concept”.",
+          "number": "1"
+        },
+        {
+          "icon": "📈",
+          "title": "OPEX ↓ nawet 80%",
+          "description": "Koszty chmury i obsługi pod kontrolą – efekty widoczne w 6‑12 tygodni.",
+          "number": "2"
+        },
+        {
+          "icon": "🚀",
+          "title": "MVP od briefu do produkcji – w 6–8 tygodni",
+          "description": "Gotowe do onboardingu klientów lub pokazu dla inwestora – live, nie demo.",
+          "number": "3"
+        },
+        {
+          "icon": "🛠️",
+          "title": "Legacy rescue & skalowanie",
+          "description": "Refaktoryzacje i automatyzacje bez przestojów produkcji, SLA nawet 99,95%.",
+          "number": "4"
+        }
+      ],
+      "cta": {
+        "title": "🚀 Chcesz podobny efekt w swoim projekcie?",
+        "description": "W 24h wracam z analizą: gdzie możesz wygrać najwięcej, jak szybko dostaniesz efekt (nie „ofertą handlową”, tylko rekomendacją wykonawcy).",
+        "links": [
+          {
+            "title": "🎯 Umów rozmowę",
+            "description": "Przygotuję plan działania w 30 min."
+          },
+          {
+            "title": "📋 Opisz swój projekt",
+            "description": "W 24h wracam z analizą i ofertą."
+          }
+        ]
+      }
+    },
+    "projects": {
+      "id": "projects",
+      "title": "🔍 Wybrane case studies",
+      "projects": [
+        {
+          "id": "retrivis",
+          "title": "🤖 Retrivis – SaaS Chatbot AI",
+          "industry": "AI SaaS",
+          "problem": {
+            "title": "Problem",
+            "description": "Launch AI SaaS: każdy dzień developmentu to spalony runway, nie było jasne czy klienci zobaczą realną przewagę, a klasyczne MVP-owanie AI jest kosztowne i zbyt wolne."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "W 6 tygodni zbudowałem od zera MVP SaaS dla AI-chatbotów: production-ready backend i frontend, płatności Stripe, onboarding i demo online. Od razu live na prawdziwych userach (nie na mockupach czy sandboxie). Onboarding: 5 minut. Stack FinOps – zero długów, gotowy pod scale‑up."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "MVP online w 6 tygodni",
+                "description": "Produkt live dla pierwszych userów – gotowy do pokazania inwestorom.",
+                "number": "1"
+              },
+              {
+                "icon": "📈",
+                "title": "50+ leadów w 30 dni",
+                "description": "Szybki feedback z rynku – founderzy rejestrują się do testów, zero straty na pseudo-demo.",
+                "number": "2"
+              },
+              {
+                "icon": "💸",
+                "title": "OPEX ↓ 80%",
+                "description": "Minimum kosztów chmury, full monitoring, SaaS gotowy do skalowania bez długu technologicznego.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": "FastAPI", "icon": "🐍" },
+              { "title": "LangChain", "icon": "🔗" },
+              { "title": "OpenAI", "icon": "🧠" },
+              { "title": "PostgreSQL", "icon": "🐘" },
+              { "title": "Stripe", "icon": "💳" },
+              { "title": "AWS", "icon": "☁️" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "Proof-of-concept działał nie na sandboxie, a od razu na realnych użytkownikach. Zaoszczędzony czas i budżet = błyskawiczny product-market fit."
+          }
+        },
+        {
+          "id": "apetitio",
+          "title": "🍔 apetit.io – SaaS QR Ordering",
+          "industry": "SaaS/HoReCa",
+          "problem": {
+            "title": "Problem",
+            "description": "Szybki wzrost zamówień blokowany przez offline’ową obsługę: powtarzane błędy, zagubione ticket’y, każda nowa lokalizacja to dublowanie procesu. Zero infra pod skalę."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "Zbudowałem od zera MVP systemu zamówień QR/NFC: cloud-ready architektura, Real-time UI, backend .NET 8, frontend React/Next.js. Wdrożyłem CI/CD, E2E testy, monitoring. Automatyzacja: wdrożenie nowego lokalu 15 minut – bez instalowania czegokolwiek lokalnie."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "MVP prod w 8 tygodni",
+                "description": "Od pomysłu do obsługi setek zamówień dziennie — zero downtime w realnym ruchu.",
+                "number": "1"
+              },
+              {
+                "icon": "📍",
+                "title": "Pilotaż: 10+ lokali",
+                "description": "Automatyczny onboarding, szybka walidacja i iteracje pod realny load.",
+                "number": "2"
+              },
+              {
+                "icon": "🧱",
+                "title": "Architektura pod wzrost ×100",
+                "description": "System gotowy do skalowania na 1000+ lokacji bez „przepisywania”.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": ".NET", "icon": "💠" },
+              { "title": "Next.js", "icon": "⚛️" },
+              { "title": "WebSockets", "icon": "🌐" },
+              { "title": "Docker Swarm", "icon": "🐳" },
+              { "title": "SQL Server", "icon": "🗄️" },
+              { "title": "Playwright", "icon": "🏎️" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "MVP od razu cloud-ready: żadnego dublowania kodu, onboarding i rollout kolejnej lokalizacji w kwadrans — bez kosztów i dowozu senior teamu."
+          }
+        },
+        {
+          "id": "produkcja",
+          "title": "🛠️ Refaktoryzacja systemu produkcyjnego (NDA)",
+          "industry": "Legacy rescue / produkcja",
+          "problem": {
+            "title": "Problem",
+            "description": "System legacy przestał nadążać za wzrostem firmy – każdy release opóźniony nawet o tygodnie, nowe wdrożenie ryzykowało zatrzymaniem produkcji, zespół tylko „gasił pożary”."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "Wszedłem jako architekt, z mandatem na zmianę bez przestojów: przebudowałem architekturę (CQRS, mikroserwisy), wdrożyłem pełny monitoring zdarzeń, automatyczne testy E2E i iteracyjne migracje z kontrolą rollbacku. Wszystko zrealizowane bez wyłączania produkcji."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "Release speed ↑ 2×",
+                "description": "Wdrożenia z 2 tygodni do kilku dni – powrót zespołu do sprawnego delivery.",
+                "number": "1"
+              },
+              {
+                "icon": "📉",
+                "title": "Błędy prod ↓ 60%",
+                "description": "Krytyczne incydenty spadły o ponad połowę dzięki monitoringowi i automatycznym testom.",
+                "number": "2"
+              },
+              {
+                "icon": "⏰",
+                "title": "Zero downtime przy migracji",
+                "description": "Transformacja architektury i deploymenty bez przerwy w produkcji – biznes ani przez chwilę nie stanął.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": "CQRS", "icon": "🔄" },
+              { "title": "Hexagonal Architecture", "icon": "🏛️" },
+              { "title": "Prometheus", "icon": "📡" },
+              { "title": "Grafana", "icon": "📊" },
+              { "title": "Blue-Green Deployment", "icon": "✨" },
+              { "title": "Neo4j", "icon": "🕸️" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "Refaktoryzacja legacy bez wyłączenia produkcji jest możliwa — warunkiem są architektura event-driven i automatyzacja rolloutów (rollback w minutę)."
+          }
+        },
+        {
+          "id": "cashback",
+          "title": "💸 Platforma cashback dla B2B/retail (NDA)",
+          "industry": "Fintech/SaaS/cashback",
+          "problem": {
+            "title": "Problem",
+            "description": "Platforma miała obsługiwać tysiące transakcji cashback dziennie i integrować się z systemami partnerów (ecommerce, retail). Dotychczasowa architektura blokowała automatyzację rozliczeń i weryfikację transakcji, rosnące koszty cloud i długi czas wydania nowego feature’a, a każda pomyłka to spory ryzyko strat."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "Przeprojektowałem core platformy: podzieliłem backend mikroserwisowo (płatności, reporting, obsługa cashback). Wdrożyłem event-driven: Kafka + CQRS, automatyczne settlementy i pełny FinOps (monitoring kosztów). Zintegrowałem real-time alerting: każde odchylenie transakcji było wyłapywane przed final settlementem. Dev / test / prod ready – całość w chmurze, zero ręcznych deployów."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "OPEX ↓ 60% w 4 miesiące",
+                "description": "Optymalizacja środowisk, auto‑skalowanie i ograniczenie kosztów cloud do minimum.",
+                "number": "1"
+              },
+              {
+                "icon": "🔄",
+                "title": "Settlement speed ↑ 5×",
+                "description": "Rozliczanie transakcji oraz korekty z partnerami przyspieszone z dni do godzin – mniej zamrożonej gotówki.",
+                "number": "2"
+              },
+              {
+                "icon": "📉",
+                "title": "Błędy w payout ↓ 90%",
+                "description": "Automatyczne testy i event-driven alerty – większość błędów wychwytywana przed wypłatą.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": "Kafka", "icon": "🦄" },
+              { "title": "Elasticsearch", "icon": "🔍" },
+              { "title": "Microservices", "icon": "🔌" },
+              { "title": "FinOps", "icon": "💰" },
+              { "title": "AWS", "icon": "☁️" },
+              { "title": "GitHub Actions", "icon": "🤖" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "Przeskok na event-driven i mikroserwisy umożliwia nie tylko growth, ale i stabilność rozliczeń w trybie 24/7 – cloud dopasowany do loadu, żadnych szemranych payoutów."
+          }
+        },
+        {
+          "id": "crowdfunding",
+          "title": "🌱 Platforma crowdfundingowa (NDA)",
+          "industry": "Fintech/Crowdfunding/SaaS",
+          "problem": {
+            "title": "Problem",
+            "description": "Rosnąca liczba kampanii i użytkowników spowalniała system. Każda aktualizacja ryzykowała downtime (wpłaty, powiadomienia, admin), a obsługa rozliczeń i płatności była ręczna, co generowało koszty i błędy. Licencja compliance wymagała dokładnych ścieżek audytu."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "Zaprojektowałem i wdrożyłem skalowalną architekturę: mikroserwisy, event-driven, automatyczne testy compliance. Wpiąłem Stripe i pay-by-link, zautomatyzowałem payouty do organizatorów. Pełny monitoring (SLA, statystyki, alerty) i cięcie OPEX przez FinOps. Deployment zero-downtime."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "SLA 99,95% – zero downtime",
+                "description": "Aktualizacje i release’y bez zatrzymywania wpłat – pełna ciągłość biznesu.",
+                "number": "1"
+              },
+              {
+                "icon": "💸",
+                "title": "Automatyzacja payout & compliance",
+                "description": "100% rozliczeń operator‑organizator bez ręcznych błędów – zgodność z KNF/UE.",
+                "number": "2"
+              },
+              {
+                "icon": "📈",
+                "title": "Growth ready: 10× więcej kampanii",
+                "description": "Architektura i monitoring pozwoliły obsłużyć 10× więcej kampanii i userów bez migracji czy upgrade’ów.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": "Microservices", "icon": "🔌" },
+              { "title": "Node.js", "icon": "🟢" },
+              { "title": "Kafka", "icon": "🦄" },
+              { "title": "Stripe", "icon": "💳" },
+              { "title": "OpenAPI", "icon": "📄" },
+              { "title": "Docker", "icon": "🐳" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "Automatyzacja compliance i payout zmniejsza koszty operacji i blokuje ryzyko – nie trzeba dodatkowych adminów, by platforma była zgodna z regulacjami."
+          }
+        },
+        {
+          "id": "smietniki",
+          "title": "🗑️ Platforma do zarządzania inteligentnymi śmietnikami (NDA)",
+          "industry": "AI / IoT / Smart City",
+          "problem": {
+            "title": "Problem",
+            "description": "Pilotaż systemu automatycznego sortowania odpadów: każdy śmietnik produkował dziesiątki GB danych dziennie, błędy klasyfikacji AI generowały reklamacje i podnosiły koszty odbioru. Brak centralnej platformy, zdalnego monitoringu i automatycznych alertów."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "Zaprojektowałem i wdrożyłem platformę AI do zdalnego zarządzania śmietnikami: model rozpoznawania frakcji odpadów (edge AI), backend z agregacją i analizą danych, dashboard dla operatorów oraz automatyczne alerty serwisowe. Uczyłem model na realnych danych z sensorów. Monitoring SLA, szybkie rollouty firmware’u. Całość gotowa do wdrożenia masowego."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "🧠",
+                "title": "AI ↑ skuteczność klasyfikacji do 96%",
+                "description": "Liczba błędnych klasyfikacji ↓ 70% – mniej reklamacji, niższe koszty odbioru.",
+                "number": "1"
+              },
+              {
+                "icon": "⚡",
+                "title": "Automatyczne alerty serwisowe",
+                "description": "System sam wykrywał awarie/zatory i powiadamiał operatorów – czasy reakcji ↓ 60%.",
+                "number": "2"
+              },
+              {
+                "icon": "🌍",
+                "title": "Platforma ready-to-scale",
+                "description": "Obsługa kilkuset śmietników, hurtowe rollouty poprawek bez wizyt serwisowych.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": "Python", "icon": "🐍" },
+              { "title": "Edge AI", "icon": "🧠" },
+              { "title": "InfluxDB", "icon": "⏱️" },
+              { "title": "Prometheus", "icon": "📡" },
+              { "title": "Grafana", "icon": "📊" },
+              { "title": "Node.js", "icon": "🟢" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "Edge AI i centralna platforma pozwalają rozwiązywać problemy zdalnie – obniżenie kosztów obsługi, szybsza reakcja na awarie i mniej reklamacji klienta końcowego."
+          }
+        },
+        {
+          "id": "konfigurator",
+          "title": "🚪 Konfigurator produktu dla fabryki mebli (NDA)",
+          "industry": "Produkcja / B2B / Internal tools",
+          "problem": {
+            "title": "Problem",
+            "description": "Pracownicy działu sprzedaży tracili godziny na ręczne przygotowywanie i sprawdzanie konfiguracji mebli na zamówienie. Błędy w wycenach i niespójności specyfikacji powodowały reklamacje oraz opóźnienia w produkcji."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "Zaprojektowałem i wdrożyłem system konfiguratora mebli dla działu sprzedaży: dynamiczne reguły biznesowe, szybkie UI dla customizacji produktu, generowanie specyfikacji i wyceny na 1 klik. Integracja z ERP produkcyjnym i alerty walidujące błędy/specyfikacje. Automatyzacja procesów zamówień → mniej ręcznych interwencji."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "Czas konfiguracji ↓ 75%",
+                "description": "Z godzin do kilku minut: pracownicy przygotowują wycenę i specyfikację pod klienta w parę kliknięć.",
+                "number": "1"
+              },
+              {
+                "icon": "📉",
+                "title": "Błędy w zamówieniach ↓ 90%",
+                "description": "Automatyczna walidacja konfiguracji eliminuje najczęstsze reklamacje i źle przekazane zamówienia.",
+                "number": "2"
+              },
+              {
+                "icon": "🔗",
+                "title": "Połączenie z produkcją",
+                "description": "Bezpieczny transfer danych do ERP — produkcja bez opóźnień z powodu niejasnych parametrów.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": "React", "icon": "⚛️" },
+              { "title": "TypeScript", "icon": "🔷" },
+              { "title": "REST API", "icon": "🔗" },
+              { "title": "Entity Framework", "icon": "📦" },
+              { "title": "ERP Integracja", "icon": "🔄" },
+              { "title": "Tailwind CSS", "icon": "🎨" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "System konfiguracji B2B poprawia nie tylko szybkość procesu, ale i jakość zamówień — a integracja z ERP likwiduje „czarne dziury” między sprzedażą a produkcją."
+          }
+        },
+        {
+          "id": "leasing",
+          "title": "🛒 Platforma leasingowa (NDA)",
+          "industry": "Fintech/Leasing/E-commerce",
+          "problem": {
+            "title": "Problem",
+            "description": "Start-up chciał uruchomić sklep z ofertą leasingu sprzętu online, ale legacy narzędzia finansowe blokowały automatyzację procesu – klienci musieli czekać dni na decyzję, onboarding i weryfikację, a koszty obsługi rosły z każdym nowym klientem."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "Zaprojektowałem i wdrożyłem nową platformę leasingową z automatyczną weryfikacją scoringu, sklepem online i ofertowaniem w czasie rzeczywistym. Zintegrowałem leasingi z API partnerów finansowych (banki, scoringi), zaimplementowałem obsługę e‑dokumentów i automatyzację onboardingów. Całość z monitoringiem i zero‑downtime deployment."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "Onboarding klienta ↓ 90%",
+                "description": "Czas wdrożenia klienta skrócony z dni do godzin – weryfikacja i decyzja online.",
+                "number": "1"
+              },
+              {
+                "icon": "📈",
+                "title": "Automatyczne scoringi & oferty",
+                "description": "100% procesów finansowych bez ręcznego udziału doradcy, lepsza konwersja w sklepie.",
+                "number": "2"
+              },
+              {
+                "icon": "💸",
+                "title": "Obsługa 10× więcej klientów",
+                "description": "Skalowalna architektura pozwoliła zrealizować 10× więcej umów bez wzrostu kosztów operacyjnych.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": "Next.js", "icon": "⚛️" },
+              { "title": ".NET 8", "icon": "💠" },
+              { "title": "PostgreSQL", "icon": "🐘" },
+              { "title": "Redis", "icon": "🟥" },
+              { "title": "Sentry", "icon": "🛡️" },
+              { "title": "Banking API", "icon": "🏦" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "Automatyzacja scoringu i ofertowania odblokowuje skalę bez powiększania zespołu — zero downtime przekłada się na szybkie zaufanie i onboarding partnerów."
+          }
+        },
+        {
+          "id": "edukacja",
+          "title": "🎓 Platforma edukacyjna z kursami online (NDA)",
+          "industry": "EdTech/SaaS/Video",
+          "problem": {
+            "title": "Problem",
+            "description": "Klient chciał wystartować z platformą do sprzedaży kursów wideo, ale poprzednie rozwiązania nie radziły sobie z dużym ruchem i uploadem plików. Problemy: limity na live-streaming, downtime przy releasach nowych materiałów, brak automatyzacji onboardingu twórców, a płatności działały wyłącznie ręcznie."
+          },
+          "whatIDid": {
+            "title": "Co zrobiłem",
+            "description": "Zaprojektowałem i wdrożyłem platformę kursów online: streaming video (on demand + live), automatyczny processing/upload (chmura), płatności Stripe. Umożliwiłem szybkie onboardowanie kursodawców z automatyczną weryfikacją materiałów i monitoringiem wyrzucania niezgodnych treści. Deploymenty zero-downtime, dashboardy dla analityki sprzedaży i userów."
+          },
+          "effects": {
+            "title": "Efekty",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "Obsługa 5× więcej użytkowników",
+                "description": "Architektura chmurowa – płynne skalowanie bez migracji, kursy live nawet dla kilkuset osób naraz.",
+                "number": "1"
+              },
+              {
+                "icon": "📺",
+                "title": "Automatyzacja upload/weryfikacji",
+                "description": "Twórca ma kurs online w < 10 minut, całość procesowana i weryfikowana automatycznie.",
+                "number": "2"
+              },
+              {
+                "icon": "💸",
+                "title": "Płatności / subskrypcje zautomatyzowane",
+                "description": "Wdrożony Stripe: płatności i faktury bez ręcznej obsługi – mniej supportu, większa konwersja.",
+                "number": "3"
+              }
+            ]
+          },
+          "stack": {
+            "title": "Stack",
+            "stack": [
+              { "title": "Next.js", "icon": "⚛️" },
+              { "title": "Node.js", "icon": "🟢" },
+              { "title": "Stripe", "icon": "💳" },
+              { "title": "Docker", "icon": "🐳" },
+              { "title": "Sentry", "icon": "🛡️" },
+              { "title": "PostgreSQL", "icon": "🐘" }
+            ]
+          },
+          "keyLearning": {
+            "title": "Kluczowe wnioski",
+            "description": "Automatyzacja uploadu i weryfikacji materiałów znosi blokady twórców, a pełna chmura umożliwia szybkie wzrosty sprzedaży bez kosztownych przestojów."
+          }
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Często zadawane pytania",
+      "faqs": [
+        {
+          "question": "Czy mogę zobaczyć kod projektu?",
+          "answer": "Większość wdrożeń chroni NDA – mogę pokazać proof-of-concept na demo albo fragmenty architektury pod podobny case."
+        },
+        {
+          "question": "Jak wybrać projekt najbardziej zbliżony do mojego?",
+          "answer": "Wskaż branżę, problem technologiczny lub typ efektu – podpowiem case o zbliżonym przebiegu i rezultatach."
+        },
+        {
+          "question": "Czy oferujesz PoC przed większym wdrożeniem?",
+          "answer": "Tak, Proof-of-Concept lub audyt wdrożenia mogę przygotować bezpośrednio pod Twoje środowisko lub potrzeby."
+        },
+        {
+          "question": "Co jeśli nasz stack jest niestandardowy (np. Azure, inne API)?",
+          "answer": "Nie ograniczam się do jednej chmury czy stacku – pokazuję efekty na stacku klienta, a nowe API czy narzędzia uczę się szybciej niż junior wdraża standardowe."
+        },
+        {
+          "question": "Jak wygląda kwestia NDA i poufności?",
+          "answer": "98% case’ów to projekty pod NDA – pokazuję tylko efekty lub publicznie potwierdzone fragmenty. Indywidualne demo zawsze 1:1."
+        },
+        {
+          "question": "Ile trwa wdrożenie MVP lub rescue legacy?",
+          "answer": "Pełne MVP dowożę w 6–8 tygodni, refaktoryzacja legacy zależy od zakresu (często pierwsze efekty już w 2–3 tygodnie)."
+        },
+        {
+          "question": "Czy można pracować w modelu abonamentowym/interim?",
+          "answer": "Tak – współpraca w formie miesięcznej, projektowej lub interwencyjnej, zależnie od celu i modelu biznesowego."
+        },
+        {
+          "question": "Co jeśli rezultat nie spełni zakładanych efektów?",
+          "answer": "Nie chowam się za SLAs – przy pierwszych roadmapach/PoC uruchamiam feedback-loop i weryfikację efektu. Ryzyko leży po stronie dowożenia – nie „obietnic”."
+        }
+      ]
+    },
+    "contact": {
+      "id": "kontakt",
+      "title": "🤝 Portfolio obejrzane – co dalej?",
+      "callout": "Efekty nie biorą się z demo. Jeśli chcesz roadmapę pod własny projekt, audyt wdrożenia lub szybki proof-of-concept: wybierz co dalej. Tu rozmawiasz z człowiekiem, który dowozi – nie zdzwania się dla follow-upu.",
+      "cta": [
+        {
+          "title": "Strategy Call (30 min)",
+          "description": "Przejrzę Twój projekt: bottlenecki, architektura, delivery. Wspólnie narysujemy kierunek działań w konkretnej technologii – bez żadnych ogólników.",
+          "icon": "🧭",
+          "info": "Jestem dostępny: Pon–Pt 9–17.",
+          "linkLabel": "📅 Umów rozmowę"
+        },
+        {
+          "title": "Wyślij swój case/problem",
+          "description": "W 24h wracam z analizą: gdzie możesz wygrać najwięcej, jak szybko dostaniesz efekt (nie „ofertą handlową”, tylko rekomendacją wykonawcy).",
+          "icon": "🚀",
+          "info": "Odpowiadam w ciągu 24h.",
+          "linkLabel": "📬 Opisz projekt"
+        }
+      ]
+    },
+    "links": {
+      "id": "przydatne-linki",
+      "title": "📄 Przydatne linki",
+      "links": [
+        {
+          "icon": "💻",
+          "title": "Technologie i stack",
+          "subtitle": "Wszystko czego używam na produkcji — bez buzzwordów.",
+          "linkLabel": "Zobacz stack →",
+          "link": "$t(paths:stack)"
+        },
+        {
+          "icon": "📝",
+          "title": "Proces współpracy",
+          "subtitle": "Jak wygląda roadmapa, wdrożenie i feedback w praktyce.",
+          "linkLabel": "Zobacz proces →",
+          "link": "$t(paths:process)"
+        },
+        {
+          "icon": "💡",
+          "title": "Formy współpracy",
+          "subtitle": "SaaS, MVP, legacy rescue, interim – elastyczne podejście.",
+          "linkLabel": "Sprawdź ofertę →",
+          "link": "$t(paths:offer)"
+        },
+        {
+          "icon": "🎯",
+          "title": "O mnie i efekty",
+          "subtitle": "Bio, doświadczenie, liczby – poznaj kto dowozi te projekty.",
+          "linkLabel": "Dowiedz się więcej →",
+          "link": "$t(paths:aboutMe)"
+        }
+      ]
+    }
+  }
+}

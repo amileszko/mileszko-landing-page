@@ -1,0 +1,414 @@
+{
+  "title": "Oferta współpracy — jasne zasady, efekt i własność kodu | Amadeusz Mileszko",
+  "description": "Współpraca na jasnych zasadach: MVP, FinOps i refaktoryzacje bez lock-inu. Pełna własność kodu od 1 dnia, elastyczne modele, efekt gwarantowany — zero haczyków, cały progres widzisz na bieżąco.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Oferta",
+      "title": "🤝 Jasne zasady. Współpraca bez lock-inu.",
+      "subtitle": "Wchodzisz na własnych warunkach, wychodzisz bez haczyków. Własność kodu od dnia 1.",
+      "callout": "Realny efekt, zero outsourcowania, wszystko pod Twoją kontrolą. Możesz rozstać się w każdej chwili – rezultat zostaje u Ciebie. Bez zbędnych formalności i ukrytych kosztów.",
+      "cta": [
+        {
+          "title": "📅 Umów rozmowę",
+          "description": "W 30 min otrzymasz plan działania i widełki kosztów."
+        },
+        {
+          "title": "📬 Wyślij brief",
+          "description": "Odpowiem w 24h z konkretną propozycją."
+        }
+      ]
+    },
+    "forWho": {
+      "id": "dla-kogo",
+      "title": "👥 Dla kogo?",
+      "personas": [
+        {
+          "icon": "🏗️",
+          "title": "CTO / Head of Engineering",
+          "problemsTitle": "Masz na głowie:",
+          "problems": "OPEX rośnie, architektura nie działa, roadmapa stoi.",
+          "helpAndEffectTitle": "Co zyskasz:",
+          "helpAndEffect": "Koszty pod kontrolą, refaktor bez ryzyka i roadmapa wraca na tory.",
+          "linkLabel": "Zobacz więcej dla CTO →",
+          "link": "$t(paths:forCto)"
+        },
+        {
+          "icon": "🚀",
+          "title": "Founder / CEO",
+          "problemsTitle": "Twój case:",
+          "problems": "Brak gotowego produktu, koniec runway, decyzje tech stoją.",
+          "helpAndEffectTitle": "Co zyskasz:",
+          "helpAndEffect": "MVP online w tygodniach, kontrolę kosztów i jasne decyzje.",
+          "linkLabel": "Zobacz więcej dla Foundera →",
+          "link": "$t(paths:forFounders)"
+        },
+        {
+          "icon": "📋",
+          "title": "Rekruter / Talent Partner",
+          "problemsTitle": "Szukasz:",
+          "problems": "Seniorskiego delivery, bez ściemniania i zbędnego wdrożenia.",
+          "helpAndEffectTitle": "Co dostajesz:",
+          "helpAndEffect": "Samodzielność od dnia 1, portfolio, szybkie wejście.",
+          "linkLabel": "Zobacz więcej dla Rekrutera →",
+          "link": "$t(paths:forRecruiters)"
+        }
+      ],
+      "fitCheck": {
+        "title": "✅ Fit quick-check",
+        "yes": {
+          "title": "Działam najlepiej, jeśli:",
+          "bullets": [
+            "Chcesz MVP, FinOps lub refaktoryzację bez lock-inu.",
+            "Decydujesz o priorytetach, liczysz na efekt (nie godziny).",
+            "Współpraca min. 3 tygodnie/miesiące, produkt SaaS/AI/Cloud."
+          ]
+        },
+        "no": {
+          "title": "Nie działam, jeśli:",
+          "bullets": [
+            "Szukasz typowej agencji lub software house'u z zespołem juniorów.",
+            "Potrzebujesz tylko maintenance, pojedynczych ticketów lub supportu 24/7.",
+            "Oczekujesz najtańszej opcji na rynku."
+          ]
+        }
+      }
+    },
+    "advantages": {
+      "id": "przewagi",
+      "title": "🛡️ Przewagi mojego modelu współpracy",
+      "advantages": [
+        {
+          "icon": "👨‍💻",
+          "title": "Osobiście odpowiadam za efekt",
+          "description": "Nie podzlecam zadań, nie wprowadzam juniorów. Masz pełną kontrolę i kontakt bezpośrednio ze mną."
+        },
+        {
+          "icon": "🔄",
+          "title": "Możesz rozstać się w dowolnym momencie",
+          "description": "Proces podzielony na jasne etapy – każdy kończy się mierzalnym wynikiem. Nie blokuję wyjścia, efekt zostaje u Ciebie."
+        },
+        {
+          "icon": "👀",
+          "title": "Widoczny progres co tydzień",
+          "description": "Cotygodniowe demo, dostęp do kodu i checklisty postępu – zawsze wiesz, na jakim jesteśmy etapie."
+        },
+        {
+          "icon": "🔓",
+          "title": "Zero lock-inu technologicznego",
+          "description": "Stawiam Cię w roli właściciela produktu, nie zależnego od dostawcy platform czy custom narzędzi."
+        },
+        {
+          "icon": "🤝",
+          "title": "Komunikacja po Twojemu",
+          "description": "Wybierasz narzędzia i rytm kontaktu – Slack, Discord, Teams, e-mail, async lub sync. Klarowna dokumentacja każdej decyzji."
+        },
+        {
+          "icon": "⚡",
+          "title": "Ekspresowy start i szybkie efekty",
+          "description": "Pierwsza rozmowa, diagnoza bottlenecków i mikro-plan zwykle już w 24h. Nie czekasz tygodni aż ruszy projekt."
+        }
+      ],
+      "hint": {
+        "title": "Chcesz zobaczyć dokładny przebieg współpracy?",
+        "linkTitle": "Zobacz cały proces krok po kroku →"
+      }
+    },
+    "comparison": {
+      "id": "porownanie",
+      "title": "🔍 Agencja, software house czy ja? – Porównanie zasad i kosztów",
+      "description": "Wiem, że boisz się niespodzianek na fakturze, scalonych teamów i rozmytej odpowiedzialności. U mnie masz jasność: zakres, efekt, koszt – przed startem. Poniżej – konkretne różnice:",
+      "tableHeaders": ["", "Agencja", "Software house", "Amadeusz"],
+      "tableRows": [
+        [
+          "Kto dostarcza kod?",
+          "Mix juniorów, dev lead, często zmienny zespół.",
+          "Zespół (często mix doświadczenia, rotacje w projekcie).",
+          "Tylko ja – senior, odpowiedzialność end-to-end."
+        ],
+        [
+          "Własność kodu/infra",
+          "Bywa lock-in lub przeniesienie dopiero na koniec projektu.",
+          "Zazwyczaj przekazanie po pełnej płatności.",
+          "Twoje od 1 dnia – pełen dostęp od startu."
+        ],
+        [
+          "Koszt projektu",
+          "Często rośnie przez CR, scope creep, call'e i support.",
+          "Widełki na starcie, ale realnie końcowy koszt jest wyższy o 20–50% z powodu CR / zmian zakresu.",
+          "Cena lub widełki ustalone na początku – pakiet = efekt, zero zaskoczenia."
+        ],
+        [
+          "Rozliczenie",
+          "Godziny, CR, tickety, bywa niejasno.",
+          "Godziny, milestone, CR możliwe w trakcie.",
+          "Pakiet / fixed price lub retainer – jasny zakres, bez CR."
+        ],
+        [
+          "Demo / progres",
+          "Rzadko, najczęściej na koniec sprintów lub po miesiącach.",
+          "Co 2–4 tygodnie (w teorii), różna jakość.",
+          "Co tydzień demo, feedback i pełna przejrzystość."
+        ],
+        [
+          "Elastyczność wyjścia",
+          "Kary, notice period, często minimum miesięczny okres wypowiedzenia.",
+          "Najczęściej 4–8 tyg. notice.",
+          "Przerywasz współpracę w każdej chwili, efekt zawsze zostaje u Ciebie."
+        ],
+        [
+          "Komunikacja",
+          "Przez account / project managera.",
+          "Zespół, PM, scrum master.",
+          "Wyłącznie bezpośredni kontakt ze mną."
+        ],
+        [
+          "Outsourcing",
+          "Często podzlecanie, nie zawsze znasz zespół.",
+          "Bywa podzlecanie części usług.",
+          "Nigdy – robię całość osobiście."
+        ],
+        [
+          "Stack/technologia",
+          "Często narzucony, ograniczony przez firmę.",
+          "Stack firmy, adaptacja w ramach ofertowych.",
+          "Każdy stack dobieram do Twojego projektu, nie odwrotnie."
+        ]
+      ]
+    },
+    "security": {
+      "id": "bezpieczenstwo",
+      "title": "📄 Formalności, bezpieczeństwo i własność projektu",
+      "principles": [
+        {
+          "number": "1",
+          "icon": "🤝",
+          "title": "Umowa B2B / NDA",
+          "description": "Twoja lub moja umowa, pełna zgodność PL/EU, faktura VAT/UE. NDA podpisuję przed startem – także Twój wzór."
+        },
+        {
+          "number": "2",
+          "icon": "🔑",
+          "title": "Pełna własność kodu i środowisk",
+          "description": "Kod, repozytoria i wszystkie środowiska – zawsze na Twoich kontach. Masz dostęp od pierwszego dnia."
+        },
+        {
+          "number": "3",
+          "icon": "📚",
+          "title": "Dokumentacja i transfer wiedzy",
+          "description": "Przy każdej fazie projektu przekazuję checklistę oraz pełną dokumentację – onboarding następcy bez problemu."
+        },
+        {
+          "number": "4",
+          "icon": "💸",
+          "title": "Transparentne rozliczenia",
+          "description": "Faktury PLN, EUR, USD (VAT, reverse charge). Cena, zakres, harmonogram – zawsze na piśmie. Zero kar, zero ukrytych kosztów."
+        },
+        {
+          "number": "5",
+          "icon": "🔄",
+          "title": "Swobodny offboarding",
+          "description": "Możesz zakończyć współpracę w każdej chwili – efekt, kod i wiedza zostają u Ciebie, nie blokuję projektu."
+        },
+        {
+          "number": "6",
+          "icon": "🛡️",
+          "title": "Bezpieczeństwo i ochrona danych",
+          "description": "Respektuję poufność (NDA), dbam o bezpieczeństwo środowisk i minimalizuję ryzyka już na etapie wdrożenia."
+        }
+      ]
+    },
+    "packages": {
+      "id": "pakiety",
+      "title": "📦 Pakiety współpracy – co możesz wybrać?",
+      "callout": "Wybierz gotowy model współpracy – od audytu, przez MVP end-to-end, po długoterminowy mentoring. Każdy pakiet = mierzony efekt, stała cena, jasny zakres.",
+      "packages": [
+        {
+          "id": "audyt",
+          "icon": "🔍",
+          "title": "Architecture & Cost Audit",
+          "price": "od 5 tys. zł",
+          "duration": "2–3 dni",
+          "forWhom": "CTO, Head of Engineering",
+          "description": "Szybka analiza architektury, wydajności i kosztów chmurowych. Otrzymujesz gotową listę rekomendacji, kalkulację OPEX/TCO i plan natychmiastowych usprawnień.",
+          "includes": {
+            "title": "Zawiera:",
+            "items": [
+              "Przegląd architektury, pipeline’ów, kosztów.",
+              "Identyfikacja bottlenecków i punktów ryzyka.",
+              "Kalkulacja oszczędności (OPEX↓, TCO↓).",
+              "Szybkie rekomendacje do wdrożenia od razu.",
+              "Plan działań: co poprawić, gdzie są rezerwy."
+            ]
+          },
+          "outcomes": {
+            "title": "Efekty:",
+            "items": [
+              "OPEX ↓ nawet o 80% (udokumentowane).",
+              "Gotowe alerty / monitoring na chmurę.",
+              "Decyzje operacyjne podejmujesz na liczbach."
+            ]
+          },
+          "label": "SZYBKI START"
+        },
+        {
+          "id": "mvp-sprint",
+          "icon": "🚀",
+          "title": "MVP Sprint",
+          "price": "od 40 tys. zł",
+          "duration": "4–6 tygodni",
+          "forWhom": "Founder, CEO, PM",
+          "description": "End-to-end MVP: od warsztatu i roadmapy po skalowalny produkt na produkcji. Stack pod AI i szybki growth, bez technicznego długu.",
+          "includes": {
+            "title": "Zawiera:",
+            "items": [
+              "Warsztat celów, priorytetów i metryk MVP (1 dzień).",
+              "Projekt architektury i stacku (Front+Back+Cloud).",
+              "Budowa MVP z pełnym CI/CD, dokumentacją i testami.",
+              "Pierwsze demo na stagingu po 2 tygodniach.",
+              "Wdrożenie produkcyjne, onboarding Twojego teamu.",
+              "30 dni wsparcia po przekazaniu."
+            ]
+          },
+          "outcomes": {
+            "title": "Efekty:",
+            "items": [
+              "MVP gotowe do onboardingu i demo inwestorskiego.",
+              "Możliwe płatności/testy z realnymi klientami po 6 tygodniach.",
+              "Brak lock-inu – możesz przejąć i rozwijać dalej."
+            ]
+          },
+          "label": "NAJPOPULARNIEJSZY"
+        },
+        {
+          "id": "mentoring",
+          "icon": "🧭",
+          "title": "Mentoring CTO / Tech / AI",
+          "price": "od 10 tys. zł/mies.",
+          "duration": "minimum 3 miesiące",
+          "forWhom": "CTO, dev team, Founder",
+          "description": "Wsparcie na poziomie decyzji technologicznych, FinOps, AI, strategicznych roadmap i rozwoju zespołu. Połączenie mentoringu i konsultingu – zero waty, efekt co miesiąc.",
+          "includes": {
+            "title": "Zawiera:",
+            "items": [
+              "Regularne sesje 1:1/1:N (on demand lub tygodniowe).",
+              "Przegląd kodu, architektury, kosztów.",
+              "Planowanie roadmap, decyzje w AI/ML/Cloud.",
+              "Support dla zespołu devów (code review, refaktoryzacja, optymalizacja stacku).",
+              "Raport miesięczny – liczby i rekomendacje."
+            ]
+          },
+          "outcomes": {
+            "title": "Efekty:",
+            "items": [
+              "Decyzje szybciej, mniej ryzyka.",
+              "Roadmapa wraca na tory, zespół dowozi szybciej.",
+              "OPEX i architektura pod kontrolą (FinOps/Cloud/AI)."
+            ]
+          },
+          "label": "DŁUGOTERMINOWO"
+        }
+      ],
+      "cta": {
+        "title": "Nie wiesz, który pakiet wybrać?",
+        "description": "Umów krótką rozmowę – podpowiem, który model dowiezie Twój efekt najszybciej.",
+        "links": [
+          {
+            "title": "📅 Umów rozmowę",
+            "description": "W 30 min otrzymasz roadmapę – bez zobowiązań."
+          },
+          {
+            "title": "🤝 Zobacz proces współpracy",
+            "description": "Poznasz tempo, decyzje i efekty."
+          }
+        ]
+      }
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Najczęstsze pytania o współpracę",
+      "faqs": [
+        {
+          "question": "Ile trwa start – jak szybko możesz wejść do projektu?",
+          "answer": "Najczęściej jestem gotowy wejść w ciągu 1–2 tygodni od pierwszej rozmowy. W trybie ratunkowym – nawet w 3 dni."
+        },
+        {
+          "question": "Czy pomagasz zaplanować rozwój po MVP / po refaktorze?",
+          "answer": "Tak, do każdego projektu dołączam roadmapę i rekomendacje. Chcesz kontynuować ze mną lub własnym zespołem – masz jasny plan na kolejne miesiące."
+        },
+        {
+          "question": "Jak wygląda wsparcie po oddaniu projektu?",
+          "answer": "Standard to 30 dni darmowego wsparcia na produkcji – poprawki, konsultacje, szybka reakcja na incydenty. Jeśli chcesz więcej, możesz przejść na mentoring lub CTO-as-a-service."
+        },
+        {
+          "question": "Czy mogę obejrzeć Twój kod lub podejście techniczne przed decyzją?",
+          "answer": "Tak: możesz dostać dostęp do wybranych repo/projektów demo pod NDA lub zobaczyć fragmenty na rozmowie tech."
+        },
+        {
+          "question": "Z kim pracujesz po mojej stronie – tylko z CTO, Product Ownerem, Founderm?",
+          "answer": "Jestem elastyczny – najlepiej, gdy blisko współpracuję z decyzyjną osobą biznes/tech (CTO, Founder, Product Owner), ale mogę też współdziałać z developerami lub teamem produktowym."
+        },
+        {
+          "question": "Co jeśli nie znamy jeszcze wszystkich wymagań lub zakresu na starcie?",
+          "answer": "Wspólnie wypracujemy MVP/core zakres na warsztacie. Zmiany możesz dorzucać w iteracjach, zawsze estymuję czas/koszt przed startem sprintu."
+        },
+        {
+          "question": "Czy są jakieś limity liczby iteracji/poprawek?",
+          "answer": "W ramach ustalonego zakresu i czasu nie limituję poprawek – MVP/projekt musi działać realnie, nie tylko „na papierze”. Feedback loop i szybkie poprawki są standardem."
+        },
+        {
+          "question": "Co się dzieje, jeśli zmienią się priorytety w trakcie?",
+          "answer": "Zmiana priorytetów to standard w startupach – ważne by decydować razem. Przekładam roadmapę, informuję od razu o wpływie na czas/koszt i wspólnie zdecydujemy, co ma sens dowieźć."
+        }
+      ]
+    },
+    "nextSteps": {
+      "id": "nie-wiesz-od-czego-zaczac",
+      "title": "🧭 Nie wiesz, od czego zacząć?",
+      "links": [
+        {
+          "icon": "📂",
+          "title": "Zobacz projekty i efekty",
+          "subtitle": "Sprawdź MVP, FinOps, AI – dowiezione i zweryfikowane na produkcji",
+          "linkLabel": "Case studies →",
+          "link": "$t(paths:projects)"
+        },
+        {
+          "icon": "📋",
+          "title": "Poznaj proces współpracy",
+          "subtitle": "Zobacz krok po kroku: od roadmapy do produkcji",
+          "linkLabel": "Proces współpracy →",
+          "link": "$t(paths:process)"
+        },
+        {
+          "icon": "🧰",
+          "title": "Sprawdź stack technologiczny",
+          "subtitle": "Technologie, których używam w produkcji",
+          "linkLabel": "Stack technologiczny →",
+          "link": "$t(paths:stack)"
+        },
+        {
+          "icon": "👨‍💻",
+          "title": "Poznaj podejście i decyzje",
+          "subtitle": "Kim jestem, jak dowożę i czego nie robię",
+          "linkLabel": "O mnie →",
+          "link": "$t(paths:aboutMe)"
+        }
+      ],
+      "cta": {
+        "title": "Wolisz konkretną rozmowę?",
+        "description": "Umów 30 min call – szybko przejdziemy przez Twój temat i zobaczysz możliwy plan działania. Jeśli wolisz napisać – wyślij brief/problem, odpowiem w 24h.",
+        "links": [
+          {
+            "title": "📅 Umów rozmowę",
+            "description": "Otrzymasz roadmapę i mikro-plan w 30 min."
+          },
+          {
+            "title": "📬 Wyślij brief",
+            "description": "Odpowiem w 24h z propozycją podejścia."
+          }
+        ]
+      }
+    }
+  }
+}

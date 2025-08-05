@@ -1,0 +1,14 @@
+
+{
+  "title": "Zredukuj incydenty o 50% bez refaktoryzacji – uptime w SaaS | Amadeusz Mileszko",
+  "description": "Zredukuj liczbę incydentów w swoim SaaS bez przepisywania systemu: 5 kroków, które możesz wdrożyć w 2–3 tygodnie. Feature flagi, canary deploy, podział systemu i rytuały operacyjne.",
+  "article": {
+    "category": "TechOps",
+    "date": "25 lipca 2025",
+    "description": "5 rzeczy, które możesz wdrożyć w 3 tygodnie, żeby zredukować incydenty o 50% — bez przepisywania systemu. Konkretne stacki, mechanizmy rolloutowe i zasady operacyjne.",
+    "readingTime": "3 min czytania",
+    "title": "50% mniej incydentów w 3 tygodnie bez przepisywania systemu",
+    "linkLabel": "Czytaj więcej →",
+    "link": "$t(paths:articles.1-25-07-2025)"
+  }
+}

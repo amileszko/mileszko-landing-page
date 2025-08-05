@@ -1,0 +1,40 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "search.exclude": {
+    "**/.yarn": true
+  },
+  "files.exclude": {
+    "**/env": true,
+    "**/.git": true,
+    "**/.gitattributes": true,
+    "**/yarn.lock": true,
+    "**/.yarn": true,
+    "**/.turbo": true,
+    "**/node_modules": true
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.nodePath": ".yarn/sdks/eslint",
+  "eslint.useFlatConfig": true,
+  "eslint.format.enable": true,
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classFunctions": ["cva", "cx"],
+  "tailwindCSS.experimental.configFile": {
+    "website/src/styles.css": "website/src/**",
+    "api/tailwind.config.js": "api/src/**"
+  },
+  "i18n-ally.localesPaths": ["website/src/i18n"],
+  "i18n-ally.enabledFrameworks": ["react-i18next"],
+  "i18n-ally.namespace": true,
+  "i18n-ally.pathMatcher": "{locale}/{namespaces}.json",
+  "i18n-ally.keystyle": "nested",
+  "cSpell.words": ["vike"]
+}

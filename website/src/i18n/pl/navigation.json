@@ -1,0 +1,17 @@
+{
+  "logo": {
+    "title": "am >",
+    "label": "strona główna"
+  },
+  "projects": "projekty",
+  "offer": "oferta",
+  "process": "proces",
+  "aboutMe": "o mnie",
+  "contact": "kontakt",
+  "blog": "blog",
+  "mobileNavigationMenu": {
+    "buttonLabel": "menu",
+    "closeButtonTitle": "zamknij",
+    "openButtonTitle": "menu"
+  }
+}

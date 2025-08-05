@@ -1,0 +1,14 @@
+{
+  "name": "@mileszko-landing-page/cdk",
+  "packageManager": "yarn@4.9.2",
+  "devDependencies": {
+    "aws-cdk": "^2.1021.0",
+    "aws-cdk-lib": "^2.206.0",
+    "constructs": "^10.4.2",
+    "openapi3-ts": "^4.5.0"
+  },
+  "scripts": {
+    "synth": "cdk synth",
+    "deploy": "cdk deploy -a cdk.out --all --require-approval=never --verbose"
+  }
+}

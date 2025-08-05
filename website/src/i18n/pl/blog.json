@@ -1,0 +1,101 @@
+{
+  "title": "Blog – praktyka, trendy, realne wdrożenia | Amadeusz Mileszko",
+  "description": "Praktyczne artykuły o SaaS, AI i FinOps – porady, narzędzia, trendy oraz case studies z wdrożeń. Konkretne liczby, sprawdzone rozwiązania.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Blog",
+      "title": "✍️ Blog / Notatki z wdrożeń",
+      "subtitle": "Praktyka, trendy i decyzje, które mają znaczenie",
+      "description": "Publikuję praktyczne artykuły o budowie SaaS, FinOps, AI oraz najnowszych trendach i sprawdzonych dobrych praktykach. Znajdziesz tu zarówno analizy wdrożeń, jak i przeglądy narzędzi, porady czy podsumowania nowych kierunków w branży.",
+      "info": "⬇️ Sprawdź wszystkie wpisy poniżej. Nowe artykuły co tydzień."
+    },
+
+    "articles": {
+      "id": "wszystkie-artykuly",
+      "title": "Wszystkie artykuły",
+      "categories": {
+        "title": "Kategorie:"
+      }
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Najczęstsze pytania",
+      "items": [
+        {
+          "question": "O czym piszę?",
+          "answer": "Zamieszczam zarówno praktyczne poradniki, analizy wdrożeń i case studies, jak i przeglądy narzędzi, trendów czy przemyślenia o technologii i rozwoju produktów cyfrowych."
+        },
+        {
+          "question": "Jak często pojawiają się nowe artykuły?",
+          "answer": "Nowe artykuły staram się publikować co tydzień – zarówno głębokie analizy, jak i krótsze przeglądy czy porady."
+        },
+        {
+          "question": "Dla kogo są te artykuły?",
+          "answer": "Dla founderów, CTO, team leadów oraz wszystkich, którzy świadomie rozwijają lub wdrażają SaaS i produkty technologiczne."
+        },
+        {
+          "question": "Jakiego poziomu technicznego mogę się spodziewać w artykułach?",
+          "answer": "Stawiam na przejrzystość – większość wpisów jest zrozumiała dla osób decyzyjnych i praktyczna dla tych z zapleczem technicznym. Poruszam zarówno kwestie strategiczne, jak i konkretne techniczne przykłady."
+        },
+        {
+          "question": "Czy mogę zaproponować temat artykułu?",
+          "answer": "Tak – napisz lub umów rozmowę. Jeżeli dany problem, trend lub narzędzie warto omówić, chętnie podejmę taki temat."
+        },
+        {
+          "question": " Skąd czerpiesz tematy na artykuły?",
+          "answer": "Większość inspiracji pochodzi z realnych wyzwań, na które trafiam podczas projektów. Część tematów to także wnioski ze spotkań z founderami, CTO lub pytania czytelników."
+        }
+      ]
+    },
+
+    "links": {
+      "id": "przydatne-linki",
+      "title": "🔗 Przydatne linki",
+      "links": [
+        {
+          "icon": "📂",
+          "title": "Zobacz projekty i efekty",
+          "subtitle": "Dowiezione MVP, refaktoryzacje i AI w produkcji.",
+          "linkLabel": "Case studies →",
+          "link": "$t(paths:projects)"
+        },
+        {
+          "icon": "📋",
+          "title": "Poznaj proces współpracy",
+          "subtitle": "Od roadmapy do produkcji – krok po kroku.",
+          "linkLabel": "Proces współpracy →",
+          "link": "$t(paths:process)"
+        },
+        {
+          "icon": "🧰",
+          "title": "Sprawdź stack technologiczny",
+          "subtitle": "Technologie, które sprawdzają się w produkcji.",
+          "linkLabel": "Stack technologiczny →",
+          "link": "$t(paths:stack)"
+        },
+        {
+          "icon": "👤",
+          "title": "Kim jestem i jak pracuję",
+          "subtitle": "Bio, podejście i efekty.",
+          "linkLabel": "O mnie →",
+          "link": "$t(paths:aboutMe)"
+        }
+      ],
+      "cta": {
+        "title": "Masz pytanie lub temat, który warto rozwinąć?",
+        "description": "Umów rozmowę albo wyślij brief – podpowiem, jak przełożyć sprawdzone rozwiązania na Twój projekt. Zero prezentacji, tylko konkretna rozmowa lub plan działania.",
+        "links": [
+          {
+            "title": "📅 Umów rozmowę",
+            "description": "Otrzymasz plan działania w 30 min."
+          },
+          {
+            "title": "📬 Wyślij brief",
+            "description": "Odpowiem w 24h z konkretną propozycją."
+          }
+        ]
+      }
+    }
+  }
+}

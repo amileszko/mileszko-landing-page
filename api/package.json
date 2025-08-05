@@ -1,0 +1,39 @@
+{
+  "name": "@mileszko-landing-page/api",
+  "packageManager": "yarn@4.9.2",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./types": "./dist/api.types.ts",
+    "./api.json": "./dist/api.json"
+  },
+  "scripts": {
+    "build": "yarn build:contact-message-handler && yarn build:contact-message-delivered-email-handler && yarn build:contact-message-notification-email-handler && yarn build:templates && yarn build:api-definition",
+    "build:contact-message-handler": "esbuild src/handlers/contactMessageHandler.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/contactMessageHandler/index.js --minify",
+    "build:contact-message-delivered-email-handler": "esbuild src/handlers/contactMessageDeliveredEmailHandler.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/contactMessageDeliveredEmailHandler/index.js --minify",
+    "build:contact-message-notification-email-handler": "esbuild src/handlers/contactMessageNotificationEmailHandler.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/contactMessageNotificationEmailHandler/index.js --minify",
+    "build:templates": "node maizzle.js",
+    "build:api-definition": "tsx src/generateApiDefinition.ts"
+  },
+  "devDependencies": {
+    "@asteasolutions/zod-to-openapi": "^8.0.0",
+    "@aws-sdk/client-dynamodb": "^3.848.0",
+    "@aws-sdk/client-s3": "^3.850.0",
+    "@aws-sdk/client-sesv2": "^3.849.0",
+    "@aws-sdk/client-sns": "^3.848.0",
+    "@aws-sdk/lib-dynamodb": "^3.850.0",
+    "@maizzle/framework": "^5.2.2",
+    "@mjackson/multipart-parser": "^0.10.1",
+    "@types/aws-lambda": "^8.10.152",
+    "@types/libmime": "^5.0.3",
+    "@types/node": "^24.0.15",
+    "esbuild": "^0.25.8",
+    "libmime": "^5.3.7",
+    "openapi-typescript": "^7.8.0",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-preset-email": "^1.4.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "zod": "^4.0.5"
+  }
+}

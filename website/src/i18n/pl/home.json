@@ -1,0 +1,352 @@
+{
+  "title": "Dostępny do współpracy — MVP SaaS, FinOps, refaktoryzacje | Amadeusz Mileszko",
+  "description": "Senior Full-Stack Architect — 12+ MVP w produkcji. Buduję MVP SaaS w 6 tygodni, tnę OPEX o 80%, refaktoryzuję bez przestojów. Dla founderów i CTO — efekty w liczbach. Sprawdź ofertę i portfolio.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Dostępny do współpracy",
+      "title": "⚡ Amadeusz Mileszko",
+      "subtitle": "MVP SaaS w 6 tygodni. OPEX ↓ 80%. Refaktoryzacje bez przestojów.",
+      "callout": "Buduję MVP, które działa i się skaluje. Tnę koszty chmury w 3 tygodnie. Uporządkowuję architekturę tak, żeby roadmapa znów miała sens. Dla Founderów i CTO. Gotowy do wejścia od pierwszego dnia.",
+      "cta": [
+        {
+          "title": "📅 Umów rozmowę",
+          "description": "Otrzymasz plan działania w 30 min."
+        },
+        {
+          "title": "📂 Wybierz ścieżkę współpracy",
+          "description": "Zapoznasz się z moją ofertą."
+        }
+      ],
+      "avatarAlt": "Amadeusz Mileszko",
+      "bio": {
+        "title": "🧠 Bio",
+        "subtitle": "Senior Full-Stack Architect (SaaS/Cloud/AI/FinOps)",
+        "description": "Zbudowałem 12+ MVP. Skróciłem czas wdrożenia o 2×. Obniżyłem koszty chmury o 80%. Zredukowałem liczbę incydentów o 50%. Refaktoryzuję systemy bez ryzyka i bez downtime’u. Dowożę sam – od roadmapy po produkcję. Gdy rosną wymagania, skaluję też zespoły – bez chaosu i spadku tempa."
+      },
+      "howIWork": {
+        "title": "🎥 Zobacz, jak dowożę i dla kogo pracuję",
+        "linkTitle": "Zobacz video w pełnym oknie →"
+      },
+      "hint": {
+        "title": "⬇️ Szukasz konkretów? Przewiń niżej – liczby, efekty, projekty i oferta."
+      }
+    },
+    "numbers": {
+      "id": "w-liczbach",
+      "title": "🚀 W liczbach",
+      "numbers": [
+        {
+          "number": "12+",
+          "title": "MVP dowiezionych",
+          "subtitle": "Najkrótszy w 6 tygodni."
+        },
+        {
+          "number": "↓ 80%",
+          "title": "kosztów chmurowych",
+          "subtitle": "FinOps na AWS w 3 tygodnie."
+        },
+        {
+          "number": "8+",
+          "title": "lat doświadczenia",
+          "subtitle": "Projekty w produkcji od 2016 roku."
+        },
+        {
+          "number": "↑ 2×",
+          "title": "szybkość release’ów",
+          "subtitle": "CI/CD + architektura bez długu."
+        },
+        {
+          "number": "99,95%",
+          "title": "SLA",
+          "subtitle": "Realny uptime, produkcja 24/7."
+        },
+        {
+          "number": "↓ 50%",
+          "title": "incydentów",
+          "subtitle": "Dzięki refaktoryzacji, mikroserwisom i testom E2E."
+        }
+      ],
+      "industries": {
+        "title": "🎯 Branże i wyzwania, w których dowożę",
+        "description": "Skupiam się tam, gdzie technologia przekłada się na MRR, uptime i runway.",
+        "industries": [
+          {
+            "icon": "🏦",
+            "title": "FinTech",
+            "subtitle": "Zgodność, płatności, integracje bankowe."
+          },
+          {
+            "icon": "🚚",
+            "title": "Logistyka",
+            "subtitle": "SLA, monitoring zdarzeń, realtime UI."
+          },
+          {
+            "icon": "🛒",
+            "title": "E-commerce",
+            "subtitle": "PMF, leady, personalizacja + AI."
+          },
+          {
+            "icon": "🎓",
+            "title": "EduTech",
+            "subtitle": "AI tutoring, automatyzacja, video."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Nie działasz w tych branżach?",
+        "description": "MVP, FinOps, refaktoryzacje – działają niezależnie od rynku. Jeśli masz roadmapę i problem do ogarnięcia, sprawdź, czy mogę pomóc.",
+        "link": {
+          "title": "💡 Zobacz, jak dowożę",
+          "description": "Poznasz case studies, stack i efekty."
+        }
+      },
+      "now": {
+        "title": "🧭 Obecnie",
+        "statuses": [
+          {
+            "icon": "✅",
+            "title": "Dostępny do współpracy",
+            "description": "B2B/zdalnie/hybrydowo. Gotowy do relokacji. Start od sierpnia 2025."
+          },
+          {
+            "icon": "🚀",
+            "title": "Zakończenie prac nad Retrivis",
+            "description": "AI Chatbot SaaS. 50+ leadów w 30 dni."
+          },
+          {
+            "icon": "📚",
+            "title": "Rozwój kompetencji",
+            "description": "FinOps, Cloud, AI, architektury event-driven."
+          }
+        ]
+      }
+    },
+    "projects": {
+      "id": "co-zbudowalem",
+      "title": "🧩 Co zbudowałem?",
+      "description": "Tylko to, co działa. MVP, refaktoryzacje i projekty, które stoją w produkcji.",
+      "projects": [
+        {
+          "title": "🤖 Retrivis",
+          "category": "AI Chatbot SaaS",
+          "subtitle": "MVP w 6 miesięcy. 50+ leadów.",
+          "status": "Najnowszy",
+          "linkLabel": "Zobacz szczegóły →",
+          "link": "$t(paths:retrivisProject)"
+        },
+        {
+          "title": "🍽️ apetit.io",
+          "category": "QR/NFC ordering",
+          "subtitle": "MVP w 10+ lokalach. Gotowe do skalowania.",
+          "status": "MVP",
+          "linkLabel": "Zobacz szczegóły →",
+          "link": "$t(paths:apetitioProject)"
+        },
+        {
+          "title": "🔧 System produkcyjny",
+          "category": "NDA",
+          "subtitle": "System legacy. Release ↑ 2×. Błędy ↓ 60%.",
+          "status": "Case Study",
+          "linkLabel": "Zobacz szczegóły →",
+          "link": "$t(paths:productionProject)"
+        },
+        {
+          "title": "💰 Platforma cashback",
+          "category": "NDA",
+          "subtitle": "Integracja 10+ partnerów. MRR ↑ 3×. Obsługa 50k+ transakcji/mies.",
+          "status": "Case Study",
+          "linkLabel": "Zobacz szczegóły →",
+          "link": "$t(paths:cashbackProject)"
+        }
+      ],
+      "cta": {
+        "title": "Chcesz więcej konkretów?",
+        "description": "Pełen kontekst, czyli co, jak i dlaczego zadziałało.",
+        "link": {
+          "title": "🗂 Zobacz pełne portfolio",
+          "description": "Poznasz efekty, stack i decyzje."
+        }
+      }
+    },
+    "packages": {
+      "id": "jak-pomagam",
+      "title": "🛠 Jak mogę Ci pomóc?",
+      "description": "Buduję MVP, tnę koszty chmury i wspieram decyzje technologiczne. Wybierz konkretny pakiet – szybki efekt, zero długu.",
+      "packages": {
+        "title": "📦 Pakiety",
+        "packages": [
+          {
+            "title": "Architecture & Cost Audit",
+            "price": "od 5 tys. zł",
+            "description": "Audyt architektury, wydajności i kosztów. OPEX ↓, release speed ↑, ryzyka ↓ – efekt w 2–3 dni. Dokładne liczby, jasne rekomendacje.",
+            "tag": "SZYBKI START",
+            "linkLabel": "Zobacz szczegóły →",
+            "link": "$t(paths:audit)"
+          },
+          {
+            "title": "MVP Sprint",
+            "price": "od 40 tys. zł",
+            "description": "MVP w 6 tygodni. Stack prod-ready, AI-ready, Cloud-native. Release speed ↑ 2×, zero długu technicznego. Pierwsi klienci / możliwe wpływy już po 2 miesiącach.",
+            "tag": "NAJPOPULARNIEJSZY",
+            "linkLabel": "Zobacz szczegóły →",
+            "link": "$t(paths:mvpSprint)"
+          },
+          {
+            "title": "Mentoring CTO / Tech / AI",
+            "price": "od 10 tys. zł/mies.",
+            "description": "CTO-as-a-service – strategiczne decyzje, roadmapy, wdrożenia AI/chmury, optymalizacje kosztów. Efekty w liczbach.",
+            "tag": "DŁUGOTERMINOWO",
+            "linkLabel": "Zobacz szczegóły →",
+            "link": "$t(paths:mentoring)"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Masz konkretny temat?",
+        "description": "Umów rozmowę – w 30 min ułożymy plan działania.",
+        "links": [
+          {
+            "title": "📅 Umów rozmowę",
+            "description": "Otrzymasz plan oraz wstępną wycenę."
+          },
+          {
+            "title": "🤝 Zobacz, jak współpracuję",
+            "description": "Poznasz proces, tempo i decyzje."
+          }
+        ]
+      },
+      "hint": {
+        "title": "🔎 Jak pracuję? Jakiego stacku używam?",
+        "link1Title": "Zobacz proces krok po kroku →",
+        "or": "lub",
+        "link2Title": "poznaj stack technologiczny →"
+      }
+    },
+    "aboutMe": {
+      "id": "o-mnie",
+      "title": "👤 O mnie",
+      "description": "Dowożę to, co działa. Odrzucam to, co nie ma sensu. Pomagam founderom i CTO podejmować lepsze decyzje techniczne.",
+      "personas": {
+        "title": "👥 Dla kogo pracuję?",
+        "personas": [
+          {
+            "icon": "🎯",
+            "title": "Dla CTO",
+            "subtitle": "Skalowanie, OPEX ↓, refaktoryzacje bez ryzyka.",
+            "linkLabel": "Zobacz szczegóły →",
+            "link": "$t(paths:forCto)"
+          },
+          {
+            "icon": "🚀",
+            "title": "Dla Foundera",
+            "subtitle": "MVP < 6 tyg., roadmapa bez chaosu, PMF w realu.",
+            "linkLabel": "Zobacz szczegóły →",
+            "link": "$t(paths:forFounders)"
+          },
+          {
+            "icon": "📋",
+            "title": "Dla Rekrutera",
+            "subtitle": "Bio, stack, dostępność, certyfikaty.",
+            "linkLabel": "Zobacz szczegóły →",
+            "link": "$t(paths:forRecruiters)"
+          }
+        ]
+      },
+      "howIWork": {
+        "title": "🛡️ Jak pracuję?",
+        "process": [
+          {
+            "icon": "✅",
+            "title": "Demo co tydzień",
+            "description": "Widzisz działające funkcje, nie tickety.",
+            "number": "1"
+          },
+          {
+            "icon": "🔓",
+            "title": "Pełen dostęp do kodu",
+            "description": "Zero lock-inu. Możesz przekazać projekt w każdej chwili.",
+            "number": "2"
+          },
+          {
+            "icon": "💶",
+            "title": "Stała cena",
+            "description": "Zakres = efekt. Bez change requestów.",
+            "number": "3"
+          },
+          {
+            "icon": "🔧",
+            "title": "30 dni wsparcia po oddaniu",
+            "description": "Bez dopłat, bez małego druczku.",
+            "number": "4"
+          }
+        ]
+      },
+      "hint": {
+        "title": "🤔 Jak podejmuję decyzje, jak wybieram stack, skąd wiem, czego nie robić?",
+        "linkTitle": "Zobacz stronę „O mnie” →"
+      }
+    },
+    "blog": {
+      "id": "ostatnie-notatki",
+      "title": "✍️ Ostatnie notatki",
+      "posts": [
+        {
+          "title": "LangChain bez magii: RAG z fallbackiem i cytatami",
+          "description": "Jak zbudować RAG bez magii. Obsługa błędów i cytaty źródeł.",
+          "linkLabel": "Czytaj więcej →",
+          "tag": "AI",
+          "date": "Grudzień 2024",
+          "readingTime": "5 min czytania"
+        },
+        {
+          "title": "Czego nauczył mnie side-project z AI",
+          "description": "Lekcje z Retrivis: od prototypu do 50+ leadów w 30 dni.",
+          "linkLabel": "Czytaj więcej →",
+          "tag": "Case Study",
+          "date": "Listopad 2024",
+          "readingTime": "8 min czytania"
+        },
+        {
+          "title": "Architektura MVP: jak uczyć się szybciej niż kodzić",
+          "description": "Najlepsza architektura MVP pozwala szybko się uczyć i pivotować.",
+          "linkLabel": "Czytaj więcej →",
+          "tag": "Architektura",
+          "date": "Październik 2024",
+          "readingTime": "6 min czytania"
+        }
+      ],
+      "cta": {
+        "title": "Interesuje Cię, jak myślę?",
+        "description": "Dzielę się tym, co działa – i tym, co nie zadziałało.",
+        "links": [
+          {
+            "title": "📚 Zobacz wszystkie wpisy",
+            "description": "Dodaję nowe wpisy co tydzień."
+          }
+        ]
+      }
+    },
+    "contact": {
+      "id": "kontakt",
+      "title": "🤝 Współpraca? Zobaczmy, czy to ma sens",
+      "callout": "W 30 minut sprawdzimy, czy mogę wejść i dowieźć efekt – niezależnie, czy chodzi o MVP, delivery czy poszukiwanie developera.",
+      "cta": [
+        {
+          "title": "Strategy Call",
+          "description": "Bezpłatna rozmowa 1:1. Dla founderów, CTO i rekruterów – stack, bottlenecki, plan działania.",
+          "icon": "⚡️",
+          "info": "Jestem dostępny: Pon–Pt 9–17.",
+          "linkTitle": "📅 Umów rozmowę"
+        },
+        {
+          "title": "Wyślij brief",
+          "description": "Opisz, czego szukasz – developmentu, konsultacji, drugiej pary oczu. Odpiszę w 24h z konkretem.",
+          "icon": "📋",
+          "info": "Odpowiadam w ciągu 24h.",
+          "linkTitle": "📬 Wyślij brief"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,919 @@
+{
+  "title": "Stack technologiczny — efekty, bezpieczeństwo i elastyczność | Amadeusz Mileszko",
+  "description": "Stack dobierany do runway, budżetu i celu: tylko produkcyjne technologie, zero hype’u. SaaS, AI, cloud, monitoring, bezpieczeństwo, automatyzacja CI/CD. Przykłady i efekty wdrożeń.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Stack technologiczny",
+      "title": "🧰 Stack, który dowozi efekt",
+      "subtitle": "Tylko produkcyjne technologie. Każdy wybór = realny efekt: koszt, uptime, szybki onboarding.",
+      "callout": "Dobór stacku jest zawsze biznesowy: runway, budżet, tempo wdrożenia. Tu nie ma eksperymentów – wszystko niżej stosuję w realnych projektach od MVP do dużych wdrożeń.",
+      "hint": "⬇️ Scrolluj niżej – pełna lista technologii, efekty wdrożeń i przykłady zastosowań w realnych projektach."
+    },
+    "philosophy": {
+      "id": "dlaczego-ten-stack",
+      "title": "🧱 Dlaczego ten stack?",
+      "callout": "Stack = gwarancja efektu, bezpieczeństwa i szybkiego rozwoju produktu. Dobieram technologie do runway, teamu i konkretnego celu — nie pod ‘modę’. Produkcja tylko na tym, co działa.",
+      "principles": [
+        "Każdy wybór poparty wdrożeniem na produkcji (MVP, SaaS, AI, FinOps, legacy, scale-up).",
+        "Nie ma tu rozgrzebanych frameworków czy pluginów ‘z tutoriala’ — tylko rzeczy używane codziennie.",
+        "Stack zawsze otwarty: chcesz wprowadzić swoje technologie? Będzie decyzja pod ROI.",
+        "Nie zostawiam knowledge-locku: dokumentacja, checklisty i automaty umożliwiają przejęcie projektu w każdej chwili.",
+        "Każdy składnik = liczba w statystykach (koszty, SLA, release, uptime, onboarding teamu, TCO)."
+      ]
+    },
+    "technologies": {
+      "id": "technologie",
+      "title": "🧰 Technologie – mierzalny efekt, nie katalog",
+      "description": "Stack oparty na liczbach, nie hype – tylko to, co realnie działa i daje przewagę.",
+      "categories": [
+        {
+          "title": "💻 Języki programowania & runtime’y",
+          "description": "Języki i runtime'y, które wdrażam w backendzie, frontendzie, DevOps, AI/ML i automatyzacji.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "🔷", "title": "TypeScript / JavaScript ES2023" },
+              { "icon": "🟢", "title": "Node.js 20+" },
+              { "icon": "🐍", "title": "Python 3.12" },
+              { "icon": "🟣", "title": "C# 12 / .NET 8" },
+              { "icon": "🐘", "title": "SQL: ANSI/T-SQL/PLpgSQL" },
+              { "icon": "💻", "title": "Bash" },
+              { "icon": "🌐", "title": "HTML5/CSS3" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "⚡",
+                "title": "Szybkie integracje",
+                "description": "Łatwy onboarding przez typowanie (TS/C#), kodowanie nowych feature’ów przez juniorów w < 1 dzień.",
+                "number": "1"
+              },
+              {
+                "icon": "🛡️",
+                "title": "Stabilność i bezpieczeństwo",
+                "description": "Silne typowanie i testowalność eliminują błędy przed deployem.",
+                "number": "2"
+              },
+              {
+                "icon": "🔁",
+                "title": "Automatyzacja",
+                "description": "Każdy język wybrany tak, by automatyzacja CI/CD, testów i monitoringu była natywna.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "🔗",
+                "title": "API i backendy",
+                "subtitle": "TypeScript/Node.js, Python, .NET na produkcji: API do SaaS, platform, MVP."
+              },
+              {
+                "icon": "💻",
+                "title": "Skrypty i automaty DevOps",
+                "subtitle": "Bash, Python – automaty buildów, migracje, one-linery na cloudzie."
+              },
+              {
+                "icon": "📊",
+                "title": "SQL everywhere",
+                "subtitle": "Optymalizacja query, analizy, BI, data science."
+              },
+              {
+                "icon": "🌎",
+                "title": "Front, SSR, universal",
+                "subtitle": "JavaScript/TypeScript, HTML/CSS, SSR z Next.js, uniwersalność na wszystkich warstwach."
+              }
+            ]
+          }
+        },
+        {
+          "title": "🛠️ Backend & frameworki API",
+          "description": "Frameworki, protokoły i wzorce komunikacji do budowy skalowalnych usług.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              {
+                "icon": "🟢",
+                "title": "Node.js: Express/NestJS/tRPC/Hono"
+              },
+              { "icon": "🐍", "title": "Python: FastAPI/Django" },
+              { "icon": "🟣", "title": ".NET 8: ASP.NET Core / Minimal API" },
+              {
+                "icon": "🔗",
+                "title": "REST/GraphQL/gRPC/WebSockets/RPC"
+              },
+              { "icon": "📄", "title": "OpenAPI/Swagger" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "🏗️",
+                "title": "API-first design",
+                "description": "Łatwe generatory klienta, szybkie makiety, kontraktowe deploye.",
+                "number": "1"
+              },
+              {
+                "icon": "📈",
+                "title": "Skalowalność",
+                "description": "Wzorce event-driven, obsługa > 100k req/dzień bez problemu.",
+                "number": "2"
+              },
+              {
+                "icon": "🔌",
+                "title": "Integracje",
+                "description": "Support dla REST/gRPC/GraphQL umożliwia szybkie podpięcie zewnętrznych usług/B2B.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "🔗",
+                "title": "API B2B/B2C",
+                "subtitle": "Szybko generowane, pełna dokumentacja dla partnerów."
+              },
+              {
+                "icon": "🟣",
+                "title": "Integracje SaaS",
+                "subtitle": "Tylko produkcyjne, łatwe do monitorowania i rozbudowy."
+              },
+              {
+                "icon": "🏢",
+                "title": "Platformy i marketplace",
+                "subtitle": "Moduły event-driven pod skalę i refaktor."
+              },
+              {
+                "icon": "⚡",
+                "title": "Real-time & wsparcie IoT",
+                "subtitle": "WebSockets, subskrypcje, event streaming na żywo."
+              }
+            ]
+          }
+        },
+        {
+          "title": "🎨 Frontend, UI & UX",
+          "description": "Front stack do MVP SaaS, portali, dashboardów oraz AI-UI. Wszystko do szybkiego onboardingu userów.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "⚛️", "title": "Next.js 15 / React 19" },
+              { "icon": "🟨", "title": "Vite/Vike" },
+              { "icon": "🎨", "title": "Tailwind CSS / CSS-in-JS" },
+              { "icon": "🔢", "title": "TypeScript" },
+              { "icon": "🦾", "title": "WCAG 2.2 / ARIA" },
+              { "icon": "🌎", "title": "i18n-ready" },
+              { "icon": "🎭", "title": "Framer Motion" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "🚀",
+                "title": "Szybki MVP",
+                "description": "Demo-ready, onboarding < 5 min, pierwsza wersja w 2 tygodnie.",
+                "number": "1"
+              },
+              {
+                "icon": "📈",
+                "title": "Wysoka konwersja",
+                "description": "Focus na UX i dostępność (WCAG 2.2 / ARIA), > 90 w Lighthouse.",
+                "number": "2"
+              },
+              {
+                "icon": "🖥️",
+                "title": "Skalowalność",
+                "description": "Design system + typowanie pozwalają budować projekt latami.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "👤",
+                "title": "Dashboardy i portale",
+                "subtitle": "Custom UI do B2B, analityki, admina."
+              },
+              {
+                "icon": "💬",
+                "title": "AI chat, interfejs leadów",
+                "subtitle": "Obsługa procesów z ML/AI na froncie."
+              },
+              {
+                "icon": "📝",
+                "title": "Formularze rejestracji",
+                "subtitle": "Type-safe, walidacja, szybki onboarding."
+              },
+              {
+                "icon": "🌐",
+                "title": "Multi-lang / mobile ready",
+                "subtitle": "SSR, i18n, architektura PWA."
+              }
+            ]
+          }
+        },
+        {
+          "title": "🐘 Bazy danych & storage",
+          "description": "Relaacyjne, NoSQL, vektory, time-series, pamięć podręczna, ORM — dla Data/AI/SaaS.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "🐘", "title": "PostgreSQL / MySQL / SQL Server" },
+              { "icon": "🍃", "title": "MongoDB" },
+              { "icon": "🟥", "title": "Redis" },
+              { "icon": "🔍", "title": "Elasticsearch" },
+              { "icon": "🕸️", "title": "Neo4j" },
+              { "icon": "⏲️", "title": "InfluxDB" },
+              { "icon": "🧲", "title": "Qdrant/Pinecone/Weaviate" },
+              {
+                "icon": "📦",
+                "title": "ORM: Prisma / Entity Framework / Drizzle / SQLAlchemy"
+              }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "📊",
+                "title": "Stabilność",
+                "description": "100% uptime produkcyjny, backup/restores automatyczne, rollouts bez utraty danych.",
+                "number": "1"
+              },
+              {
+                "icon": "🔍",
+                "title": "Szybkie analizy",
+                "description": "Big data, time-series, wyszukiwanie, lead scoring (Elasticsearch, vector DB, InfluxDB, Redis).",
+                "number": "2"
+              },
+              {
+                "icon": "🔁",
+                "title": "Prosta migracja",
+                "description": "ORM, migracje skryptowe, niskie ryzyko przy scale-up.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "📄",
+                "title": "Platformy SaaS",
+                "subtitle": "Multitenancy, data isolation, billing, dashboardy BI."
+              },
+              {
+                "icon": "📚",
+                "title": "Projekty AI, RAG",
+                "subtitle": "Weaviate/Pinecone vector search, lead scoring, embeddingi."
+              },
+              {
+                "icon": "🦾",
+                "title": "Platformy event-driven",
+                "subtitle": "Redis, NoSQL, decoupling storage & processing."
+              },
+              {
+                "icon": "🛠️",
+                "title": "Migracje & refaktoryzacje",
+                "subtitle": "Przejścia z MySQL do Postgres, integracje legacy."
+              }
+            ]
+          }
+        },
+        {
+          "title": "🔄 Messaging, streaming & workflows",
+          "description": "Komunikacja async, orchestration, event streaming, automatyzacja B2B/B2C.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "🔄", "title": "Kafka/Redpanda" },
+              { "icon": "🐇", "title": "RabbitMQ" },
+              { "icon": "⏳", "title": "Temporal / AWS Step Functions" },
+              { "icon": "🎛️", "title": "Camunda/BPMN" },
+              { "icon": "🔁", "title": "SAGA patterns" },
+              { "icon": "🔗", "title": "EventBridge/PubSub" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "💬",
+                "title": "Obsługa kolejek",
+                "description": "Zero zatorów, automatyczne retry, wysokie SLA.",
+                "number": "1"
+              },
+              {
+                "icon": "⚡",
+                "title": "Real-time processing",
+                "description": "Obsługa masywnych eventów, alerty, ML/AI pipeline.",
+                "number": "2"
+              },
+              {
+                "icon": "🔀",
+                "title": "Elastyczność",
+                "description": "Łatwy refactoring – dodajesz nowe integracje event-driven bez downtime.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "💸",
+                "title": "Transakcje, płatności",
+                "subtitle": "Kafka, SAGA, automatyzacje billingowe, obsługa błędów."
+              },
+              {
+                "icon": "📦",
+                "title": "Logistyka/SaaS",
+                "subtitle": "Rozproszone procesy, elastic throughput, SLA for shipment."
+              },
+              {
+                "icon": "🤖",
+                "title": "AI pipelines",
+                "subtitle": "Przetwarzanie wsadowe, scoring."
+              },
+              {
+                "icon": "🔀",
+                "title": "Legacy integration",
+                "subtitle": "Synchronizacja starszych systemów przez durable queue."
+              }
+            ]
+          }
+        },
+        {
+          "title": "🤖 AI / Data Science / ML",
+          "description": "Integracje AI, pipelines RAG/LLM, scoring i automaty produkcyjne.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "🔗", "title": "LangChain" },
+              { "icon": "🧠", "title": "OpenAI/Anthropic/Gemini/Cohere" },
+              { "icon": "🤗", "title": "Hugging Face / transformers" },
+              { "icon": "🧪", "title": "scikit-learn" },
+              { "icon": "🔥", "title": "TensorFlow/PyTorch" },
+              { "icon": "🧲", "title": "Qdrant/Pinecone/Weaviate" },
+              { "icon": "🛠️", "title": "LangSmith / Assistants API" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "💡",
+                "title": "AI-ready SaaS",
+                "description": "Wdrażam OpenAI/RAG, chatboty concierge, scoring leadów, automatyzacje faktur/dokumentów.",
+                "number": "1"
+              },
+              {
+                "icon": "⏱️",
+                "title": "Przyspieszony go‑to‑market",
+                "description": "LLM/RAG wdrożone w MVP w kilka tygodni.",
+                "number": "2"
+              },
+              {
+                "icon": "🔒",
+                "title": "ROI/Cost control",
+                "description": "Testy promptów, monitorowanie kosztów tokenów – zero budżetowych skoków.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "💬",
+                "title": "Chatboty produktowe",
+                "subtitle": "Obsługa klienta, HR, sprzedaż, wsparcie 24/7."
+              },
+              {
+                "icon": "📄",
+                "title": "Automatyzacja dokumentów",
+                "subtitle": "OCR, klasyfikacja, scoring."
+              },
+              {
+                "icon": "📈",
+                "title": "Analityka predykcyjna",
+                "subtitle": "Modele klasyfikacji, polecenia, scoring leadów."
+              },
+              {
+                "icon": "🧪",
+                "title": "Proof-of-Concept AI",
+                "subtitle": "Prototypy MVP, sandboxy LLM, produkty z prompt engineeringiem."
+              }
+            ]
+          }
+        },
+        {
+          "title": "☁️ DevOps, Cloud & Infrastructure",
+          "description": "Automatyzacje, deployment, IaC, cloud-native, podejście FinOps.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "🐳", "title": "Docker / Docker Swarm" },
+              { "icon": "☸️", "title": "Kubernetes" },
+              {
+                "icon": "☁️",
+                "title": "AWS: ECS / Lambda / EC2 / S3 / RDS / CloudFront / VPC / API Gateway / Route 53"
+              },
+              { "icon": "🏗️", "title": "Terraform / AWS CDK" },
+              {
+                "icon": "🚀",
+                "title": "GitHub Actions / CodePipeline / Azure Pipelines"
+              },
+              { "icon": "✨", "title": "Blue-Green / Canary / Feature Flags" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "📉",
+                "title": "OPEX pod kontrolą",
+                "description": "FinOps od dnia 1, chmura plug‑in/out, alerty kosztowe, oszczędności rzędu 40‑80%.",
+                "number": "1"
+              },
+              {
+                "icon": "🔂",
+                "title": "Zero-downtime deployments",
+                "description": "Blue/green, canary, rollback w minutę – release codziennie bez stresu.",
+                "number": "2"
+              },
+              {
+                "icon": "⚙️",
+                "title": "Szybka iteracja",
+                "description": "CI/CD od MVP do enterprise. Automatyzacja i standaryzacja pipeline.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "🔁",
+                "title": "Migracje na cloud",
+                "subtitle": "Automaty cloud-ready, podział środowisk, multi-cloud."
+              },
+              {
+                "icon": "📦",
+                "title": "SaaS produkcyjne",
+                "subtitle": "Stack elastczny: minimum manualnych czynności po deploju."
+              },
+              {
+                "icon": "🕵️‍♂️",
+                "title": "Refaktoryzacje legacy",
+                "subtitle": "Rewrite monolitu na mikroserwisy/K8s bez utraty biznesu."
+              },
+              {
+                "icon": "💰",
+                "title": "FinOps dashboards",
+                "subtitle": "Live monitoring, forecasting OPEX, kontrole budżetów."
+              }
+            ]
+          }
+        },
+        {
+          "title": "🔒 Security & compliance",
+          "description": "Bezpieczeństwo projektu, produktu, zespołu, automaty compliance i testy security.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              {
+                "icon": "🔒",
+                "title": "Zero Trust / mTLS / OAuth2 / OIDC / JWT"
+              },
+              { "icon": "🛡️", "title": "IAM: AWS/Cognito/Keycloak" },
+              { "icon": "🔐", "title": "Vault / Secrets Manager" },
+              {
+                "icon": "📝",
+                "title": "SBOM/SAST/DAST: Semgrep/SonarQube"
+              },
+              { "icon": "⚖️", "title": "GDPR/CCPA" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "🔑",
+                "title": "Bezpieczny dostęp",
+                "description": "IAM, OAuth2/OIDC dla każdej integracji, audyt logów, multi-tenant.",
+                "number": "1"
+              },
+              {
+                "icon": "🛡️",
+                "title": "Odporność na ataki",
+                "description": "Automaty security test, SBOM, alertowanie, SAST/DAST podpięte do pipeline.",
+                "number": "2"
+              },
+              {
+                "icon": "✅",
+                "title": "Zgodność na produkcji",
+                "description": "Każda migracja legal, dane osobowe pod GDPR/CCPA, audyt przy wdrożeniu.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "🌍",
+                "title": "SaaS global",
+                "subtitle": "Pełna zgodność na rynkach UE/US (dane osobowe, audyt)."
+              },
+              {
+                "icon": "🔒",
+                "title": "Aplikacje finansowe, medyczne",
+                "subtitle": "High-risk, regularne skany pod compliance."
+              },
+              {
+                "icon": "🔐",
+                "title": "Integracje B2B API",
+                "subtitle": "IAM, Vault, roole‑based‑access, rotation."
+              },
+              {
+                "icon": "🕵️‍♂️",
+                "title": "Code review i audyt security",
+                "subtitle": "Automaty i manual, vulnerability assessment, training dla zespołu."
+              }
+            ]
+          }
+        },
+        {
+          "title": "✅ Testy & jakość",
+          "description": "Automatyzacja i jakość od dnia 1: unit/integration/E2E/contract, mutation, property‑based.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "🔁", "title": "TDD/BDD" },
+              { "icon": "🧪", "title": "Unit / Integration / Contract / E2E" },
+              { "icon": "🏎️", "title": "Playwright/Selenium" },
+              {
+                "icon": "🧬",
+                "title": "Property-based: fast-check / Hypothesis"
+              },
+              { "icon": "🧨", "title": "Mutation testing: StrykerJS/PIT" },
+              { "icon": "🚨", "title": "SonarQube/Semgrep" },
+              {
+                "icon": "🧵",
+                "title": "Code review / Pair programming / Branch policies"
+              }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "🛡️",
+                "title": "Jakość produkcyjna",
+                "description": "Każdy kod pokryty przynajmniej 80% testami, raport z CI.",
+                "number": "1"
+              },
+              {
+                "icon": "🔗",
+                "title": "Bezpieczne deploye",
+                "description": "Automaty testów przed każdym rolloutem, regression zero.",
+                "number": "2"
+              },
+              {
+                "icon": "📊",
+                "title": "Wysoka obserwowalność",
+                "description": "Zintegrowane quality gates (Sonar, SAST, coverage, mutation, E2E reporter)",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "🔬",
+                "title": "Każdy release = quality",
+                "subtitle": "Wymuszone automaty/cover. na prod i staging."
+              },
+              {
+                "icon": "♻️",
+                "title": "Refaktory i migracje",
+                "subtitle": "100% green testów po refaktoryzacji, klucz do utrzymania legacy."
+              },
+              {
+                "icon": "🤝",
+                "title": "Team onboarding",
+                "subtitle": "Test-templates, pokrycie, swap devów bez ryzyka."
+              },
+              {
+                "icon": "🔒",
+                "title": "Bezpieczeństwo",
+                "subtitle": "Security tests w pipeline, SAST/DAST dla kodu i endpointów."
+              }
+            ]
+          }
+        },
+        {
+          "title": "📡 Monitoring & Observability",
+          "description": "Automatyzacja monitoringu, metrics, traces, logs, SLO/SLA, error budgets.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "📊", "title": "Prometheus/Grafana" },
+              { "icon": "📈", "title": "Jaeger/Tempo" },
+              { "icon": "🎯", "title": "OpenTelemetry" },
+              {
+                "icon": "🔔",
+                "title": "Alertmanager / SLO / Alerting-as-Code"
+              },
+              { "icon": "🛡️", "title": "Sentry/DataDog" },
+              { "icon": "⏱️", "title": "P99 latency / MTTR / error budgets" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "🟢",
+                "title": "Wysoka dostępność",
+                "description": "Proaktywne alerty, produkcja spełniająca SLA > 99,9%.",
+                "number": "1"
+              },
+              {
+                "icon": "⏱️",
+                "title": "Skrócone recovery",
+                "description": "MTTR liczony w minutach — rollback i naprawa szybciej niż SLA klienta.",
+                "number": "2"
+              },
+              {
+                "icon": "📊",
+                "title": "Pełna telemetria",
+                "description": "Metrics, traces, logs – w jednym miejscu, alerty od CI/CD po AI pipeline.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "⚡",
+                "title": "Projektowanie pod SLA",
+                "subtitle": "Stack monitorowania od MVP do skali enterprise."
+              },
+              {
+                "icon": "💡",
+                "title": "Root cause analysis",
+                "subtitle": "Traces pozwalają znaleźć błąd w minutę."
+              },
+              {
+                "icon": "⏲️",
+                "title": "Performance tuning",
+                "subtitle": "Error budgets prowadzą roadmapę refaktorów."
+              },
+              {
+                "icon": "🔁",
+                "title": "Observability as code",
+                "subtitle": "Automatyzacja infra/monitorowania, eksport do BI/reportingu."
+              }
+            ]
+          }
+        },
+        {
+          "title": "🏗️ Architektura & wzorce",
+          "description": "Od makro- po mikroserwisy, eventy, modularność, code quality i czysty kod. Tak buduję długowieczne produkty.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "🏛️", "title": "DDD / Event Storming" },
+              { "icon": "🔄", "title": "CQRS / Event Sourcing" },
+              {
+                "icon": "🔗",
+                "title": "Microservices/Monolith/Macroservice"
+              },
+              { "icon": "🏛️", "title": "Clean/Hexagonal/Onion" },
+              { "icon": "⚖️", "title": "SOLID/GoF" },
+              { "icon": "🧩", "title": "OOP/FP/deklaratywność" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "📦",
+                "title": "Łatwość rozwoju",
+                "description": "Architektura pozwala podłączyć nowych devów w godzinę. Kodelne podziały domenowe, moduły z API kontraktami.",
+                "number": "1"
+              },
+              {
+                "icon": "🔁",
+                "title": "Bezpieczna skalowalność",
+                "description": "Event-driven i CQRS eliminują bottlenecki przy wzroście.",
+                "number": "2"
+              },
+              {
+                "icon": "🔀",
+                "title": "Refaktor bez chaosu",
+                "description": "Każdy rodzaj refaktory, migracje, pivoty biznesowe bez załamań.",
+                "number": "3"
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "🔀",
+                "title": "Każdy nowy projekt",
+                "subtitle": "Projektuję architekturę świadomie, od API do storage."
+              },
+              {
+                "icon": "🔄",
+                "title": "Migracje produktów",
+                "subtitle": "Makro ↔︎ mikro, monolit ↔︎ event-driven."
+              },
+              {
+                "icon": "♻️",
+                "title": "Legacy rescue",
+                "subtitle": "Łatwy port starych systemów do nowoczesnego stacku."
+              },
+              {
+                "icon": "🌍",
+                "title": "Wielodomenowe SaaS",
+                "subtitle": "Architektura, która pozwala na równoległy rozwój różnych domen."
+              }
+            ]
+          }
+        },
+        {
+          "title": "🔌 Integracje & narzędzia produktowe",
+          "description": "Podłączam płatności, wysyłki, automatyzacje i narzędzia SaaS, które pozwalają uruchomić produkt bez blokady developmentu.",
+          "technologies": {
+            "title": "Technologie:",
+            "technologies": [
+              { "icon": "💳", "title": "Stripe" },
+              { "icon": "💾", "title": "Supabase" },
+              { "icon": "📝", "title": "Notion API" },
+              { "icon": "📧", "title": "Resend" },
+              { "icon": "🔔", "title": "OneSignal" },
+              { "icon": "📅", "title": "Calendly" },
+              { "icon": "⚡", "title": "Zapier" },
+              { "icon": "⚙️", "title": "Make" },
+              { "icon": "🔐", "title": "Auth0/Authentik" }
+            ]
+          },
+          "effects": {
+            "title": "Efekt:",
+            "effects": [
+              {
+                "icon": "🏁",
+                "title": "Szybki go‑live",
+                "description": "MVP lub prototyp gotowy do testów i płatności nawet w 1 tydzień zamiast miesięcy developmentu."
+              },
+              {
+                "icon": "🕹️",
+                "title": "Automatyzacja procesów",
+                "description": "Lead generation, onboarding, powiadomienia, kalendarze – bez budowania własnej logiki od zera."
+              },
+              {
+                "icon": "🔗",
+                "title": "Pełna skalowalność",
+                "description": "Dowolna integracja do SaaS, BI, AI czy e-commerce bez customowego zaplecza."
+              }
+            ]
+          },
+          "usages": {
+            "title": "Zastosowanie:",
+            "usages": [
+              {
+                "icon": "💳",
+                "title": "Płatności & subskrypcje",
+                "subtitle": "Stripe obsługuje modele biznesowe SaaS, fakturowanie, refundy, subskrypcje."
+              },
+              {
+                "icon": "📄",
+                "title": "Automatyzacje z Zapier/Make",
+                "subtitle": "Lead scoring, integracje CRM, powiadomienia dla zespołu i klienta."
+              },
+              {
+                "icon": "👥",
+                "title": "Onboarding i notyfikacje",
+                "subtitle": "Calendly, OneSignal – rejestracje, spotkania, powiadomienia push/email."
+              },
+              {
+                "icon": "🧠",
+                "title": "Dane do AI & RAG",
+                "subtitle": "Notion API, Supabase – szybkie podpięcie wiedzy firmowej do czata lub ML."
+              }
+            ]
+          }
+        }
+      ],
+      "cta": {
+        "title": "Chcesz zobaczyć stack w praktyce?",
+        "description": "Zobacz projekty i case studies, w których te technologie są wdrożone – wszystkie produkcyjne.",
+        "link": {
+          "title": "🗂 Zobacz projekty",
+          "description": "Poznasz efekty, stack i decyzje."
+        }
+      }
+    },
+    "faq": {
+      "title": "🤔 Najczęstsze pytania o stack",
+      "questions": [
+        {
+          "question": "Czy zobaczę przykładowy kod lub architekturę?",
+          "answer": "Tak – udostępniam fragmenty repo lub diagramy architektury (po NDA). Publiczne demo/kod znajdziesz w portfolio."
+        },
+        {
+          "question": "Czy mogę wymusić inny stack niż sugerujesz?",
+          "answer": "Możesz, jeśli technologia jest produkcyjna i nie podnosi niepotrzebnie kosztów. Zawsze wspólnie dobieramy rozwiązanie do runway i wymagań Twojego produktu."
+        },
+        {
+          "question": "Czy uwzględniasz obecny stack klienta (np. przy refaktorze)?",
+          "answer": "Tak – zawsze patrzę na to, co masz dziś (technologie, kompetencje zespołu, koszty) i dopiero potem proponuję zmiany. Nie przepalam budżetu dla nowych narzędzi, jeśli obecny stack się broni."
+        },
+        {
+          "question": "Czy stack jest sztywny przez cały projekt?",
+          "answer": "Nie – dopasowuję stack do zmieniających się wymagań w każdej fazie. Każda zmiana musi być uzasadniona i oszacowana (koszt, czas, ryzyko)."
+        },
+        {
+          "question": "Czy wdrażasz bardzo nowe, hype’owe technologie?",
+          "answer": "Testuję je w stagingu, ale do produkcji wybieram tylko te rozwiązania, które mają potwierdzone wdrożenia, dobrą dokumentację i support społeczności."
+        },
+        {
+          "question": "Czy przekazujesz dokumentację i wiedzę przy oddaniu projektu?",
+          "answer": "Tak – pełna dokumentacja stacku, checklisty, rekomendacje na przyszłość. Masz wszystko, by przejąć projekt bez vendor lock-inu ani hidden know-how."
+        },
+        {
+          "question": "Co oferujesz w zakresie CI/CD i monitoringu?",
+          "answer": "CI/CD oparty o GitHub Actions/Vercel, automatyczne testy, staging/production deploy. Monitoring od pierwszego dnia (Grafana, Prometheus, Sentry/Alertmanager)."
+        },
+        {
+          "question": "Czy podejmujesz się refaktoryzacji lub naprawy stacku po innych zespołach?",
+          "answer": "Tak – prostuję architekturę, refaktoryzuję legacy i odzyskuję kontrolę nad kosztami oraz SLA wszędzie tam, gdzie obecny stack blokuje rozwój lub generuje wysokie koszty."
+        }
+      ]
+    },
+    "nextSteps": {
+      "id": "co-dalej",
+      "title": "➡️ Co dalej?",
+      "links": [
+        {
+          "title": "Zobacz projekty",
+          "subtitle": "MVP, refaktoryzacje, AI – dowiezione do produkcji.",
+          "icon": "📂",
+          "linkLabel": "Zobacz efekty →",
+          "link": "$t(paths:projects)"
+        },
+        {
+          "title": "Poznaj proces",
+          "subtitle": "Jak pracuję: od roadmapy do wdrożenia.",
+          "icon": "📋",
+          "linkLabel": "Zobacz krok po kroku →",
+          "link": "$t(paths:process)"
+        },
+        {
+          "title": "O mnie",
+          "subtitle": "Doświadczenie, podejście, efekty dla klientów",
+          "icon": "👤",
+          "linkLabel": "Poznaj moje podejście →",
+          "link": "$t(paths:aboutMe)"
+        },
+        {
+          "title": "Wybierz ścieżkę współpracy",
+          "subtitle": "Pakiety, warunki, dostępność.",
+          "icon": "📦",
+          "linkLabel": "Sprawdź ofertę →",
+          "link": "$t(paths:offer)"
+        }
+      ],
+      "cta": {
+        "title": "Zaczynamy współpracę?",
+        "description": "Widzisz tu realny case dla siebie: MVP, FinOps, refaktoryzacja albo projekt „do ratowania”? Umów rozmowę — konkret, plan działania i decyzje w 30 min.",
+        "links": [
+          {
+            "title": "📅 Umów Strategy Call",
+            "description": "Otrzymasz roadmapę i plan działania w 30 min."
+          },
+          {
+            "title": "📬 Wyślij brief",
+            "description": "Odpowiem w 24h z konkretem."
+          }
+        ]
+      }
+    }
+  }
+}

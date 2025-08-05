@@ -1,0 +1,381 @@
+{
+  "title": "Dla Foundera — MVP w 6 tygodni, SaaS bez długu, efekty | Amadeusz Mileszko",
+  "description": "Buduję MVP SaaS w 6 tygodni – bez długu technicznego i agencji. Demo dla inwestora lub klientów, OPEX pod kontrolą, rollout gotowy do skalowania. Efekty w 30 min.",
+  "sections": {
+    "hero": {
+      "id": "hero",
+      "badge": "Dla Foundera",
+      "title": "🚀 MVP w 6 tygodni – bez długu, bez agencji",
+      "subtitle": "Buduję MVP, które działa, skaluje się i mieści się w runwayu.",
+      "callout": "Od pomysłu do produkcji w 6 tygodni – z pełnym CI/CD, testami i dokumentacją. MVP gotowe do demo dla inwestora lub wejścia na rynek. Koszty pod kontrolą, bez stackowego długu, roadmapa do dalszych rund VC. Pierwsze płatności lub feedback od realnych klientów już po 2 miesiącach.",
+      "cta": [
+        {
+          "title": "📅 Umów rozmowę",
+          "description": "Otrzymasz wstępną roadmapę w 30 min."
+        },
+        {
+          "title": "📦 Sprawdź pakiety",
+          "description": "Poznasz czas, cenę i efekty."
+        }
+      ]
+    },
+    "problems": {
+      "id": "problemy",
+      "title": "😰 Typowe fuck-upy przy budowie MVP",
+      "problems": [
+        {
+          "icon": "👥",
+          "title": "Brak zespołu dev",
+          "description": "Rekrutacja trwa miesiącami. Koszt zespołu zjada cały roczny runway, produkt dalej w powijakach."
+        },
+        {
+          "icon": "⚡",
+          "title": "MVP, które nie przechodzi testu produkcji",
+          "description": "Brak CI/CD, zero testów, demo tylko dla oka. Nie skalujesz, nie masz co pokazać inwestorowi ani uzyskać feedbacku od klienta."
+        },
+        {
+          "icon": "📄",
+          "title": "Oferty w PDF, stack z 2020",
+          "description": "Zero FinOps, zero AI-ready. Za MVP chcą 100k €, ale nikt nie mówi, jakie będziesz miał koszty OPEX po starcie."
+        },
+        {
+          "icon": "🧭",
+          "title": "Chaos w decyzjach technicznych",
+          "description": "Brakuje roadmapy. Decyzje odkładane, delivery się ślimaczy, architektura powstaje na Slacku. Pierwszy commit po 2 miesiącach."
+        },
+        {
+          "icon": "🙈",
+          "title": "Dev team nie dowozi",
+          "description": "Ciągły blame‑game, zmiany wprowadzane w piątki wieczorem, product owner sam dopytuje o każde wdrożenie."
+        }
+      ],
+      "cta": {
+        "title": "Zamiast tego – zobacz inne podejście",
+        "description": "Bez agencji, bez stackowego długu, z MVP gotowym do testów.",
+        "link": {
+          "title": "📋 Zobacz proces krok po kroku",
+          "description": "Sprawdzisz jak buduję MVP od pomysłu do produkcji."
+        }
+      }
+    },
+    "solutions": {
+      "id": "rozwiazanie",
+      "title": "✅ Stack, delivery i decyzje, które robią różnicę",
+      "solutions": [
+        {
+          "icon": "⚡",
+          "title": "MVP w 6 tygodni",
+          "description": "Działające MVP, które można pokazać inwestorowi i testować z realnym userem – bez przepisywania po miesiącu."
+        },
+        {
+          "icon": "👤",
+          "title": "1 osoba → pełen delivery",
+          "description": "Od warsztatu przez architekturę po produkcję – MVP online w 6 tygodni, bez przestojów i zbędnej koordynacji."
+        },
+        {
+          "icon": "💰",
+          "title": "Demo gotowe na pitch",
+          "description": "Pokazujesz realną aplikację, nie mockupy. Tech stack, który można skalować w Q2/Q3, nie tylko zademonstrować."
+        },
+        {
+          "icon": "📊",
+          "title": "Koszty pod kontrolą od dnia 1",
+          "description": "OPEX i TCO ogarnięte na starcie. Alerty i tagi wdrożone w 3 dni. Budżet jasny każdego tygodnia."
+        },
+        {
+          "icon": "🏗️",
+          "title": "Zero długu, zero over-engineeringu",
+          "description": "Projektuję architekturę, która rośnie z produktem – napisana na dziś i na skalę."
+        },
+        {
+          "icon": "🧭",
+          "title": "Pomagam podejmować decyzje",
+          "description": "Stack, scope, AI – podpowiem co działa, a co tylko ładnie wygląda w pitch decku. Czas od decyzji do wdrożenia ↓ 50%."
+        }
+      ]
+    },
+    "caseStudy": {
+      "id": "case-study",
+      "title": "🔍 Zobacz, jak to zrobiłem – Retrivis (AI SaaS)",
+      "caseStudy": {
+        "problem": {
+          "title": "Problem",
+          "description": "Chciałem wystartować z AI SaaS, ale nie było pewne, czy klienci UX widzą realną przewagę – a MVP-owanie AI zawsze wygląda na drogie i czasochłonne. Każdy dzień to spalony runway, a feedback z rynku musi być szybki, by pivotować przed konkurencją."
+        },
+        "solution": {
+          "title": "Rozwiązanie",
+          "description": "W 6 tygodni zbudowałem MVP SaaS dla chatbotów AI (Retrivis): production-ready backend + frontend, pełne procesy płatności, onboarding i demo online. Od początku szerzyłem proof – demo działało na klientach, nie mockupach. Onboarding użytkowników trwał 5 minut – MVP było gotowe do testów bez żadnego wdrażania."
+        },
+        "effects": {
+          "title": "Efekt",
+          "effects": [
+            {
+              "icon": "⚡",
+              "title": "MVP online w 6 tygodni",
+              "description": "Produkt live dla pierwszych userów (nie beta) – gotowy do pokazu VC.",
+              "number": "1"
+            },
+            {
+              "icon": "📈",
+              "title": "50+ leadów w 30 dni",
+              "description": "Szybki feedback z rynku – realni founderzy rejestrowali się do testów.",
+              "number": "2"
+            },
+            {
+              "icon": "💸",
+              "title": "OPEX ↓ 80%",
+              "description": "Od początku minimum kosztów – ogarnięty FinOps, zerowy dług stacku, SaaS gotowy do scale‑up.",
+              "number": "3"
+            }
+          ]
+        },
+        "link": "Zobacz szczegóły →"
+      },
+      "hint": {
+        "title": "Chcesz zobaczyć inne MVP do produkcji – nie tylko AI?",
+        "linkTitle": "Wszystkie case studies i projekty →"
+      }
+    },
+    "process": {
+      "id": "proces-mvp",
+      "title": "🛤️ Tak prowadzę Foundera do MVP",
+      "timeline": [
+        {
+          "icon": "🧭",
+          "title": "Ustalamy cel i zakres MVP",
+          "time": "1 dzień",
+          "subtitle": "Wybieramy 2–4 kluczowe funkcje, określamy metryki sukcesu i limity kosztów."
+        },
+        {
+          "icon": "⚙️",
+          "title": "Dobór architektury i stacku",
+          "time": "1 dzień",
+          "subtitle": "Stack pod runway – bez długu technicznego, gotowy na inwestora lub szybki scale-up."
+        },
+        {
+          "icon": "🏗️",
+          "title": "Budowa MVP",
+          "time": "4–6 tygodni",
+          "subtitle": "CI/CD, staging, testy, klarowny postęp. Demo dla klientów/inwestora gotowe w <6 tygodni."
+        },
+        {
+          "icon": "🚀",
+          "title": "Rollout na produkcję",
+          "time": "0,5 dnia",
+          "subtitle": "Wersja live online — pełen dostęp do kodu i środowisk."
+        },
+        {
+          "icon": "📊",
+          "title": "Wdrożenie pierwszych użytkowników",
+          "time": "1–2 tygodnie",
+          "subtitle": "Iteracje oparte o feedback, szybkie poprawki, monitoring użycia funkcji."
+        }
+      ],
+      "cta": {
+        "title": "Wybierz kolejny krok do MVP bez długu",
+        "description": "Sprawdź szczegóły współpracy lub zobacz pełny proces budowy MVP krok po kroku.",
+        "links": [
+          {
+            "title": "📦 Oferta współpracy",
+            "description": "Poznasz pakiety, modele współpracy i wyceny."
+          },
+          {
+            "title": "🛤️ Proces krok po kroku",
+            "description": "Sprawdzisz przykładowy przebieg realizacji MVP."
+          }
+        ]
+      },
+      "hint": {
+        "title": "🚑 Projekt już ruszył? Problemy po drodze? Nie musisz zaczynać od zera – wchodzę też w istniejące lub niedokończone MVP, naprawiam roadmapę i doprowadzam produkt do klientów."
+      }
+    },
+    "stack": {
+      "id": "stack",
+      "title": "🛠️ Stack, na którym MVP działa od pierwszego dnia",
+      "description": "Stack dobieram zawsze pod runway i realne wymagania. Jeśli Twoja branża/narzędzie tego nie wymaga — nie dopłacasz za stack overkill.",
+      "categories": [
+        {
+          "title": "Stack pod szybki MVP",
+          "description": "Buduję MVP w tygodniach, nie w miesiącach: szybki backend, skalowalna baza, gotowe do demo i feedbacku u klientów.",
+          "technologies": [
+            { "icon": "⚛️", "title": "Next.js/React" },
+            { "icon": "🔷", "title": "TypeScript" },
+            { "icon": "🍃", "title": "Node.js/Express" },
+            { "icon": "🐘", "title": "PostgreSQL" }
+          ]
+        },
+        {
+          "title": "AI & automatyzacja jako przewaga",
+          "description": "Wplatam AI w produkt od pierwszego dnia: chatboty, scoring leadów, generowanie treści, szybki feedback – bez zatrudniania armii ML-developerów.",
+          "technologies": [
+            { "icon": "🧠", "title": "OpenAI/Anthropic/Gemini" },
+            { "icon": "🔗", "title": "LangChain" },
+            { "icon": "📝", "title": "Notion API" }
+          ]
+        },
+        {
+          "title": "Gotowe integracje SaaS",
+          "description": "Wyciągam MVP na produkcję: płatności, powiadomienia, onboarding, subskrypcje – gotowe w kilka dni, nie miesięcy.",
+          "technologies": [
+            { "icon": "💳", "title": "Stripe" },
+            { "icon": "💾", "title": "Supabase" },
+            { "icon": "⚡", "title": "Zapier/Make" },
+            { "icon": "📧", "title": "Resend" }
+          ]
+        },
+        {
+          "title": "Automatyzacja, skalowalność i koszty",
+          "description": "Nie trzeba DevOpsów od dnia 1. Stack zawsze chmurowy, z monitoringiem i kosztami pod kontrolą, MVP gotowe żeby dowolny inżynier mógł przejąć i rozwijać.",
+          "technologies": [
+            { "icon": "☁️", "title": "AWS (Serverless, S3, ECS)" },
+            { "icon": "🐳", "title": "Docker (deploy w 1 kliknięciu)" },
+            { "icon": "📊", "title": "Grafana/Sentry (monitoring ready)" }
+          ]
+        }
+      ],
+      "hint": {
+        "title": "Szukasz konkretnych libek lub integracji?",
+        "linkTitle": "Zobacz pełny stack technologiczny →"
+      }
+    },
+    "effects": {
+      "id": "efekty",
+      "title": "📈 Realne wyniki – bez buzzwordów",
+      "effects": [
+        {
+          "icon": "⚡",
+          "title": "MVP w 6 tygodni",
+          "description": "Zbudowałem MVP: od pomysłu do produkcji – aplikacja gotowa do onboardingu klientów.",
+          "number": "1"
+        },
+        {
+          "icon": "📈",
+          "title": "50+ leadów w 30 dni",
+          "description": "Dowiozłem pierwsze demo – szybkie testy i rozmowy z potencjalnymi klientami.",
+          "number": "2"
+        },
+        {
+          "icon": "💰",
+          "title": "↓ 80% OPEX AWS w 3 tygodnie",
+          "description": "Zoptymalizowałem koszty chmury – tagging, FinOps, refaktor bez przestojów.",
+          "number": "3"
+        },
+        {
+          "icon": "🚀",
+          "title": "↑ 2× release speed",
+          "description": "Wdrożyłem architekturę i CI/CD – zespół dostarcza 2× szybciej.",
+          "number": "4"
+        },
+        {
+          "icon": "💳",
+          "title": "Pierwsze płatności w 2 miesiące",
+          "description": "Klienci zarejestrowani, MVP na rynku – wpływy niemal od razu po launchu.",
+          "number": "5"
+        },
+        {
+          "icon": "🔁",
+          "title": "Retencja 70% po 4 tygodniach",
+          "description": "Produkt realnie rozwiązuje problem — klienci wracają i aktywnie korzystają.",
+          "number": "6"
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "🤔 Często zadawane pytania",
+      "faqs": [
+        {
+          "question": "Nie mam zespołu dev – czy to problem?",
+          "answer": "Nie. Buduję MVP end-to-end, bez potrzeby rekrutacji czy agencji. Potrzebuję jedynie feedbacku co 3–5 dni. Ty decydujesz o priorytetach, ja dowożę produkt gotowy do wejścia na rynek."
+        },
+        {
+          "question": "Nie mam gotowej specyfikacji, makiet ani developmentowego doświadczenia. Czy możesz pomóc ocenić, czy pomysł ma sens i co faktycznie budować?",
+          "answer": "Tak. Wystarczy pomysł lub główne założenia biznesowe. Pomogę wybrać kluczowe funkcje, zbudować roadmapę MVP i ocenię, które elementy faktycznie testować na rynku. Makietę / zakres ustalamy razem – nie potrzebujesz gotowego planu technicznego ani frontendowych rysunków."
+        },
+        {
+          "question": "Ile to potrwa i jak wygląda komunikacja?",
+          "answer": "MVP dowożę w 4–6 tygodni. Demo pokazuję co tydzień. Komunikacja: Slack / mail / Google Meet. Ty decydujesz, ile angażujesz się w cotygodniowe review/progres."
+        },
+        {
+          "question": "Czy zakopiesz mnie w decyzjach technicznych?",
+          "answer": "Od razu proponuję stack pod runway i przyszłe rundy (AI-ready, zero długu). Rekomenduję, dlaczego dany wybór jest optymalny i na co uważać. Ty wybierasz strategię – nie musisz znać się na stacku."
+        },
+        {
+          "question": "Jak wyglądają koszty i czy coś się „rozjeżdża” w trakcie?",
+          "answer": "Przed startem ustalamy jasny budżet – Twoje maksimum to moje ograniczenie. W trakcie dostajesz tygodniowe podsumowanie kosztów chmury i developmentu. Żadnych niespodziewanych faktur."
+        },
+        {
+          "question": "Co jeśli MVP się nie sprzeda lub wymaga zmian?",
+          "answer": "MVP od początku piszę pod szybkie pivoty – każda funkcja ma własny scope i można ją zmieniać po feedbacku. Zawsze zostawiam dokumentację, checklistę feature’ów i zalecenia na dalszy rozwój."
+        },
+        {
+          "question": "Czy po wydaniu MVP mogę skalować lub przekazać projekt dalej?",
+          "answer": "Tak. Kod, CI/CD, dokumentacja – wszystko gotowe do onboardingu nowego zespołu lub kolejnej rundy. Ty masz pełen dostęp, żaden vendor lock-in ani zamknięty stack."
+        },
+        {
+          "question": "Czy mogę przetestować MVP z prawdziwymi użytkownikami w trakcie developmentu?",
+          "answer": "Tak. Robię rollout środowiska testowego i produkcyjnego wcześnie, żebyś mógł pokazać MVP inwestorowi lub puścić pierwszych użytkowników jeszcze przed zakończeniem całości. Demo i wdrożenia są co tydzień."
+        },
+        {
+          "question": "Projekt już trwa albo utknął – czy możesz pomóc wyprowadzić go na rynek?",
+          "answer": "Tak. Wchodzę także w tzw. rescue mission – diagnozuję, gdzie jest problem, i dowożę MVP do wersji produkcyjnej z realnymi użytkownikami."
+        }
+      ]
+    },
+    "contact": {
+      "id": "kontakt",
+      "title": "🤝 Masz pomysł na produkt? Zróbmy z tego MVP.",
+      "callout": "W 30 minut przejdziemy przez założenia Twojego projektu. Zobaczysz możliwy stack, estymację kosztów i plan delivery.",
+      "cta": [
+        {
+          "title": "Strategy Call (30 min)",
+          "description": "Bezpłatna rozmowa o Twoim pomyśle, MVP i możliwej architekturze. Zero buzzwordów – tylko konkretne decyzje.",
+          "icon": "⚡️",
+          "info": "Jestem dostępny: Pon–Pt 9–17.",
+          "linkLabel": "📅 Umów rozmowę"
+        },
+        {
+          "title": "Wyślij brief",
+          "description": "Opisz swój pomysł lub wymagania. W 24h wrócę z oceną, możliwym podejściem i estymacją.",
+          "icon": "📋",
+          "info": "Odpowiadam w ciągu 24h.",
+          "linkLabel": "📬 Wypełnij formularz"
+        }
+      ]
+    },
+    "links": {
+      "id": "linki",
+      "title": "📄 Przydatne linki",
+      "links": [
+        {
+          "icon": "📂",
+          "title": "Projekty i efekty",
+          "subtitle": "Zobacz MVP, które już stoją w produkcji",
+          "linkLabel": "Zobacz projekty →",
+          "link": "$t(paths:projects)"
+        },
+        {
+          "icon": "📋",
+          "title": "Proces krok po kroku",
+          "subtitle": "Od pomysłu do produkcji w 6 tygodni",
+          "linkLabel": "Zobacz proces →",
+          "link": "$t(paths:process)"
+        },
+        {
+          "icon": "📦",
+          "title": "Pakiety i ceny",
+          "subtitle": "Zakres, wycena i modele współpracy",
+          "linkLabel": "Zobacz pakiety →",
+          "link": "$t(paths:offer)"
+        },
+        {
+          "icon": "🧰",
+          "title": "Stack i narzędzia",
+          "subtitle": "Na czym pracuję i dlaczego właśnie tak",
+          "linkLabel": "Zobacz stack →",
+          "link": "$t(paths:stack)"
+        }
+      ]
+    }
+  }
+}
