@@ -22,6 +22,7 @@ const MarkdownArticle = ({
     <article
       className={
         cn(
+          "w-full",
           className,
         )
       }
@@ -99,9 +100,11 @@ const MarkdownArticle = ({
             ),
             strong: ({ children }) => <Strong>{children}</Strong>,
             table: ({ children }) => (
-              <table className="w-full">
-                {children}
-              </table>
+              <div className="w-full overflow-x-auto">
+                <table className="w-full">
+                  {children}
+                </table>
+              </div>
             ),
             td: ({ children }) => (
               <td className="p-4 align-top text-sm">

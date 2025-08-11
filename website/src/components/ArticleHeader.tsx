@@ -13,7 +13,7 @@ const ArticleHeader = ({
   readingTime,
 }: ArticleHeaderProps) => {
   return (
-    <SmallBlock className="flex-row items-center text-xs">
+    <SmallBlock className="flex-row items-center text-center text-xs">
       <Badge className="text-xs">{category}</Badge>
       <span className="text-neutral-500">{readingTime}</span>
       <span className="text-neutral-300">•</span>
