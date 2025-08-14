@@ -24,7 +24,7 @@ const useStructuredData = () => {
       t("paths:github"),
       t("paths:linkedin"),
     ],
-    "url": `${import.meta.env.VITE_HOST_NAME}${t("paths:aboutMe")}/`,
+    "url": `${import.meta.env.VITE_HOST_NAME}${t("paths:aboutMe")}`,
   };
 
   const website: WebSite & { "@id": string } = {
@@ -34,7 +34,7 @@ const useStructuredData = () => {
     "inLanguage": locale,
     "name": t("home:title"),
     "publisher": { "@id": owner["@id"] },
-    "url": `${import.meta.env.VITE_HOST_NAME}/`,
+    "url": import.meta.env.VITE_HOST_NAME,
   };
 
   const webPage: WebPage & { "@id": string } = {
@@ -50,7 +50,7 @@ const useStructuredData = () => {
     "name": typeof config.title === "string" ?
       config.title :
       config.title?.(pageContext) ?? "",
-    "url": `${import.meta.env.VITE_HOST_NAME}${urlOriginal === "/" ? "/" : `${urlOriginal}/`}`,
+    "url": `${import.meta.env.VITE_HOST_NAME}${urlOriginal === "/" ? "" : urlOriginal}`,
   };
 
   return {

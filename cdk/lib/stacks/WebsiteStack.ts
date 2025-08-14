@@ -24,6 +24,7 @@ import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { type Construct } from "constructs";
+import path from "node:path";
 
 interface WebsiteStackProps extends StackProps {
   apiDomainName: string
@@ -84,57 +85,14 @@ class WebsiteStack extends Stack {
       this,
       "ViewerRequestFunction",
       {
-        code: FunctionCode.fromInline(`
-function handler(event) {
-    var request = event.request;
-    var headers = request.headers;
-    var host = headers.host.value;
-    var uri = request.uri;
-
-    function serializeQueryString(querystring) {
-        var qs = [];
-        for (var key in querystring) {
-            if (querystring[key].multiValue) {
-                querystring[key].multiValue.forEach((mv) => {
-                    qs.push(key + "=" + mv.value);
-                });
-            } else {
-                qs.push(key + "=" + querystring[key].value);
-            }
-        }
-        return qs.sort().join('&');
-    }
-
-    if (host.startsWith('www.')) {
-        var nonWwwHost = host.substring(4);
-        var queryString = '';
-
-        if (request.querystring && Object.keys(request.querystring).length > 0) {
-            queryString = '?' + serializeQueryString(request.querystring);
-        }
-
-        return {
-            statusCode: 301,
-            statusDescription: 'Moved Permanently',
-            headers: {
-                'location': { 'value': 'https://' + nonWwwHost + uri + queryString }
-            }
-        };
-    }
-
-    if (uri === '/' || uri.includes('.')) {
-        return request;
-    }
-
-    if (uri.endsWith('/')) {
-        request.uri += 'index.html';
-    }
-    else {
-        request.uri += '/index.html';
-    }
-
-    return request;
-}`),
+        code: FunctionCode.fromFile({
+          filePath: path.join(
+            __dirname,
+            "..",
+            "functions",
+            "url-normalization-function.js",
+          ),
+        }),
       },
     );
 
@@ -235,3 +193,4 @@ function handler(event) {
 }
 
 export { WebsiteStack };
+
