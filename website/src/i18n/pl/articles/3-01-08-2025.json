@@ -1,12 +1,12 @@
 {
-  "title": "Zbuduj MVP SaaS w 6 tygodni — bez długu, bez chaosu | Amadeusz Mileszko",
-  "description": "Dowieź MVP SaaS w 6 tygodni: konkretne flow, stack, procesy. Co spowalnia rollout, jak unikać długu technicznego i co realnie działa — z przykładami.",
+  "title": "Jak zbudować MVP SaaS w 6 tygodni: Proces, stack i roadmapa | Amadeusz Mileszko",
+  "description": "Dowiedz się, jak zbudować i wdrożyć MVP SaaS w 6 tygodni. Poznaj sprawdzony proces, konkretny stack technologiczny (Next.js, Vercel, Convex) i uniknij 4 błędów, które opóźniają projekty.",
   "article": {
     "category": "MVP",
     "date": "1 sierpnia 2025",
-    "description": "MVP SaaS w 6 tygodni — co naprawdę trzeba dowieźć, jak ograniczyć scope, jakie decyzje techniczne przyspieszają rollout. Konkretne stacki, flow i porównanie dwóch podejść.",
+    "description": "Od teorii do praktyki: gotowy proces, stack technologiczny i roadmapa, by dowieźć MVP w 6 tygodni. Zobacz porównanie dwóch scenariuszy wdrożenia i dowiedz się, jak unikać długu technicznego od pierwszego dnia.",
     "readingTime": "4 min czytania",
-    "title": "MVP SaaS w 6 tygodni — ambitne? Realne.",
+    "title": "MVP SaaS w 6 tygodni — ambitne? Realne. Mój proces, stack i roadmapa",
     "linkLabel": "Czytaj więcej →",
     "link": "$t(paths:articles.3-01-08-2025)"
   }

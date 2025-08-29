@@ -17,17 +17,17 @@ const Head = () => {
   } = useStructuredData();
 
   const blogPost: BlogPosting = {
-    "@id": `${import.meta.env.VITE_HOST_NAME}${t("paths:articles.3-01-08-2025")}/#blogPost`,
+    "@id": `${import.meta.env.VITE_HOST_NAME}${t("paths:articles.7-25-08-2025")}/#blogPost`,
     "@type": "BlogPosting",
-    "articleSection": t("articles:articles.3-01-08-2025.article.category"),
+    "articleSection": t("articles:articles.7-25-08-2025.article.category"),
     "author": { "@id": owner["@id"] },
-    "datePublished": new Date("2025-08-01")
+    "datePublished": new Date("2025-08-25")
       .toISOString(),
-    "headline": t("articles:articles.3-01-08-2025.article.title"),
+    "headline": t("articles:articles.7-25-08-2025.article.title"),
     "inLanguage": locale,
     "isPartOf": { "@id": webPage["@id"] },
     "mainEntityOfPage": { "@id": webPage["@id"] },
-    "name": t("articles:articles.3-01-08-2025.article.title"),
+    "name": t("articles:articles.7-25-08-2025.article.title"),
     "publisher": { "@id": owner["@id"] },
   };
 

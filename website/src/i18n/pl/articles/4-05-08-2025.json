@@ -1,13 +1,13 @@
 
 {
-  "title": "Freelancer, software house czy agencja? Jak mądrze wybrać wykonawcę MVP lub rolloutów | Amadeusz Mileszko",
-  "description": "Freelancer, software house czy agencja? Sprawdź, czym różnią się te modele współpracy i jak dobrać odpowiedni wariant do swojego etapu projektu. Porównanie, zalety, ryzyka, rekomendacje.",
+  "title": "Freelancer, software house czy agencja? Jak wybrać partnera IT, by nie przepłacić i dowieźć projekt | Amadeusz Mileszko",
+  "description": "Praktyczne porównanie modeli współpracy: freelancer, software house, agencja. Zobacz tabelę porównawczą, poznaj 5 błędów, które niszczą projekty i dobierz partnera IT idealnie do Twojej sytuacji.",
   "article": {
-    "category": "Zarządzanie produktem",
+    "category": "ProductOps",
     "date": "5 sierpnia 2025",
-    "description": "Porównanie trzech modeli współpracy: freelancer, software house i agencja. Jak działają, czego wymagają i kiedy się sprawdzają. Praktyczny przewodnik dla founderów, CTO i product ownerów.",
+    "description": "Wybór wykonawcy IT to nie casting, a test dopasowania. Poznaj kluczowe różnice, ryzyka i 4 pytania, które musisz sobie zadać, zanim zlecisz MVP, rollout lub refaktoryzację. Przewodnik dla CTO i Founderów.",
     "readingTime": "3 minuty czytania",
-    "title": "Freelancer, software house czy agencja? Jak mądrze wybrać wykonawcę MVP lub rolloutów",
+    "title": "Freelancer, software house czy agencja? Jak wybrać partnera IT i nie stracić pieniędzy",
     "linkLabel": "Czytaj więcej →",
     "link": "$t(paths:articles.4-05-08-2025)"
   }

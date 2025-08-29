@@ -21,7 +21,7 @@ const Head = () => {
     "@type": "BlogPosting",
     "articleSection": t("articles:articles.2-28-07-2025.article.category"),
     "author": { "@id": owner["@id"] },
-    "datePublished": new Date("2025-07-25")
+    "datePublished": new Date("2025-07-28")
       .toISOString(),
     "headline": t("articles:articles.2-28-07-2025.article.title"),
     "inLanguage": locale,

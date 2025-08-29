@@ -1,13 +1,13 @@
 
 {
-  "title": "Obniż koszty chmury bez zmiany stacku – FinOps dla SaaS | Amadeusz Mileszko",
-  "description": "Obniż OPEX w SaaS o 30–80% bez refaktoryzacji: konkretne działania, które wdrożysz w 3 dni. Gdzie ucieka budżet, co zmienić w stagingu, logach i AI, jak kontrolować zużycie.",
+  "title": "Jak obniżyć koszty chmury o 80% w 3 dni? Audyt FinOps bez refaktoryzacji | Amadeusz Mileszko",
+  "description": "Praktyczny przewodnik FinOps: Odkryj 5 obszarów, w których przepalasz budżet na chmurę. Dowiedz się, jak w 3 dni obniżyć OPEX, optymalizując logi, staging, LLM i tagowanie zasobów — bez zmian w kodzie.",
   "article": {
     "category": "FinOps",
     "date": "28 lipca 2025",
-    "description": "Optymalizacja kosztów chmury bez zmiany architektury – konkretne kroki, które obniżą OPEX w 3 dni. Jak uporządkować środowiska, logi i zużycie LLM, żeby nie przepalać budżetu.",
+    "description": "Gotowy, 3-dniowy plan na audyt FinOps. Zidentyfikuj i wyeliminuj 5 głównych źródeł niepotrzebnych kosztów chmury – od środowisk deweloperskich po modele AI. Obniż rachunki bez dotykania architektury.",
     "readingTime": "3 min czytania",
-    "title": "OPEX w dół o 80% w 3 dni. Gdzie naprawdę płacisz najwięcej?",
+    "title": "OPEX w dół o 80% w 3 dni. Jak obniżyć koszty chmury bez refaktoryzacji?",
     "linkLabel": "Czytaj więcej →",
     "link": "$t(paths:articles.2-28-07-2025)"
   }

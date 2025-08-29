@@ -1,0 +1,13 @@
+{
+  "title": "Monolit vs Mikroserwisy: Przewodnik CTO – kiedy zacząć i jak bezpiecznie podzielić system | Amadeusz Mileszko",
+  "description": "Pragmatyczny przewodnik po architekturze: Dlaczego warto zacząć od monolitu, jakie 5 sygnałów świadczy o konieczności podziału i jak to zrobić wzorcem Strangler Fig. Poznaj ukryte koszty mikroserwisów.",
+  "article": {
+    "category": "TechOps",
+    "date": "29 sierpnia 2025",
+    "description": "Dlaczego SaaS powinien startować jako monolit? Poznaj 5 sygnałów, że czas na zmiany i zobacz, jak bezpiecznie podzielić system wzorcem Strangler Fig, nie zatrzymując biznesu.",
+    "readingTime": "4 minuty czytania",
+    "title": "Monolit vs Mikroserwisy: Kiedy i jak podzielić system, żeby nie zabić tempa rozwoju?",
+    "linkLabel": "Czytaj więcej →",
+    "link": "$t(paths:articles.8-29-08-2025)"
+  }
+}

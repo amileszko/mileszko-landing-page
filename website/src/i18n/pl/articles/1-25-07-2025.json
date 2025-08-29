@@ -1,13 +1,13 @@
 
 {
-  "title": "Zredukuj incydenty o 50% bez refaktoryzacji – uptime w SaaS | Amadeusz Mileszko",
-  "description": "Zredukuj liczbę incydentów w swoim SaaS bez przepisywania systemu: 5 kroków, które możesz wdrożyć w 2–3 tygodnie. Feature flagi, canary deploy, podział systemu i rytuały operacyjne.",
+  "title": "Jak zredukować incydenty IT o 50% w 3 tygodnie bez refaktoryzacji | Amadeusz Mileszko",
+  "description": "Odkryj 5 kroków, by zredukować liczbę incydentów IT o 50% w 3 tygodnie — bez przepisywania systemu. Wprowadź feature flagi, automatyczne testy E2E, canary deployment i popraw proces CI/CD, by osiągnąć stabilne wdrożenia.",
   "article": {
     "category": "TechOps",
     "date": "25 lipca 2025",
-    "description": "5 rzeczy, które możesz wdrożyć w 3 tygodnie, żeby zredukować incydenty o 50% — bez przepisywania systemu. Konkretne stacki, mechanizmy rolloutowe i zasady operacyjne.",
-    "readingTime": "3 min czytania",
-    "title": "50% mniej incydentów w 3 tygodnie bez przepisywania systemu",
+    "description": "Praktyczny przewodnik: 5 konkretnych kroków do redukcji incydentów IT o połowę w 2-3 tygodnie. Poznaj techniki takie jak feature flagi, testy E2E, canary deployment i rytuały operacyjne, które zapewnią stabilność systemu bez kosztownej refaktoryzacji.",
+    "readingTime": "4 min czytania",
+    "title": "Jak zmniejszyć liczbę incydentów IT o 50% w 3 tygodnie? 5 kroków do stabilnego systemu",
     "linkLabel": "Czytaj więcej →",
     "link": "$t(paths:articles.1-25-07-2025)"
   }

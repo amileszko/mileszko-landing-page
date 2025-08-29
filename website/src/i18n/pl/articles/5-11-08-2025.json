@@ -1,12 +1,12 @@
 {
-  "title": "Plan na 7 dni: uszczelnij SaaS i zamknij krytyczne luki | Amadeusz Mileszko",
-  "description": "Siedmiodniowy plan bezpieczeństwa dla SaaS — audyt dostępów, automatyczne skany, szyfrowanie i procedury reagowania. Do wdrożenia w małym zespole.",
+  "title": "Audyt bezpieczeństwa SaaS w 7 dni: Jak zamknąć luki i przejść audyt enterprise | Amadeusz Mileszko",
+  "description": "Gotowy, 7-dniowy plan na audyt bezpieczeństwa SaaS. Zamknij 80% krytycznych luk, wdrażając MFA, automatyczne skany (SAST), szyfrowanie i playbook reagowania na incydenty. Przygotuj się na audyt klienta enterprise.",
   "article": {
     "category": "SecOps",
     "date": "11 sierpnia 2025",
-    "description": "7 dni, 7 kroków, które zamkną krytyczne luki w Twoim SaaS. Audyt dostępów, skany podatności, alerty i kopie bezpieczeństwa. Plan stworzony dla małych zespołów i szybkich rolloutów.",
+    "description": "Krok po kroku, dzień po dniu: praktyczny harmonogram audytu bezpieczeństwa dla SaaS. Od audytu dostępów (IAM) i skanów podatności, po testowanie backupów i playbook reagowania na incydenty. Gotowa checklista dla małych zespołów.",
     "readingTime": "4 minuty czytania",
-    "title": "Plan na 7 dni: uszczelnij SaaS i zamknij krytyczne luki",
+    "title": "Audyt bezpieczeństwa SaaS w 7 dni — mój plan na zamknięcie krytycznych luk",
     "linkLabel": "Czytaj więcej →",
     "link": "$t(paths:articles.5-11-08-2025)"
   }

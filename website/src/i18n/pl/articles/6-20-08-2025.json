@@ -1,12 +1,12 @@
 {
-  "title": "Etapy wzrostu SaaS: od MVP do scale-upu — jakie procesy wdrożyć, żeby się nie wykoleić | Amadeusz Mileszko",
-  "description": "SaaS wygląda inaczej w fazie MVP, inaczej przy pierwszych 100 klientach i jeszcze inaczej przy 1000+. Sprawdź, jakie procesy wdrażać na poszczególnych etapach i czego unikać.",
+  "title": "Roadmapa operacyjna SaaS: Jakie procesy wdrażać na etapach od MVP do Scale-up | Amadeusz Mileszko",
+  "description": "Uniknij chaosu i długu technicznego. Poznaj roadmapę operacyjną dla SaaS i dowiedz się, jakie procesy TechOps, FinOps i SecOps wdrażać na etapie MVP, 100 i 1000+ klientów, by skalować biznes bez problemów.",
   "article": {
     "category": "ProductOps",
     "date": "20 sierpnia 2025",
-    "description": "Każdy SaaS rośnie przez etapy: MVP, pierwsze płacące firmy, setki klientów, scale-up. Na każdym z nich potrzebujesz innych procesów, stacku i rytuałów operacyjnych. Mapuję najczęstsze błędy founderów i pokazuję, jak tego uniknąć.",
-    "readingTime": "3 minuty czytania",
-    "title": "Etapy wzrostu SaaS: co wdrażać na MVP, 100 klientów i 1000+?",
+    "description": "To, co działa na etapie MVP, gwarantuje porażkę przy 1000 klientów. Zobacz gotową mapę drogową i checklisty procesów operacyjnych, które musisz wdrożyć na każdym etapie wzrostu SaaS – od walidacji po zgodność z SOC2/ISO.",
+    "readingTime": "4 minuty czytania",
+    "title": "Etapy wzrostu SaaS — moja roadmapa operacyjna od MVP do scale-upu",
     "linkLabel": "Czytaj więcej →",
     "link": "$t(paths:articles.6-20-08-2025)"
   }
