@@ -53,10 +53,12 @@ const Articles = () => {
           description: string
           link: string
           linkLabel: string
+          number: number
           readingTime: string
           title: string
         } }>)
         .map(article => article.article)
+        .sort((a, b) => a.number - b.number)
         .reverse();
     },
     [t],

@@ -2,6 +2,7 @@
   "title": "Roadmapa operacyjna SaaS: Jakie procesy wdrażać na etapach od MVP do Scale-up | Amadeusz Mileszko",
   "description": "Uniknij chaosu i długu technicznego. Poznaj roadmapę operacyjną dla SaaS i dowiedz się, jakie procesy TechOps, FinOps i SecOps wdrażać na etapie MVP, 100 i 1000+ klientów, by skalować biznes bez problemów.",
   "article": {
+    "number": 6,
     "category": "ProductOps",
     "date": "20 sierpnia 2025",
     "description": "To, co działa na etapie MVP, gwarantuje porażkę przy 1000 klientów. Zobacz gotową mapę drogową i checklisty procesów operacyjnych, które musisz wdrożyć na każdym etapie wzrostu SaaS – od walidacji po zgodność z SOC2/ISO.",

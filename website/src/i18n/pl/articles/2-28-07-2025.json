@@ -3,6 +3,7 @@
   "title": "Jak obniżyć koszty chmury o 80% w 3 dni? Audyt FinOps bez refaktoryzacji | Amadeusz Mileszko",
   "description": "Praktyczny przewodnik FinOps: Odkryj 5 obszarów, w których przepalasz budżet na chmurę. Dowiedz się, jak w 3 dni obniżyć OPEX, optymalizując logi, staging, LLM i tagowanie zasobów — bez zmian w kodzie.",
   "article": {
+    "number": 2,
     "category": "FinOps",
     "date": "28 lipca 2025",
     "description": "Gotowy, 3-dniowy plan na audyt FinOps. Zidentyfikuj i wyeliminuj 5 głównych źródeł niepotrzebnych kosztów chmury – od środowisk deweloperskich po modele AI. Obniż rachunki bez dotykania architektury.",
