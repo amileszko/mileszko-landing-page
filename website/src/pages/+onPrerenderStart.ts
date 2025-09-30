@@ -111,7 +111,7 @@ const onPrerenderStart = async (prerenderContext: {
         key,
         path,
       ] of Object.entries(articles)) {
-        articlesMap[`/${key}`] = { pl: path };
+        articlesMap[`/blog/${key}`] = { pl: path };
       }
 
       return articlesMap;

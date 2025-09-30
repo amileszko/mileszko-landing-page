@@ -62,9 +62,12 @@ Promise<Record<string, {
   return articles;
 };
 
+let i18nextInitPromise: Promise<void> | undefined;
+
 const initI18next = async () => {
-  if (!i18next.isInitialized) {
-    await i18next.use(ChainedBackend)
+  i18nextInitPromise ??= (async () => {
+    await i18next
+      .use(ChainedBackend)
       .use(initReactI18next)
       .init({
         backend: {
@@ -77,7 +80,7 @@ const initI18next = async () => {
             resourcesToBackend({
               pl: {
                 articles:
-                { articles: await getArticles() },
+                  { articles: await getArticles() },
               },
             }),
           ],
@@ -111,7 +114,9 @@ const initI18next = async () => {
           "en",
         ],
       });
-  }
+  })();
+
+  await i18nextInitPromise;
 };
 
 export {

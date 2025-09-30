@@ -97,7 +97,7 @@ const onBeforeRoute = (pageContext: { urlParsed: Url }) => {
         key,
         path,
       ] of Object.entries(articles)) {
-        articlesMap[`/${key}`] = { pl: path };
+        articlesMap[`/blog/${key}`] = { pl: path };
       }
 
       return articlesMap;
