@@ -45,6 +45,7 @@ const useStructuredData = () => {
     "description": typeof config.description === "string" ?
       config.description :
       config.description?.(pageContext) ?? "",
+    "image": `${import.meta.env.VITE_HOST_NAME}/image.webp`,
     "inLanguage": locale,
     "isPartOf": { "@id": website["@id"] },
     "name": typeof config.title === "string" ?

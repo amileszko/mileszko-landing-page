@@ -43,6 +43,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </>
         )
       }
+      <meta content="/image.webp" property="og:image" />
+      <meta content="/image.webp" name="twitter:image" />
+      <meta content="summary_large_image" name="twitter:card" />
       <meta
         content="width=device-width,initial-scale=1,viewport-fit=cover"
         name="viewport"
