@@ -1,0 +1,13 @@
+{
+  "title": "SOC 2, ISO 27001, RODO: Jak przygotować SaaS do audytu? [Roadmapa dla CTO] | Amadeusz Mileszko",
+  "description": "Demistyfikacja audytów dla SaaS. Zobacz, czym w praktyce różnią się SOC 2, ISO 27001 i RODO, poznaj ich wspólny techniczny rdzeń i wdróż 4-fazowy plan przygotowań bez paniki.",
+  "article": {
+    "category": "SecOps",
+    "date": "2025-10-06",
+    "description": "SOC 2, ISO 27001 i RODO to nie trzy różne projekty. Poznaj 5 fundamentów, które stanowią 80% pracy audytowej i zobacz realistyczną roadmapę, by przygotować firmę do certyfikacji bez zatrzymywania developmentu.",
+    "readingTime": "5 minut czytania",
+    "title": "Od chaosu do audytu: Jak przygotować SaaS na SOC 2, ISO 27001 i RODO?",
+    "linkLabel": "Czytaj więcej →",
+    "link": "$t(paths:articles.12-06-10-2025)"
+  }
+}
