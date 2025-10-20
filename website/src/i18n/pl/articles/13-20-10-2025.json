@@ -1,0 +1,13 @@
+{
+  "title": "SLA, SLO i Budżet Błędów: Jak zrównoważyć szybkość z niezawodnością w SaaS | Amadeusz Mileszko",
+  "description": "Zrozum, jak mierzyć i zarządzać niezawodnością usług. Poznaj różnicę między SLA, SLO i SLI oraz naucz się wykorzystywać Error Budget, by przestać gasić pożary i wreszcie połączyć stabilność z tempem wdrożeń.",
+  "article": {
+    "category": "TechOps",
+    "date": "2025-10-20",
+    "description": "Praktyczny przewodnik po SLA, SLO i Error Budget dla CTO i Founderów SaaS. Naucz się mierzyć dostępność, definiować cele niezawodności i zarządzać tempem wdrożeń w oparciu o dane, nie intuicję.",
+    "readingTime": "4 minuty czytania",
+    "title": "SLA, SLO i Error Budget: Jak przestać gasić pożary i znaleźć równowagę między szybkością a stabilnością?",
+    "linkLabel": "Czytaj więcej →",
+    "link": "$t(paths:articles.13-20-10-2025)"
+  }
+}
