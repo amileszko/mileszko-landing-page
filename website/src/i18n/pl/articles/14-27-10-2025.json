@@ -1,0 +1,13 @@
+{
+  "title": "FinOps for AI: Jak kontrolować koszty LLM w SaaS? 5 pytań dla CTO | Amadeusz Mileszko",
+  "description": "Twój rachunek za AI rośnie szybciej niż MRR? Poznaj 5 kluczowych pytań FinOps, które musisz zadać, zanim wdrożysz funkcję LLM. Kontroluj koszty przez cache, rate limiting i mądry wybór modeli.",
+  "article": {
+    "category": "FinOps",
+    "date": "2025-10-27",
+    "description": "Zanim zatwierdzisz kolejny sprint AI, zadaj te 5 pytań. Dowiedz się, jak wdrożyć cache, rate limiting i mierzalność cost-per-user, by Twoja nowa, magiczna funkcja nie zabiła Twojej marży.",
+    "readingTime": "4 minuty czytania",
+    "title": "Rachunek za AI zabił Twój MRR? 5 pytań, które musisz zadać, zanim wdrożysz kolejną funkcję LLM.",
+    "linkLabel": "Czytaj więcej →",
+    "link": "$t(paths:articles.14-27-10-2025)"
+  }
+}

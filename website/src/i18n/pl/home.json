@@ -178,7 +178,7 @@
         "packages": [
           {
             "title": "Architecture & Cost Audit",
-            "price": "od 5 tys. zł",
+            "price": "od 5 tys. zł netto",
             "description": "Audyt architektury, wydajności i kosztów. OPEX ↓, release speed ↑, ryzyka ↓ – efekt w 2–3 dni. Dokładne liczby, jasne rekomendacje.",
             "tag": "SZYBKI START",
             "linkLabel": "Zobacz szczegóły →",
@@ -186,7 +186,7 @@
           },
           {
             "title": "MVP Sprint",
-            "price": "od 40 tys. zł",
+            "price": "od 40 tys. zł netto",
             "description": "MVP w 6 tygodni. Stack prod-ready, AI-ready, Cloud-native. Release speed ↑ 2×, zero długu technicznego. Pierwsi klienci / możliwe wpływy już po 2 miesiącach.",
             "tag": "NAJPOPULARNIEJSZY",
             "linkLabel": "Zobacz szczegóły →",
@@ -194,7 +194,7 @@
           },
           {
             "title": "Mentoring CTO / Tech / AI",
-            "price": "od 10 tys. zł/mies.",
+            "price": "od 10 tys. zł/mies. netto",
             "description": "CTO-as-a-service – strategiczne decyzje, roadmapy, wdrożenia AI/chmury, optymalizacje kosztów. Efekty w liczbach.",
             "tag": "DŁUGOTERMINOWO",
             "linkLabel": "Zobacz szczegóły →",
