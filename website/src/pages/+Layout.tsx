@@ -1,15 +1,8 @@
-import { Footer } from "@components";
+import { Footer, Navigation } from "@components";
 import { CookiesPreferences } from "@components/Cookies";
 import { DialogProvider, DialogRenderer } from "@components/Dialog";
 import { type JSX } from "react";
 import { CookiesProvider } from "react-cookie";
-import { clientOnly } from "vike-react/clientOnly";
-
-const Navigation = clientOnly(async () => {
-  const { Navigation } = await import("@components");
-
-  return Navigation;
-});
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (

@@ -74,6 +74,7 @@ const MobileNavigationMenu = ({
       onValueChange={
         onValueChangeHandler
       }
+      orientation="vertical"
       value={menuValue}
       variant={isOpen ? "dark" : "transparent"}
       {...props}

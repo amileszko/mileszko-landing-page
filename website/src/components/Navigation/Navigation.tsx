@@ -2,7 +2,6 @@ import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { usePageContext } from "vike-react/usePageContext";
 
-import { useScreenSize } from "../hooks/useScreenSize";
 import { DesktopNavigationMenu } from "./DesktopNavigationMenu";
 import {
   MobileNavigationMenu,
@@ -43,19 +42,28 @@ const Navigation = (): JSX.Element => {
     },
   ];
 
-  const screenSize = useScreenSize();
-
-  return screenSize === "sm" ?
-    (
+  return (
+    <>
       <MobileNavigationMenu
+        className={
+          `
+            block
+            md:hidden
+          `
+        }
         links={navigationMenuLinks}
       />
-    ) :
-    (
       <DesktopNavigationMenu
+        className={
+          `
+            hidden
+            md:block
+          `
+        }
         links={navigationMenuLinks}
       />
-    );
+    </>
+  );
 };
 
 export { Navigation };
