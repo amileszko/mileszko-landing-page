@@ -47,15 +47,15 @@ const Articles = () => {
         { returnObjects: true },
       ) as Record<string,
         { article:
-        {
-          category: string
-          date: string
-          description: string
-          link: string
-          linkLabel: string
-          readingTime: string
-          title: string
-        } }>)
+          {
+            category: string
+            date: string
+            description: string
+            link: string
+            linkLabel: string
+            readingTime: string
+            title: string
+          } }>)
         .map(article => article.article)
         .sort((a, b) => new Date(a.date)
           .getTime() - new Date(b.date)

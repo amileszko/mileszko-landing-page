@@ -1,11 +1,13 @@
 {
   "name": "@mileszko-landing-page/cdk",
-  "packageManager": "yarn@4.9.2",
+  "private": true,
   "devDependencies": {
-    "aws-cdk": "^2.1021.0",
-    "aws-cdk-lib": "^2.206.0",
-    "constructs": "^10.4.2",
-    "openapi3-ts": "^4.5.0"
+    "@types/node": "^26.6.10",
+    "aws-cdk": "^2.1149.0",
+    "aws-cdk-lib": "^2.278.0",
+    "constructs": "^10.8.1",
+    "openapi3-ts": "^4.6.2",
+    "tsx": "^4.23.15"
   },
   "scripts": {
     "synth": "cdk synth",

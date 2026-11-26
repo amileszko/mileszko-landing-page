@@ -121,8 +121,8 @@ const Table = ({
                       .map((header, headerIndex) => {
                         const actualColumnIndex = headerIndex + 1;
                         const isHighlighted =
-                      highlightLastColumn &&
-                      actualColumnIndex === lastColumnIndex;
+                          highlightLastColumn &&
+                          actualColumnIndex === lastColumnIndex;
 
                         return (
                           <div key={header}>

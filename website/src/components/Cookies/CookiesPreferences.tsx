@@ -181,7 +181,7 @@ const CookiesPreferences = ({ children }: { children: React.ReactNode }) => {
         CookiesDialog,
         {
           acceptedCookiesCategoriesNames:
-        cookies.cookieConsent?.acceptedCookiesCategoriesNames ?? [],
+            cookies.cookieConsent?.acceptedCookiesCategoriesNames ?? [],
           cookiesCategories,
           onSaveConsent: saveConsent,
         },

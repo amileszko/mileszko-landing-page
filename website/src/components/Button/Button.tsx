@@ -32,8 +32,10 @@ const buttonVariants = cva(
           text-brand-500
           after:absolute after:bottom-0 after:left-0 after:h-px after:w-full
           after:bg-transparent after:transition-colors after:duration-200 after:ease-in-out
-          hover:text-brand-600 hover:after:bg-brand-600
-          disabled:hover:text-brand-500 disabled:hover:after:bg-transparent
+          hover:text-brand-600
+          hover:after:bg-brand-600
+          disabled:hover:text-brand-500
+          disabled:hover:after:bg-transparent
         `,
         "cta-primary": `
           rounded-md border-1 border-brand-500 bg-brand-500 px-6

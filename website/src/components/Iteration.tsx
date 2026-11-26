@@ -37,7 +37,7 @@ const Iteration = ({
           <div
             className={
               `
-                flex h-16 w-16 flex-shrink-0 items-center
+                flex h-16 w-16 shrink-0 items-center
                 justify-center rounded-full bg-brand-500 font-bold text-neutral-50
               `
             }

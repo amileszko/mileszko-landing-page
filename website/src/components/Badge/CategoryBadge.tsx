@@ -25,7 +25,7 @@ const categoryBadgeVariants = cva(
 
 const CategoryBadge = ({
   className,
-  isSelected = false,
+  isSelected,
   ...props
 }: CategoryBadgeProps) => (
   <Badge

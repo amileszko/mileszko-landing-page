@@ -120,7 +120,7 @@ class ValidationError extends Error {
 }
 
 const handler = async (event: ContactMessageMultipartRequest):
-Promise<ContactMessageResponse> => {
+  Promise<ContactMessageResponse> => {
   try {
     const boundary = getMultipartBoundary(event.contentType);
 

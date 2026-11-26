@@ -24,8 +24,12 @@ const Switch = ({
             duration-200 ease-in-out
             focus-visible:outline-none
             disabled:cursor-not-allowed disabled:opacity-50
-            data-[state=checked]:border-error-200 data-[state=checked]:bg-error-50 data-[state=checked]:text-error-600 data-[state=checked]:hover:bg-error-100 data-[state=checked]:disabled:hover:bg-error-50
-            data-[state=unchecked]:border-success-500 data-[state=unchecked]:bg-success-500 data-[state=unchecked]:text-neutral-50 data-[state=unchecked]:hover:bg-success-600 data-[state=unchecked]:disabled:hover:bg-success-500
+            data-[state=checked]:border-error-200 data-[state=checked]:bg-error-50 data-[state=checked]:text-error-600
+            data-[state=checked]:hover:bg-error-100
+            data-[state=checked]:disabled:hover:bg-error-50
+            data-[state=unchecked]:border-success-500 data-[state=unchecked]:bg-success-500 data-[state=unchecked]:text-neutral-50
+            data-[state=unchecked]:hover:bg-success-600
+            data-[state=unchecked]:disabled:hover:bg-success-500
           `,
           className,
         )

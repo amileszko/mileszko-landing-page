@@ -106,7 +106,7 @@ export class ApiStack extends Stack {
           SNS_TOPIC_ARN: contactMessagesTopic.topicArn,
         },
         handler: "index.handler",
-        runtime: Runtime.NODEJS_20_X,
+        runtime: Runtime.NODEJS_26_X,
         timeout: Duration.seconds(30),
       },
     );
@@ -119,7 +119,7 @@ export class ApiStack extends Stack {
         code: new AssetCode(dockerImage.cp("/output/contactMessageDeliveredEmailHandler/.")),
         environment: { SES_SENDER_EMAIL: `"${props.contactName}" <${props.contactEmail}>` },
         handler: "index.handler",
-        runtime: Runtime.NODEJS_20_X,
+        runtime: Runtime.NODEJS_26_X,
         timeout: Duration.seconds(30),
       },
     );
@@ -136,7 +136,7 @@ export class ApiStack extends Stack {
           SES_SENDER_EMAIL: `"${props.notificationSenderName}" <${props.notificationSenderEmail}>`,
         },
         handler: "index.handler",
-        runtime: Runtime.NODEJS_20_X,
+        runtime: Runtime.NODEJS_26_X,
         timeout: Duration.seconds(30),
       },
     );

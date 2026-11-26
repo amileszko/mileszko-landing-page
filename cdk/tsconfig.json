@@ -8,7 +8,8 @@
     "outDir": "cdk.out",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node"]
   },
   "include": ["**/*.ts", "**/*.js", "**/*.mjs"],
   "exclude": ["cdk.out"]

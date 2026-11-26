@@ -30,9 +30,9 @@ const NavigationMenu = ({
         animate={
           {
             backgroundColor:
-            variant === "dark" ? "var(--color-neutral-900)" : "var(--color-transparent)",
+              variant === "dark" ? "var(--color-neutral-900)" : "var(--color-transparent)",
             color:
-            variant === "dark" ? "var(--color-neutral-50)" : "var(--color-neutral-900)",
+              variant === "dark" ? "var(--color-neutral-50)" : "var(--color-neutral-900)",
           }
         }
         transition={

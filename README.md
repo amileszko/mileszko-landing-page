@@ -27,45 +27,46 @@ This project uses **Turborepo** with **Yarn Workspaces** to manage three main pa
 ## 🛠️ Technology Stack
 
 ### Frontend (`website/`)
-- **Framework**: [Vike](https://vike.dev/) (React meta-framework)
-- **React**: v19 with React Query for state management
-- **Styling**: Tailwind CSS v4
-- **Build Tool**: Vite
-- **Animations**: Motion (Framer Motion successor)
+- **Framework**: [Vike](https://vike.dev/) 0.4 (React meta-framework)
+- **React**: v19.3 with React Query 5
+- **Styling**: Tailwind CSS v4.3
+- **Build Tool**: Vite 8
+- **Animations**: Motion 14 (Framer Motion successor)
 - **UI Components**: Radix UI primitives
-- **Internationalization**: i18next (Polish primary, English planned)
+- **Internationalization**: i18next 27 / react-i18next 18 (Polish primary, English planned)
 - **Forms**: React Hook Form with Zod validation
 
 ### Backend (`api/`)
-- **Runtime**: AWS Lambda (Node.js 20)
+- **Runtime**: AWS Lambda (Node.js 26)
 - **Language**: TypeScript
-- **Build Tool**: esbuild
-- **Email Templates**: Maizzle framework
+- **Build Tool**: esbuild 0.28
+- **Email Templates**: Maizzle 5 (legacy template syntax; v6 migration tracked separately)
 - **API**: OpenAPI 3.0 with Zod schema validation
 - **AWS Services**: SES, SNS, DynamoDB, S3
 
 ### Infrastructure (`cdk/`)
-- **Infrastructure as Code**: AWS CDK v2
-- **CI/CD**: GitHub Actions integration
+- **Infrastructure as Code**: AWS CDK 2.278
+- **CI/CD**: AWS CodePipeline + CDK Pipelines
 - **Hosting**: CloudFront + S3
 - **Domain**: Route 53 DNS management
 - **SSL**: AWS Certificate Manager
 
 ### Development Tools
-- **Monorepo**: Turborepo for task orchestration
-- **Package Manager**: Yarn v4 with workspaces
-- **Code Quality**: ESLint with comprehensive rule set
-- **Type Checking**: TypeScript across all packages
+- **Monorepo**: Turborepo 2.11
+- **Package Manager**: Yarn 4.19 (vendored in `.yarn/releases`)
+- **Code Quality**: ESLint 10 with type-aware rules
+- **Type Checking**: TypeScript 6 compiler API plus TypeScript 7 native fast check
+- **Tests**: Vitest unit tests and Playwright visual/functional regression
 - **Containerization**: Docker support for production builds
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- **Node.js** 20+
-- **Yarn** 4.9.2+ (configured via `packageManager` field)
+- **Node.js** 26 LTS (see `.nvmrc`; the minimum supported by the package engines is 24)
+- **Yarn** 4.19.0 (vendored via `.yarn/releases`; Corepack is optional)
 - **AWS CLI** (for deployment)
-- **AWS CDK** v2 (installed globally)
+- **AWS CDK** v2 (installed locally in the `cdk` workspace)
 
 ### Installation
 
@@ -80,16 +81,20 @@ yarn install
 
 ### Environment Setup
 
-Create `.env` file in the root directory:
+Create the website env file from the example:
 
 ```bash
-# Required for website development
-API_URL=https://api.mileszko.pl
-
-# Optional
-GOOGLE_TAG_MANAGER_ID=your-gtm-id
-HOST_NAME=https://localhost:3000
+cp website/.env.example website/.env
 ```
+
+Required values:
+
+```bash
+API_URL=https://api.mileszko.pl
+HOST_NAME=https://mileszko.pl
+```
+
+`GOOGLE_TAG_MANAGER_ID` is optional. `HOST_NAME` is required for production builds so canonical URLs and the sitemap cannot silently fall back to `localhost`.
 
 ## 🏃‍♂️ Development
 
@@ -117,6 +122,13 @@ yarn check-types
 
 # Linting
 yarn lint
+
+# Unit tests
+yarn test
+
+# Visual regression (build first, then compare screenshots)
+yarn website:build
+yarn test:visual
 ```
 
 ## 🌐 Website Features
@@ -129,11 +141,11 @@ yarn lint
 - **Contact Form**: Integrated with backend API
 
 ### Performance Optimizations
-- **SSG/SSR**: Server-side generation via Vike
-- **Code Splitting**: Automatic route-based splitting
-- **Image Optimization**: WebP format with fallbacks
-- **SEO**: Comprehensive meta tags and structured data
-- **Analytics**: Google Tag Manager integration
+- **SSG**: Static generation via Vike
+- **Code Splitting**: Route-based splitting
+- **Assets**: WebP images and optimized local assets
+- **SEO**: Meta tags, canonical URLs, sitemap, structured data
+- **Analytics**: Google Tag Manager with Consent Mode defaults
 
 ## 🔧 API Services
 
@@ -145,11 +157,12 @@ yarn lint
 
 ### Email System
 - **Templates**: Responsive HTML emails built with Maizzle
-- **Delivery**: AWS SES with bounce/complaint handling
+- **Delivery**: AWS SES with DKIM signing
 - **Notifications**: Real-time alerts for new contact messages
+- **Feedback handling**: bounce/complaint processing is tracked in the audit backlog
 
 ### API Endpoints
-- `POST /contact` - Submit contact form
+- `POST /contact/messages` - Submit contact form
 - OpenAPI 3.0 specification auto-generated from Zod schemas
 
 ## ☁️ Infrastructure & Deployment
@@ -162,13 +175,14 @@ yarn lint
 - **Monitoring**: CloudWatch logs and metrics
 
 ### Deployment Pipeline
-```bash
-# Deploy infrastructure
-yarn cdk:synth
-yarn cdk:deploy
+Deployment is handled by the AWS CDK Pipeline (`LandingPagePipeline`) on pushes to `main`.
 
-# Manual deployment commands
-cd cdk && cdk deploy --all --require-approval=never
+```bash
+# Validate infrastructure locally (requires Docker)
+yarn cdk:synth
+
+# Manual deployment
+yarn cdk:deploy
 ```
 
 ### Production Domains
@@ -177,31 +191,33 @@ cd cdk && cdk deploy --all --require-approval=never
 
 ## 📊 Monitoring & Analytics
 
-- **Google Tag Manager**: Enhanced ecommerce tracking
-- **AWS CloudWatch**: Lambda performance monitoring
-- **SES**: Email delivery and bounce tracking
-- **Contact Form**: Conversion and spam filtering metrics
+- **Google Tag Manager**: Consent-aware analytics setup
+- **AWS CloudWatch**: Lambda and API Gateway logs
+- **SES**: Domain verification and DKIM signing
+- **Audit backlog**: log retention, alarms, WAF logging, and SES feedback events
 
 ## 🔒 Security Features
 
-- **HTTPS Everywhere**: SSL certificates via AWS ACM  
-- **Content Security Policy**: Comprehensive CSP headers
-- **Input Validation**: Zod schemas for all API inputs
-- **Rate Limiting**: API Gateway throttling
-- **CORS**: Properly configured cross-origin policies
+- **HTTPS Everywhere**: ACM certificates and CloudFront HTTPS redirect
+- **TLS**: CloudFront minimum TLS 1.2_2021; API custom domain TLS 1.2
+- **Input Validation**: Zod schemas for API inputs
+- **CORS**: Restricted to the production website origin
+- **Private Storage**: S3 public access blocked; DynamoDB/S3 encrypted at rest
+- **Audit backlog**: CSP/HSTS/security headers, contact-endpoint rate limiting, PII retention, and email escaping are tracked in `docs/audits/`
 
 ## 🧪 Quality Assurance
 
 ### Code Quality
-- **ESLint**: 15+ plugin comprehensive linting setup
-- **TypeScript**: Strict mode across all packages  
-- **Prettier**: Code formatting (via Stylistic ESLint)
+- **ESLint**: 10 with type-aware rules and React/Tailwind/i18n plugins
+- **TypeScript**: TS 6 compiler API plus TS 7 native fast check
+- **Formatting**: ESLint Stylistic rules
 - **Import Organization**: Automated import sorting
 
-### Testing Strategy
-- **Type Safety**: Full TypeScript coverage
-- **Schema Validation**: Runtime validation with Zod
-- **Build Verification**: Multi-package build testing
+### Testing
+- **Unit tests**: Vitest for API schemas and template utilities
+- **Visual regression**: Playwright snapshots for all 28 routes plus 404 at desktop/mobile
+- **Functional smoke test**: Contact form submission through the generated OpenAPI client
+- **Build verification**: Multi-package builds and CDK synth
 
 ## 📚 Project Scripts
 
@@ -211,16 +227,20 @@ yarn website:start       # Start website dev server
 yarn website:preview     # Preview production build
 
 # Building
+yarn build               # Build all workspaces
 yarn website:build       # Build website for production
-yarn api:build          # Build all Lambda functions
-yarn cdk:synth          # Generate CloudFormation templates
-
-# Deployment
-yarn cdk:deploy         # Deploy infrastructure to AWS
+yarn api:build           # Build all Lambda functions
+yarn cdk:synth           # Generate CloudFormation templates
 
 # Quality
-yarn check-types        # TypeScript checking across packages
-yarn lint              # ESLint across all packages
+yarn lint                # ESLint
+yarn check-types         # TypeScript 6 + TypeScript 7 checks
+yarn check-types:fast    # TypeScript 7 native only
+yarn test                # Vitest unit tests
+yarn test:visual         # Playwright visual/functional tests (build first)
+
+# Deployment
+yarn cdk:deploy          # Deploy infrastructure to AWS
 ```
 
 ## 🤝 Contributing
@@ -243,6 +263,6 @@ This project is private and proprietary. The code serves as a professional portf
 
 ---
 
-**Built with**: React 19 • TypeScript • AWS CDK • Turborepo • Tailwind CSS 4
+**Built with**: React 19.3 • TypeScript 6/7 • Vite 8 • Vike 0.4 • AWS CDK 2.278 • Turborepo • Tailwind CSS 4.3
 
 *This README serves as both documentation and a showcase of technical communication skills.*

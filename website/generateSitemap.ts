@@ -5,9 +5,15 @@ import { generateSitemap } from "sitemap-ts";
 
 dotenvConfig();
 
-generateSitemap({
+const hostName = process.env.HOST_NAME;
+
+if (!hostName) {
+  throw new Error("Missing environment variable: HOST_NAME");
+}
+
+await generateSitemap({
   exclude: ["/404"],
-  hostname: `${process.env.HOST_NAME ?? "https://localhost:3000"}/`,
+  hostname: `${hostName}/`,
   outDir: "dist/client",
 });
 

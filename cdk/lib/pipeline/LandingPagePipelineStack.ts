@@ -39,8 +39,11 @@ class LandingPagePipelineStack extends Stack {
       "Synth",
       {
         commands: [
-          "corepack enable",
+          "cp .yarn/releases/yarn-4.19.0.cjs /usr/local/bin/yarn",
+          "chmod +x /usr/local/bin/yarn",
+          "yarn --version",
           "yarn workspaces focus @mileszko-landing-page/monorepo @mileszko-landing-page/cdk",
+          "git diff --exit-code -- yarn.lock",
           "yarn cdk:synth",
         ],
         input: CodePipelineSource.gitHub(
@@ -76,9 +79,9 @@ class LandingPagePipelineStack extends Stack {
         contactName: props.environments.prod.contactName,
         googleTagManagerId: props.environments.prod.googleTagManagerId,
         notificationRecipientEmail:
-        props.environments.prod.notificationRecipientEmail,
+          props.environments.prod.notificationRecipientEmail,
         notificationSenderEmail:
-        props.environments.prod.notificationSenderEmail,
+          props.environments.prod.notificationSenderEmail,
         notificationSenderName: props.environments.prod.notificationSenderName,
         rootDomainName: props.environments.prod.rootDomainName,
         websiteDomainName: props.environments.prod.websiteDomainName,

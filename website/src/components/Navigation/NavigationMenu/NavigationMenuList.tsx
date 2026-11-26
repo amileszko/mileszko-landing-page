@@ -18,11 +18,11 @@ const NavigationMenuList = ({
     animate={
       {
         backgroundColor:
-        backgroundColor === "dark" ? "var(--color-neutral-900)" : "var(--color-transparent)",
+          backgroundColor === "dark" ? "var(--color-neutral-900)" : "var(--color-transparent)",
         color:
-        textColor === "white" ?
-          "var(--color-neutral-50)" :
-          "var(--color-neutral-900)",
+          textColor === "white" ?
+            "var(--color-neutral-50)" :
+            "var(--color-neutral-900)",
       }
     }
     className={cn(className)}

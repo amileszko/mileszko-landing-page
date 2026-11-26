@@ -1,9 +1,17 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "API_URL",
+    "GOOGLE_TAG_MANAGER_ID",
+    "HOST_NAME"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
+    },
+    "build:api-definition": {
+      "outputs": ["dist/api.json", "dist/api.types.ts"]
     },
     "start": {
       "dependsOn": ["^build"],

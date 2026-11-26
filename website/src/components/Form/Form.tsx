@@ -1,12 +1,12 @@
 import { cn } from "@utils/classNameUtils";
-import { type FormEventHandler } from "react";
+import { type SubmitEventHandler } from "react";
 import { type FieldValues, type FormProviderProps } from "react-hook-form";
 import { FormProvider } from "react-hook-form";
 
 interface FormProps<TFieldValues extends FieldValues = FieldValues>
   extends FormProviderProps<TFieldValues> {
   className?: string
-  onSubmit: FormEventHandler<HTMLFormElement>
+  onSubmit: SubmitEventHandler<HTMLFormElement>
 }
 
 const Form = <TFieldValues extends FieldValues = FieldValues>({

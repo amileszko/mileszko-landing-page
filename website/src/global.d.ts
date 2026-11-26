@@ -3,7 +3,7 @@ declare global {
     gtag?: (
       command: string,
       action: string,
-      parameters?: Record<string, unknown>
+      parameters?: Record<string, unknown>,
     ) => void
   }
 
@@ -15,5 +15,4 @@ declare global {
   }
 }
 
-// eslint-disable-next-line unicorn/require-module-specifiers
 export { };

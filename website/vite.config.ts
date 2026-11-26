@@ -9,7 +9,7 @@ import mkcert from "vite-plugin-mkcert";
 const requiredPublicEnvVars = ["API_URL"];
 const optionalPublicEnvVars = ["GOOGLE_TAG_MANAGER_ID"];
 
-export default defineConfig(() => {
+export default defineConfig(({ command }) => {
   dotenvConfig();
 
   const port = 3000;
@@ -28,7 +28,13 @@ export default defineConfig(() => {
     }
   }
 
-  process.env.VITE_HOST_NAME = process.env.HOST_NAME ?? `https://localhost:${port}`;
+  const hostName = process.env.HOST_NAME;
+
+  if (command === "build" && !hostName) {
+    throw new Error("Missing environment variable: HOST_NAME");
+  }
+
+  process.env.VITE_HOST_NAME = hostName ?? `https://localhost:${port}`;
 
   return {
     plugins: [

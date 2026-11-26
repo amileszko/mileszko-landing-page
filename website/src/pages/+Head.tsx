@@ -10,7 +10,7 @@ const Head = () => {
         import.meta.env.VITE_GOOGLE_TAG_MANAGER_ID && (
           <>
             <script
-              // eslint-disable-next-line @eslint-react/dom/no-dangerously-set-innerhtml
+              // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
               dangerouslySetInnerHTML={
                 {
                   __html:
@@ -28,7 +28,7 @@ gtag('consent', 'default', {
               }
             />
             <script
-              // eslint-disable-next-line @eslint-react/dom/no-dangerously-set-innerhtml
+              // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
               dangerouslySetInnerHTML={
                 {
                   __html:

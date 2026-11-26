@@ -15,7 +15,7 @@ interface CookiesProvidersProps {
 }
 
 const CookiesProviders = ({ cookiesCategoryProviders }:
-CookiesProvidersProps) => {
+  CookiesProvidersProps) => {
   return (
     <Accordion>
       {

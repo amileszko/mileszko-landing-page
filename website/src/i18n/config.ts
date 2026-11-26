@@ -4,11 +4,11 @@ import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next";
 
 const getArticles = async ():
-Promise<Record<string, {
-  article: Record<string, string> & {
-    content?: string
-  }
-}>> => {
+  Promise<Record<string, {
+    article: Record<string, string> & {
+      content?: string
+    }
+  }>> => {
   const articlesContents = import.meta.glob(
     "./pl/articles/*.md",
     {
@@ -44,7 +44,7 @@ Promise<Record<string, {
       );
 
     articles[fileName] = JSON.parse(
-      await meta() as string,
+      await meta(),
     ) as {
       article: Record<string, string> & {
         content?: string
@@ -55,7 +55,7 @@ Promise<Record<string, {
 
     if (contentPath in articlesContents) {
       articles[fileName].article.content =
-      (await articlesContents[contentPath]()) as string;
+        (await articlesContents[contentPath]());
     }
   }
 

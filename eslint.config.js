@@ -14,10 +14,8 @@ import {
 } from "eslint-plugin-import-x";
 import eslintPluginJsonc from "eslint-plugin-jsonc";
 import jsxA11y from "eslint-plugin-jsx-a11y";
-import eslintPluginNewlineDestructuring from "eslint-plugin-newline-destructuring";
 import perfectionist from "eslint-plugin-perfectionist";
 import promise from "eslint-plugin-promise";
-import reactPlugin from "eslint-plugin-react";
 import { configs as reactHooksConfigs } from "eslint-plugin-react-hooks";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import eslintPluginUnusedImports from "eslint-plugin-unused-imports";
@@ -83,21 +81,46 @@ const jsConfig = [
     },
   },
   {
+    files: ["tests/**/*.mjs"],
+    languageOptions: { globals: { ...globals.node } },
+  },
+  {
     extends: [eslintPluginUnicorn.configs.recommended],
     files: [`**/*.{${allScriptsExtensions.join(",")}}`],
     rules: {
+      "unicorn/consistent-boolean-name": "off",
+      "unicorn/default-export-style": "off",
       "unicorn/filename-case": "off",
+      "unicorn/name-replacements": "off",
       "unicorn/no-anonymous-default-export": "off",
       "unicorn/no-array-reverse": "off",
+      "unicorn/no-array-sort": "off",
       "unicorn/no-await-expression-member": "off",
+      "unicorn/no-computed-property-existence-check": "off",
+      "unicorn/no-declarations-before-early-exit": "off",
+      "unicorn/no-non-function-verb-prefix": "off",
+      "unicorn/no-top-level-assignment-in-function": "off",
+      "unicorn/no-unnecessary-global-this": "off",
+      "unicorn/no-unreadable-for-of-expression": "off",
+      // TODO(Iteration 2): fix email-template escaping, then re-enable.
+      "unicorn/no-unsafe-string-replacement": "off",
+      "unicorn/no-useless-else": "off",
       "unicorn/prefer-at": "off",
-      "unicorn/prefer-export-from": [
-        "error",
-        { ignoreUsedVariables: true },
-      ],
+      "unicorn/prefer-continue": "off",
+      "unicorn/prefer-default-parameters": "off",
+      "unicorn/prefer-direct-iteration": "off",
+      "unicorn/prefer-early-return": "off",
+      "unicorn/prefer-export-from": "off",
+      "unicorn/prefer-number-coercion": "off",
+      "unicorn/prefer-split-limit": "off",
       "unicorn/prevent-abbreviations": "off",
+      "unicorn/single-line-block-comment-style": "off",
       "unicorn/text-encoding-identifier-case": "off",
     },
+  },
+  {
+    files: ["cdk/lib/functions/**/*.js"],
+    rules: { "unicorn/require-array-sort-compare": "off" },
   },
   {
     extends: [eslintPluginStylistic.configs.recommended],
@@ -152,6 +175,7 @@ const jsConfig = [
           html: true,
         },
       ],
+      "@stylistic/list-style": "off",
       "@stylistic/max-len": [
         "error",
         {
@@ -201,11 +225,6 @@ const jsConfig = [
     files: [`**/*.{${allScriptsExtensions.join(",")}}`],
   },
   {
-    files: [`**/*.{${allScriptsExtensions.join(",")}}`],
-    plugins: { "newline-destructuring": eslintPluginNewlineDestructuring },
-    rules: { "newline-destructuring/newline": "error" },
-  },
-  {
     extends: [promise.configs["flat/recommended"]],
     files: [`**/*.{${allScriptsExtensions.join(",")}}`],
   },
@@ -248,6 +267,7 @@ const importConfig = [
         createTypeScriptImportResolver({
           noWarnOnMultipleProjects: true,
           project: [
+            "./tsconfig.json",
             "./website/tsconfig.json",
             "./api/tsconfig.json",
             "./cdk/tsconfig.json",
@@ -306,20 +326,11 @@ const tsConfig = [
 
 const reactConfig = [
   {
-    ...reactPlugin.configs.flat.recommended,
-    files: [`./**/*.{${allScriptsExtensions.join(",")}}`],
-    languageOptions: {
-      ...reactPlugin.configs.flat.recommended.languageOptions,
-      globals: { ...globals.browser },
-    },
-    settings: { react: { version: "detect" } },
+    files: [`**/*.{${allScriptsExtensions.join(",")}}`],
+    languageOptions: {globals: { ...globals.browser }},
   },
   {
-    extends: [reactPlugin.configs.flat["jsx-runtime"]],
-    files: [`./**/*.{${allScriptsExtensions.join(",")}}`],
-  },
-  {
-    extends: [reactHooksConfigs["recommended-latest"]],
+    extends: [reactHooksConfigs.flat["recommended-latest"]],
     files: [`./**/*.{${allScriptsExtensions.join(",")}}`],
   },
   {
@@ -346,6 +357,7 @@ const tailwindConfig = [
     rules: {
       ...eslintPluginBetterTailwindcss.configs["recommended-warn"].rules,
       ...eslintPluginBetterTailwindcss.configs["recommended-error"].rules,
+      "better-tailwindcss/enforce-canonical-classes": "off",
       "better-tailwindcss/enforce-consistent-line-wrapping": [
         "error",
         {

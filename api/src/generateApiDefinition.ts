@@ -25,21 +25,21 @@ registry.registerPath(
     path: "/contact/messages",
     request: {
       body:
-      {
-        content:
         {
-          "multipart/form-data":
-          { schema: ContactMessageRequestSchema },
+          content:
+            {
+              "multipart/form-data":
+                { schema: ContactMessageRequestSchema },
+            },
         },
-      },
     },
     responses: {
       200: {
         content:
-        {
-          "application/json":
-          { schema: ContactMessageResponseSchema },
-        },
+          {
+            "application/json":
+              { schema: ContactMessageResponseSchema },
+          },
         description: "Message delivered.",
         headers: {
           "Access-Control-Allow-Headers": { schema: { type: "string" } },
