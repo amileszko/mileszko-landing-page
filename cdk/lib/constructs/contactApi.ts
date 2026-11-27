@@ -73,6 +73,7 @@ const createContactApi = (
 
   if (contactMessagesPath.post) {
     contactMessagesPath.post["x-amazon-apigateway-integration"] = {
+      contentHandling: "CONVERT_TO_TEXT",
       httpMethod: "POST",
       passthroughBehavior: "when_no_templates",
       requestTemplates: {
