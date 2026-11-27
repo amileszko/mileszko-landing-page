@@ -2,10 +2,13 @@ const baseUrl = process.env.BASE_URL ?? "https://mileszko.pl";
 const failures = [];
 
 const fetchPath = async (requestPath) => {
-  const response = await fetch(new URL(
-    requestPath,
-    baseUrl,
-  ));
+  const response = await fetch(
+    new URL(
+      requestPath,
+      baseUrl,
+    ),
+    { signal: AbortSignal.timeout(15_000) },
+  );
 
   if (!response.ok) {
     throw new Error(`${requestPath}: HTTP ${response.status}`);
@@ -136,8 +139,13 @@ checkHeader(
   "max-age=3600",
 );
 
-console.log(`delivery checks: ${baseUrl}`);
-
 if (failures.length > 0) {
-  throw new Error(`Delivery checks failed:\n${failures.join("\n")}`);
+  console.error("Delivery checks failed:");
+  for (const failure of failures) {
+    console.error(`- ${failure}`);
+  }
+  process.exit(1);
 }
+
+console.log(`delivery checks: ${baseUrl}`);
+process.exit(0);
