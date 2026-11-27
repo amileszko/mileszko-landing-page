@@ -20,15 +20,12 @@ import {
   RecordTarget,
 } from "aws-cdk-lib/aws-route53";
 import { ApiGatewayDomain } from "aws-cdk-lib/aws-route53-targets";
-import { CfnWebACL, CfnWebACLAssociation } from "aws-cdk-lib/aws-wafv2";
 import { type Construct } from "constructs";
 import fs from "node:fs";
 import path from "node:path";
 import { type OpenAPIObject } from "openapi3-ts/oas30";
 
 import {
-  CONTACT_API_RATE_LIMIT,
-  CONTACT_API_RATE_WINDOW_SECONDS,
   CONTACT_API_THROTTLE_BURST_LIMIT,
   CONTACT_API_THROTTLE_RATE_LIMIT,
   HSTS_MAX_AGE_SECONDS,
@@ -159,47 +156,6 @@ const createContactApi = (
         throttlingRateLimit: CONTACT_API_THROTTLE_RATE_LIMIT,
       },
       disableExecuteApiEndpoint: true,
-    },
-  );
-
-  const wafVisibilityConfig = {
-    cloudWatchMetricsEnabled: true,
-    metricName: "contact-api-waf",
-    sampledRequestsEnabled: true,
-  };
-
-  const contactApiWaf = new CfnWebACL(
-    scope,
-    "ContactApiWebAcl",
-    {
-      defaultAction: { allow: {} },
-      name: "contact-api",
-      rules: [
-        {
-          action: { block: {} },
-          name: "RateLimitContactApi",
-          priority: 1,
-          statement: {
-            rateBasedStatement: {
-              aggregateKeyType: "IP",
-              evaluationWindowSec: CONTACT_API_RATE_WINDOW_SECONDS,
-              limit: CONTACT_API_RATE_LIMIT,
-            },
-          },
-          visibilityConfig: wafVisibilityConfig,
-        },
-      ],
-      scope: "REGIONAL",
-      visibilityConfig: wafVisibilityConfig,
-    },
-  );
-
-  new CfnWebACLAssociation(
-    scope,
-    "ContactApiWebAclAssociation",
-    {
-      resourceArn: api.deploymentStage.stageArn,
-      webAclArn: contactApiWaf.attrArn,
     },
   );
 

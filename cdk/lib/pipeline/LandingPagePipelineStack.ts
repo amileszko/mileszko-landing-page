@@ -1,4 +1,5 @@
 import { SecretValue, Stack, type StackProps } from "aws-cdk-lib";
+import { BuildSpec } from "aws-cdk-lib/aws-codebuild";
 import { PipelineType } from "aws-cdk-lib/aws-codepipeline";
 import {
   CodeBuildStep,
@@ -63,6 +64,15 @@ class LandingPagePipelineStack extends Stack {
             ),
           },
         ),
+        partialBuildSpec: BuildSpec.fromObject({
+          phases: {
+            install: {
+              "runtime-versions": {
+                nodejs: "26",
+              },
+            },
+          },
+        }),
         primaryOutputDirectory: "cdk/cdk.out",
       },
     );
