@@ -13,6 +13,14 @@ Professional landing page for Amadeusz Mileszko - Senior Full-Stack Architect sp
 
 **Live Site**: [mileszko.pl](https://mileszko.pl)
 
+## Documentation
+
+- [Audit program](docs/audits/README.md)
+- [Architecture overview](docs/architecture/overview.md)
+- [Security and delivery deployment](docs/runbooks/security-deployment.md)
+- [Backup and restore](docs/runbooks/backup-restore.md)
+- [Incident response](docs/runbooks/incident-response.md)
+
 ## 🏗️ Monorepo Structure
 
 This project uses **Turborepo** with **Yarn Workspaces** to manage three main packages:
@@ -72,8 +80,8 @@ This project uses **Turborepo** with **Yarn Workspaces** to manage three main pa
 
 ```bash
 # Clone the repository
-git clone https://github.com/amileszko/landing-dev-mileszko.git
-cd landing-dev-mileszko
+git clone https://github.com/amileszko/mileszko-landing-page.git
+cd mileszko-landing-page
 
 # Install dependencies for all workspaces
 yarn install
@@ -159,7 +167,7 @@ yarn test:visual
 - **Templates**: Responsive HTML emails built with Maizzle
 - **Delivery**: AWS SES with DKIM signing
 - **Notifications**: Real-time alerts for new contact messages
-- **Feedback handling**: bounce/complaint processing is tracked in the audit backlog
+- **Feedback handling**: SES configuration set and feedback topic are implemented in CDK and activate on deployment
 
 ### API Endpoints
 - `POST /contact/messages` - Submit contact form
@@ -192,9 +200,11 @@ yarn cdk:deploy
 ## 📊 Monitoring & Analytics
 
 - **Google Tag Manager**: Consent-aware analytics setup
-- **AWS CloudWatch**: Lambda and API Gateway logs
-- **SES**: Domain verification and DKIM signing
-- **Audit backlog**: log retention, alarms, WAF logging, and SES feedback events
+- **AWS CloudWatch**: Lambda/API logs, alarms, and SNS alarm actions
+- **SES**: Domain verification, DKIM signing, configuration set, and feedback topic
+- **Audit/edge logs**: CloudTrail, CloudFront access logs, and WAF logs are defined in CDK
+- **Backups**: DynamoDB PITR plus a daily AWS Backup plan and S3 versioning/lifecycle are defined in CDK
+- **Deployment**: these controls activate through `docs/runbooks/security-deployment.md`; production is updated separately.
 
 ## 🔒 Security Features
 
@@ -203,7 +213,9 @@ yarn cdk:deploy
 - **Input Validation**: Zod schemas for API inputs
 - **CORS**: Restricted to the production website origin
 - **Private Storage**: S3 public access blocked; DynamoDB/S3 encrypted at rest
-- **Audit backlog**: CSP/HSTS/security headers, contact-endpoint rate limiting, PII retention, and email escaping are tracked in `docs/audits/`
+- **Application controls**: CSP/HSTS/security headers, contact-endpoint rate limiting, PII retention, email escaping, and file validation are implemented in source
+- **Edge controls**: CloudFront WAF, OAC, access logs, AAAA records, and a us-east-1 certificate stack are defined in CDK
+- **Deployment**: live production is updated through the deployment runbook, not by this source tree alone.
 
 ## 🧪 Quality Assurance
 
@@ -214,7 +226,9 @@ yarn cdk:deploy
 - **Import Organization**: Automated import sorting
 
 ### Testing
-- **Unit tests**: Vitest for API schemas and template utilities
+- **Unit tests**: Vitest for API schemas/template utilities, route resolution, and CloudFront functions
+- **Core coverage gate**: `test:coverage:core` covers the unit-testable logic and enforces thresholds
+- **Full coverage report**: `test:coverage:all` includes all TypeScript/TSX source and is informational, not a gate
 - **Visual regression**: Playwright snapshots for all 28 routes plus 404 at desktop/mobile
 - **Functional smoke test**: Contact form submission through the generated OpenAPI client
 - **Build verification**: Multi-package builds and CDK synth
@@ -237,6 +251,8 @@ yarn lint                # ESLint
 yarn check-types         # TypeScript 6 + TypeScript 7 checks
 yarn check-types:fast    # TypeScript 7 native only
 yarn test                # Vitest unit tests
+yarn test:coverage:core  # Gated coverage for core unit-testable logic
+yarn test:coverage:all   # Full-source informational coverage report
 yarn test:visual         # Playwright visual/functional tests (build first)
 
 # Deployment
@@ -253,7 +269,7 @@ This is a personal project, but if you're interested in the architecture or have
 
 ## 📄 License
 
-This project is private and proprietary. The code serves as a professional portfolio piece and business website.
+This is a personal, proprietary project. The public repository is provided for portfolio and review purposes; no open-source license is granted unless a `LICENSE` file is added.
 
 ## 📞 Contact
 

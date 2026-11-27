@@ -3,6 +3,12 @@ import ChainedBackend from "i18next-chained-backend";
 import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next";
 
+import {
+  getAllNamespaces,
+  getPageNamespaces,
+  SHARED_NAMESPACES,
+} from "../routes";
+
 const articleMetadata = import.meta.glob(
   "./pl/articles/*.json",
   {
@@ -56,97 +62,6 @@ const getArticleContent = async (articleId: string): Promise<string> => {
   return loader ? await loader() : "";
 };
 
-const sharedNamespaces = [
-  "paths",
-  "common",
-  "navigation",
-  "footer",
-  "cookies",
-];
-
-const pageNamespaces = [
-  "aboutMe",
-  "articles",
-  "blog",
-  "contact",
-  "cookiesPolicy",
-  "error",
-  "forCto",
-  "forFounders",
-  "forRecruiters",
-  "home",
-  "offer",
-  "privacyPolicy",
-  "process",
-  "projects",
-  "stack",
-];
-
-const allNamespaces = [
-  ...sharedNamespaces,
-  ...pageNamespaces,
-];
-
-const getPageNamespaces = (urlLogical: string): string[] => {
-  if (urlLogical.startsWith("/blog/")) {
-    return [
-      "blog",
-      "articles",
-    ];
-  }
-
-  switch (urlLogical) {
-    case "/": {
-      return [
-        "home",
-        "articles",
-      ];
-    }
-    case "/about-me": {
-      return ["aboutMe"];
-    }
-    case "/blog": {
-      return [
-        "blog",
-        "articles",
-      ];
-    }
-    case "/contact": {
-      return ["contact"];
-    }
-    case "/for-cto": {
-      return ["forCto"];
-    }
-    case "/for-founders": {
-      return ["forFounders"];
-    }
-    case "/for-recruiters": {
-      return ["forRecruiters"];
-    }
-    case "/offer": {
-      return ["offer"];
-    }
-    case "/policies/cookies-policy": {
-      return ["cookiesPolicy"];
-    }
-    case "/policies/privacy-policy": {
-      return ["privacyPolicy"];
-    }
-    case "/process": {
-      return ["process"];
-    }
-    case "/projects": {
-      return ["projects"];
-    }
-    case "/stack": {
-      return ["stack"];
-    }
-    default: {
-      return ["error"];
-    }
-  }
-};
-
 const loadPageNamespaces = async (urlLogical: string) => {
   await i18next.loadNamespaces(getPageNamespaces(urlLogical));
 };
@@ -176,7 +91,7 @@ const initI18next = async () => {
         },
         fallbackLng: false,
         lng: "pl",
-        ns: import.meta.env.SSR ? allNamespaces : sharedNamespaces,
+        ns: import.meta.env.SSR ? getAllNamespaces() : SHARED_NAMESPACES,
         supportedLngs: [
           "pl",
           "en",

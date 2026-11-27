@@ -58,7 +58,7 @@ class LandingPagePipelineStack extends Stack {
           "git diff --exit-code -- yarn.lock",
           "yarn lint",
           "yarn check-types",
-          "yarn test",
+          "yarn test:coverage:core",
           "yarn audit:dependencies",
           "yarn scan:secrets",
           "yarn cdk:synth",

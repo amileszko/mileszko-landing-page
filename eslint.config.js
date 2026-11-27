@@ -26,6 +26,7 @@ const ignoresConfig = {
   ignores: [
     "**/.git/**",
     "**/cdk.out/**",
+    "**/coverage/**",
     "**/dist/**",
     "**/public/**",
     "**/node_modules/**",
@@ -107,8 +108,6 @@ const jsConfig = [
       "unicorn/no-top-level-assignment-in-function": "off",
       "unicorn/no-unnecessary-global-this": "off",
       "unicorn/no-unreadable-for-of-expression": "off",
-      // TODO(Iteration 2): fix email-template escaping, then re-enable.
-      "unicorn/no-unsafe-string-replacement": "off",
       "unicorn/no-useless-else": "off",
       "unicorn/prefer-at": "off",
       "unicorn/prefer-continue": "off",

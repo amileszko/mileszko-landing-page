@@ -30,6 +30,8 @@
     "check:build-size": "yarn workspace @mileszko-landing-page/website check-build-size",
     "check:delivery": "node scripts/check-delivery.mjs",
     "test": "vitest run",
+    "test:coverage:all": "vitest run --coverage --config vitest.coverage-all.config.ts",
+    "test:coverage:core": "vitest run --coverage",
     "test:watch": "vitest",
     "test:visual": "playwright test",
     "test:visual:update": "playwright test --update-snapshots"
@@ -42,6 +44,7 @@
     "@types/node": "^26.6.10",
     "@typescript-eslint/parser": "^8.74.0",
     "@typescript/native": "npm:typescript@7.0.2",
+    "@vitest/coverage-v8": "5.1.2",
     "eslint": "^10.15.0",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-better-tailwindcss": "^4.11.0",

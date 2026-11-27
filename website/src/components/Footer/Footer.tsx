@@ -10,6 +10,9 @@ import { Section } from "../Section";
 import { Separator } from "../Separator";
 import { FooterLinksGroup } from "./FooterLinksGroup";
 
+const CURRENT_YEAR = new Date()
+  .getFullYear();
+
 const Footer = (): JSX.Element => {
   const { locale } = usePageContext();
   const { t } = useTranslation(
@@ -97,9 +100,6 @@ const Footer = (): JSX.Element => {
     },
   ];
 
-  const currentYear = new Date()
-    .getFullYear();
-
   return (
     <Content className="bg-neutral-900">
       <Section asChild>
@@ -137,7 +137,7 @@ const Footer = (): JSX.Element => {
               {
                 t(
                   "footer:copyright",
-                  { year: currentYear },
+                  { year: CURRENT_YEAR },
                 )
               }
             </p>
