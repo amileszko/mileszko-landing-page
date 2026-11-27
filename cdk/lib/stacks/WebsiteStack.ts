@@ -105,6 +105,21 @@ class WebsiteStack extends Stack {
       },
     );
 
+    const cacheHeadersFunction = new CloudFrontFunction(
+      this,
+      "CacheHeadersFunction",
+      {
+        code: FunctionCode.fromFile({
+          filePath: path.join(
+            __dirname,
+            "..",
+            "functions",
+            "cache-headers-function.js",
+          ),
+        }),
+      },
+    );
+
     const cspReportOnly = [
       "default-src 'self'",
       "base-uri 'none'",
@@ -169,6 +184,10 @@ class WebsiteStack extends Stack {
             {
               eventType: FunctionEventType.VIEWER_REQUEST,
               function: viewerRequestFunction,
+            },
+            {
+              eventType: FunctionEventType.VIEWER_RESPONSE,
+              function: cacheHeadersFunction,
             },
           ],
           origin: S3BucketOrigin.withOriginAccessIdentity(

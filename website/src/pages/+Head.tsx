@@ -39,24 +39,14 @@ const Head = () => {
       <link href="/site.webmanifest" rel="manifest" />
       <link
         as="font"
-        href="/fonts/inter-italic-latin-ext.woff2"
-        rel="preload"
-        type="font/woff2"
-      />
-      <link
-        as="font"
-        href="/fonts/inter-italic-latin.woff2"
-        rel="preload"
-        type="font/woff2"
-      />
-      <link
-        as="font"
+        crossOrigin="anonymous"
         href="/fonts/inter-normal-latin-ext.woff2"
         rel="preload"
         type="font/woff2"
       />
       <link
         as="font"
+        crossOrigin="anonymous"
         href="/fonts/inter-normal-latin.woff2"
         rel="preload"
         type="font/woff2"

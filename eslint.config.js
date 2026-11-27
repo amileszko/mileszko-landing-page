@@ -84,6 +84,7 @@ const jsConfig = [
     files: [
       "tests/**/*.mjs",
       "scripts/**/*.mjs",
+      "website/scripts/**/*.mjs",
     ],
     languageOptions: { globals: { ...globals.node } },
     rules: { "unicorn/no-process-exit": "off" },

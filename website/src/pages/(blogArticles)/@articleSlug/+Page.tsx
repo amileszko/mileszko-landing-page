@@ -3,7 +3,10 @@ import { ArticleHeader } from "@components/ArticleHeader";
 import { useArticleId } from "@components/hooks/useArticleId";
 import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
+import { useData } from "vike-react/useData";
 import { usePageContext } from "vike-react/usePageContext";
+
+import { type Data } from "./+data";
 
 const Page = (): JSX.Element => {
   const { locale } = usePageContext();
@@ -11,6 +14,7 @@ const Page = (): JSX.Element => {
     undefined,
     { lng: locale },
   );
+  const { content } = useData<Data>();
   const articleId = useArticleId();
 
   return (
@@ -24,9 +28,7 @@ const Page = (): JSX.Element => {
 
         <Separator />
 
-        <MarkdownArticle
-          markdown={t(`articles:articles.${articleId}.article.content`)}
-        />
+        <MarkdownArticle markdown={content} />
 
         <Separator />
       </Section>

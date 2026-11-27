@@ -27,6 +27,8 @@
     "lint": "yarn api:types && eslint",
     "audit:dependencies": "node scripts/audit-dependencies.mjs",
     "scan:secrets": "node scripts/scan-secrets.mjs",
+    "check:build-size": "yarn workspace @mileszko-landing-page/website check-build-size",
+    "check:delivery": "node scripts/check-delivery.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:visual": "playwright test",

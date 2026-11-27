@@ -12,6 +12,7 @@ declare global {
     interface PageContext {
       locale: string
       Page: () => React.JSX.Element
+      urlLogical?: string
     }
   }
 }

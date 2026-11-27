@@ -13,7 +13,11 @@ const VideoTeaser = ({
         )
       }
       controls
+      height={720}
+      playsInline
       poster="/intro.webp"
+      preload="none"
+      width={1280}
       {...props}
     >
       <source
