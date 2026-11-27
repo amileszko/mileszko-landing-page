@@ -1,9 +1,6 @@
 import { Duration, RemovalPolicy, type StackProps } from "aws-cdk-lib";
 import { DockerImage, Stack } from "aws-cdk-lib";
-import {
-  CertificateValidation,
-  DnsValidatedCertificate,
-} from "aws-cdk-lib/aws-certificatemanager";
+import { type ICertificate } from "aws-cdk-lib/aws-certificatemanager";
 import {
   Function as CloudFrontFunction,
   Distribution,
@@ -11,20 +8,26 @@ import {
   FunctionEventType,
   HeadersFrameOption,
   HeadersReferrerPolicy,
-  OriginAccessIdentity,
   PriceClass,
   ResponseHeadersPolicy,
   ViewerProtocolPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
 import { S3BucketOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
-import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import { Effect, PolicyStatement, ServicePrincipal } from "aws-cdk-lib/aws-iam";
 import {
+  AaaaRecord,
   ARecord,
   type IHostedZone,
   RecordTarget,
 } from "aws-cdk-lib/aws-route53";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
-import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
+import {
+  BlockPublicAccess,
+  Bucket,
+  BucketAccessControl,
+  BucketEncryption,
+  ObjectOwnership,
+} from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { type Construct } from "constructs";
 import path from "node:path";
@@ -33,8 +36,10 @@ import { HSTS_MAX_AGE_SECONDS } from "../constants/security";
 
 interface WebsiteStackProps extends StackProps {
   apiDomainName: string
+  certificate: ICertificate
   googleTagManagerId: string
   hostedZone: IHostedZone
+  webAclArn: string
   websiteDomainName: string
 }
 
@@ -51,19 +56,6 @@ class WebsiteStack extends Stack {
 
     const wwwWebsiteDomainName = `www.${props.websiteDomainName}`;
 
-    // eslint-disable-next-line @typescript-eslint/no-deprecated
-    const certificate = new DnsValidatedCertificate(
-      this,
-      "Certificate",
-      {
-        domainName: props.websiteDomainName,
-        hostedZone: props.hostedZone,
-        region: "us-east-1",
-        subjectAlternativeNames: [wwwWebsiteDomainName],
-        validation: CertificateValidation.fromDns(props.hostedZone),
-      },
-    );
-
     const deployBucket = new Bucket(
       this,
       "DeployBucket",
@@ -75,20 +67,19 @@ class WebsiteStack extends Stack {
       },
     );
 
-    const originAccessIdentity = new OriginAccessIdentity(
+    const accessLogBucket = new Bucket(
       this,
-      "OriginAccessIdentity",
+      "AccessLogBucket",
+      {
+        accessControl: BucketAccessControl.LOG_DELIVERY_WRITE,
+        blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+        encryption: BucketEncryption.S3_MANAGED,
+        enforceSSL: true,
+        lifecycleRules: [{ expiration: Duration.days(90) }],
+        objectOwnership: ObjectOwnership.OBJECT_WRITER,
+        removalPolicy: RemovalPolicy.RETAIN,
+      },
     );
-
-    deployBucket.addToResourcePolicy(new PolicyStatement({
-      actions: ["s3:GetObject"],
-      effect: Effect.ALLOW,
-      principals: [originAccessIdentity.grantPrincipal],
-      resources: [
-        deployBucket.bucketArn,
-        `${deployBucket.bucketArn}/*`,
-      ],
-    }));
 
     const viewerRequestFunction = new CloudFrontFunction(
       this,
@@ -178,7 +169,7 @@ class WebsiteStack extends Stack {
       this,
       "Distribution",
       {
-        certificate: certificate,
+        certificate: props.certificate,
         defaultBehavior: {
           functionAssociations: [
             {
@@ -190,10 +181,7 @@ class WebsiteStack extends Stack {
               function: cacheHeadersFunction,
             },
           ],
-          origin: S3BucketOrigin.withOriginAccessIdentity(
-            deployBucket,
-            { originAccessIdentity },
-          ),
+          origin: S3BucketOrigin.withOriginAccessControl(deployBucket),
           responseHeadersPolicy: responseHeadersPolicy,
           viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         },
@@ -214,9 +202,20 @@ class WebsiteStack extends Stack {
             responsePagePath: "/404.html",
           },
         ],
+        logBucket: accessLogBucket,
+        logFilePrefix: "cloudfront/",
         priceClass: PriceClass.PRICE_CLASS_100,
+        webAclId: props.webAclArn,
       },
     );
+
+    accessLogBucket.addToResourcePolicy(new PolicyStatement({
+      actions: ["s3:PutObject"],
+      conditions: { StringEquals: { "AWS:SourceArn": distribution.distributionArn } },
+      effect: Effect.ALLOW,
+      principals: [new ServicePrincipal("cloudfront.amazonaws.com")],
+      resources: [`${accessLogBucket.bucketArn}/*`],
+    }));
 
     new ARecord(
       this,
@@ -228,9 +227,29 @@ class WebsiteStack extends Stack {
       },
     );
 
+    new AaaaRecord(
+      this,
+      "AliasIpv6Record",
+      {
+        recordName: props.websiteDomainName + ".",
+        target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+        zone: props.hostedZone,
+      },
+    );
+
     new ARecord(
       this,
       "WwwAliasRecord",
+      {
+        recordName: wwwWebsiteDomainName + ".",
+        target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+        zone: props.hostedZone,
+      },
+    );
+
+    new AaaaRecord(
+      this,
+      "WwwAliasIpv6Record",
       {
         recordName: wwwWebsiteDomainName + ".",
         target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),

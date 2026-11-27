@@ -1,4 +1,6 @@
-import { Stack, type StackProps } from "aws-cdk-lib";
+import { Duration, RemovalPolicy, Stack, type StackProps } from "aws-cdk-lib";
+import { Trail } from "aws-cdk-lib/aws-cloudtrail";
+import { RetentionDays } from "aws-cdk-lib/aws-logs";
 import {
   CaaRecord,
   CaaTag,
@@ -6,6 +8,11 @@ import {
   PublicHostedZone,
   TxtRecord,
 } from "aws-cdk-lib/aws-route53";
+import {
+  BlockPublicAccess,
+  Bucket,
+  BucketEncryption,
+} from "aws-cdk-lib/aws-s3";
 import { EmailIdentity, Identity } from "aws-cdk-lib/aws-ses";
 import { type Construct } from "constructs";
 
@@ -34,6 +41,32 @@ export class PublicInfrastructureStack extends Stack {
       this,
       "PublicHostedZone",
       { zoneName: props.rootDomainName },
+    );
+
+    const cloudTrailBucket = new Bucket(
+      this,
+      "CloudTrailBucket",
+      {
+        blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+        encryption: BucketEncryption.S3_MANAGED,
+        enforceSSL: true,
+        lifecycleRules: [{ expiration: Duration.days(365) }],
+        removalPolicy: RemovalPolicy.RETAIN,
+        versioned: true,
+      },
+    );
+
+    new Trail(
+      this,
+      "ManagementTrail",
+      {
+        bucket: cloudTrailBucket,
+        cloudWatchLogsRetention: RetentionDays.THREE_MONTHS,
+        includeGlobalServiceEvents: true,
+        isMultiRegionTrail: true,
+        sendToCloudWatchLogs: true,
+        trailName: "mileszko-management-trail",
+      },
     );
 
     new EmailIdentity(

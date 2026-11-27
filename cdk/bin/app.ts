@@ -11,6 +11,10 @@ new LandingPagePipelineStack(
   app,
   "LandingPagePipeline",
   {
+    env: {
+      account: config.environments.prod.account,
+      region: config.environments.prod.region,
+    },
     environments: config.environments,
     githubToken: config.githubToken,
     repository: config.repository,

@@ -15,6 +15,7 @@ import {
   MethodLoggingLevel,
   SpecRestApi,
 } from "aws-cdk-lib/aws-apigateway";
+import { BackupPlan, BackupResource } from "aws-cdk-lib/aws-backup";
 import {
   Certificate,
   CertificateValidation,
@@ -25,14 +26,18 @@ import {
   Metric,
   TreatMissingData,
 } from "aws-cdk-lib/aws-cloudwatch";
+import { SnsAction } from "aws-cdk-lib/aws-cloudwatch-actions";
 import { AttributeType, BillingMode, Table } from "aws-cdk-lib/aws-dynamodb";
 import { Effect, PolicyStatement, ServicePrincipal } from "aws-cdk-lib/aws-iam";
+import { Key } from "aws-cdk-lib/aws-kms";
 import {
   Architecture,
   AssetCode,
+  EventInvokeConfig,
   Function,
   Runtime,
 } from "aws-cdk-lib/aws-lambda";
+import { SqsDestination } from "aws-cdk-lib/aws-lambda-destinations";
 import { LogGroup, RetentionDays } from "aws-cdk-lib/aws-logs";
 import {
   ARecord,
@@ -53,6 +58,7 @@ import {
   EmailSubscription,
   LambdaSubscription,
 } from "aws-cdk-lib/aws-sns-subscriptions";
+import { Queue, QueueEncryption } from "aws-cdk-lib/aws-sqs";
 import {
   CfnLoggingConfiguration,
   CfnWebACL,
@@ -134,14 +140,49 @@ export class ApiStack extends Stack {
       },
     );
 
+    const contactBackupPlan = BackupPlan.daily35DayRetention(
+      this,
+      "ContactBackupPlan",
+    );
+
+    contactBackupPlan.addSelection(
+      "ContactMessagesBackup",
+      {
+        allowRestores: true,
+        resources: [BackupResource.fromDynamoDbTable(contactMessagesTable)],
+      },
+    );
+
+    const snsKey = new Key(
+      this,
+      "SnsKey",
+      {
+        alias: "mileszko-contact-sns",
+        enableKeyRotation: true,
+        removalPolicy: RemovalPolicy.RETAIN,
+      },
+    );
+
+    snsKey.addToResourcePolicy(new PolicyStatement({
+      actions: [
+        "kms:Decrypt",
+        "kms:GenerateDataKey*",
+      ],
+      effect: Effect.ALLOW,
+      principals: [new ServicePrincipal("ses.amazonaws.com")],
+      resources: ["*"],
+    }));
+
     const contactMessagesTopic = new Topic(
       this,
       "ContactMessagesTopic",
+      { masterKey: snsKey },
     );
 
     const emailFeedbackTopic = new Topic(
       this,
       "EmailFeedbackTopic",
+      { masterKey: snsKey },
     );
 
     const contactEmailConfigurationSet = new ConfigurationSet(
@@ -193,6 +234,29 @@ export class ApiStack extends Stack {
       this,
       "ApiAccessLogGroup",
       { retention: RetentionDays.ONE_MONTH },
+    );
+
+    const alarmTopic = new Topic(
+      this,
+      "AlarmTopic",
+      {
+        displayName: "Contact API alarms",
+        masterKey: snsKey,
+      },
+    );
+
+    alarmTopic.addSubscription(
+      new EmailSubscription(props.notificationRecipientEmail),
+    );
+
+    const contactAsyncDlq = new Queue(
+      this,
+      "ContactAsyncDlq",
+      {
+        encryption: QueueEncryption.SQS_MANAGED,
+        enforceSSL: true,
+        retentionPeriod: Duration.days(14),
+      },
     );
 
     const dockerImage = DockerImage.fromBuild(
@@ -257,6 +321,28 @@ export class ApiStack extends Stack {
       },
     );
 
+    new EventInvokeConfig(
+      this,
+      "ContactMessageDeliveredEmailInvokeConfig",
+      {
+        function: contactMessageDeliveredEmailHandler,
+        maxEventAge: Duration.hours(6),
+        onFailure: new SqsDestination(contactAsyncDlq),
+        retryAttempts: 2,
+      },
+    );
+
+    new EventInvokeConfig(
+      this,
+      "ContactMessageNotificationEmailInvokeConfig",
+      {
+        function: contactMessageNotificationEmailHandler,
+        maxEventAge: Duration.hours(6),
+        onFailure: new SqsDestination(contactAsyncDlq),
+        retryAttempts: 2,
+      },
+    );
+
     contactMessagesAttachmentsBucket.grantReadWrite(contactMessageHandler);
     contactMessagesAttachmentsBucket
       .grantRead(contactMessageNotificationEmailHandler);
@@ -286,11 +372,17 @@ export class ApiStack extends Stack {
 
     contactMessagesTopic
       .addSubscription(
-        new LambdaSubscription(contactMessageDeliveredEmailHandler),
+        new LambdaSubscription(
+          contactMessageDeliveredEmailHandler,
+          { deadLetterQueue: contactAsyncDlq },
+        ),
       );
     contactMessagesTopic
       .addSubscription(
-        new LambdaSubscription(contactMessageNotificationEmailHandler),
+        new LambdaSubscription(
+          contactMessageNotificationEmailHandler,
+          { deadLetterQueue: contactAsyncDlq },
+        ),
       );
 
     const apiDefinitionDirectory = dockerImage.cp("/output/api.json");
@@ -519,7 +611,9 @@ export class ApiStack extends Stack {
       },
     );
 
-    new Alarm(
+    const alarmAction = new SnsAction(alarmTopic);
+
+    const contactHandlerErrorsAlarm = new Alarm(
       this,
       "ContactHandlerErrorsAlarm",
       {
@@ -536,7 +630,9 @@ export class ApiStack extends Stack {
       },
     );
 
-    new Alarm(
+    contactHandlerErrorsAlarm.addAlarmAction(alarmAction);
+
+    const contactApiServerErrorsAlarm = new Alarm(
       this,
       "ContactApiServerErrorsAlarm",
       {
@@ -553,7 +649,9 @@ export class ApiStack extends Stack {
       },
     );
 
-    new Alarm(
+    contactApiServerErrorsAlarm.addAlarmAction(alarmAction);
+
+    const sesBounceRateAlarm = new Alarm(
       this,
       "SesBounceRateAlarm",
       {
@@ -575,7 +673,9 @@ export class ApiStack extends Stack {
       },
     );
 
-    new Alarm(
+    sesBounceRateAlarm.addAlarmAction(alarmAction);
+
+    const sesComplaintRateAlarm = new Alarm(
       this,
       "SesComplaintRateAlarm",
       {
@@ -596,6 +696,84 @@ export class ApiStack extends Stack {
         treatMissingData: TreatMissingData.NOT_BREACHING,
       },
     );
+
+    sesComplaintRateAlarm.addAlarmAction(alarmAction);
+
+    const contactMessageNotificationErrorsAlarm = new Alarm(
+      this,
+      "ContactMessageNotificationErrorsAlarm",
+      {
+        alarmDescription: "The contact notification email handler is failing.",
+        comparisonOperator:
+          ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+        evaluationPeriods: 1,
+        metric: contactMessageNotificationEmailHandler.metricErrors({
+          period: Duration.minutes(5),
+          statistic: "Sum",
+        }),
+        threshold: 1,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
+      },
+    );
+
+    contactMessageNotificationErrorsAlarm.addAlarmAction(alarmAction);
+
+    const contactMessageDeliveredErrorsAlarm = new Alarm(
+      this,
+      "ContactMessageDeliveredErrorsAlarm",
+      {
+        alarmDescription: "The contact delivered-email handler is failing.",
+        comparisonOperator:
+          ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+        evaluationPeriods: 1,
+        metric: contactMessageDeliveredEmailHandler.metricErrors({
+          period: Duration.minutes(5),
+          statistic: "Sum",
+        }),
+        threshold: 1,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
+      },
+    );
+
+    contactMessageDeliveredErrorsAlarm.addAlarmAction(alarmAction);
+
+    const contactAsyncDlqAlarm = new Alarm(
+      this,
+      "ContactAsyncDlqAlarm",
+      {
+        alarmDescription: "Failed contact email work is waiting in the DLQ.",
+        comparisonOperator:
+          ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+        evaluationPeriods: 1,
+        metric: contactAsyncDlq.metricApproximateNumberOfMessagesVisible({
+          period: Duration.minutes(5),
+          statistic: "Maximum",
+        }),
+        threshold: 1,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
+      },
+    );
+
+    contactAsyncDlqAlarm.addAlarmAction(alarmAction);
+
+    const contactMessagesTopicFailuresAlarm = new Alarm(
+      this,
+      "ContactMessagesTopicFailuresAlarm",
+      {
+        alarmDescription: "SNS failed to deliver a contact message.",
+        comparisonOperator:
+          ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+        evaluationPeriods: 1,
+        metric: contactMessagesTopic.metricNumberOfNotificationsFailed({
+          period: Duration.minutes(5),
+          statistic: "Sum",
+        }),
+        threshold: 1,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
+      },
+    );
+
+    contactMessagesTopicFailuresAlarm.addAlarmAction(alarmAction);
 
     contactMessageHandler.addPermission(
       "InvokeUrl",

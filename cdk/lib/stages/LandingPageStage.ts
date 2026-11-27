@@ -1,9 +1,10 @@
-import { type StageProps } from "aws-cdk-lib";
+import { Stack, type StageProps } from "aws-cdk-lib";
 import { Stage } from "aws-cdk-lib";
 import { type Construct } from "constructs";
 
 import { ApiStack } from "../stacks/ApiStack";
 import { PublicInfrastructureStack } from "../stacks/PublicInfrastructureStack";
+import { WebsiteEdgeStack } from "../stacks/WebsiteEdgeStack";
 import { WebsiteStack } from "../stacks/WebsiteStack";
 
 interface LandingPageStageProps extends StageProps {
@@ -51,13 +52,36 @@ class LandingPageStage extends Stage {
       },
     );
 
+    const environment = {
+      account: props.env?.account ?? Stack.of(scope).account,
+      region: props.env?.region ?? Stack.of(scope).region,
+    };
+
+    const websiteEdgeStack = new WebsiteEdgeStack(
+      this,
+      "WebsiteEdgeStack",
+      {
+        crossRegionReferences: true,
+        env: {
+          account: environment.account,
+          region: "us-east-1",
+        },
+        hostedZone: publicInfrastructureStack.hostedZone,
+        websiteDomainName: props.websiteDomainName,
+      },
+    );
+
     new WebsiteStack(
       this,
       "WebsiteStack",
       {
         apiDomainName: props.apiDomainName,
+        certificate: websiteEdgeStack.certificate,
+        crossRegionReferences: true,
+        env: environment,
         googleTagManagerId: props.googleTagManagerId,
         hostedZone: publicInfrastructureStack.hostedZone,
+        webAclArn: websiteEdgeStack.webAclArn,
         websiteDomainName: props.websiteDomainName,
       },
     );

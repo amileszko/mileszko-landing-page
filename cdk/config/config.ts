@@ -7,6 +7,7 @@ interface Config {
 }
 
 interface Environment {
+  account: string
   apiDomainName: string
   contactEmail: string
   contactName: string
@@ -14,6 +15,7 @@ interface Environment {
   notificationRecipientEmail: string
   notificationSenderEmail: string
   notificationSenderName: string
+  region: string
   rootDomainName: string
   websiteDomainName: string
 }
@@ -32,6 +34,7 @@ interface Secret {
 const config: Config = {
   environments: {
     prod: {
+      account: "001113062250",
       apiDomainName: "api.mileszko.pl",
       contactEmail: "kontakt@mileszko.pl",
       contactName: "Amadeusz Mileszko",
@@ -39,6 +42,7 @@ const config: Config = {
       notificationRecipientEmail: "amadeusz@mileszko.pl",
       notificationSenderEmail: "powiadomienia@mileszko.pl",
       notificationSenderName: "Powiadomienia - Amadeusz Mileszko",
+      region: "eu-central-1",
       rootDomainName: "mileszko.pl",
       websiteDomainName: "mileszko.pl",
     },
