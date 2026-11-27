@@ -41,7 +41,7 @@ class LandingPagePipelineStack extends Stack {
           "npm install -g pnpm@12.24.0",
           "pnpm --version",
           "pnpm install --frozen-lockfile",
-          "pnpm lint",
+          "NODE_OPTIONS=--max-old-space-size=2560 pnpm lint",
           "pnpm check-types",
           "pnpm test:coverage:core",
           "pnpm audit:dependencies",
