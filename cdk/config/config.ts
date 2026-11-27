@@ -2,7 +2,6 @@ interface Config {
   environments: {
     prod: Environment
   }
-  githubToken: Secret
   repository: Repository
 }
 
@@ -22,13 +21,9 @@ interface Environment {
 
 interface Repository {
   branch: string
+  connectionArn: string
   name: string
   owner: string
-}
-
-interface Secret {
-  jsonField: string
-  secretId: string
 }
 
 const config: Config = {
@@ -47,15 +42,13 @@ const config: Config = {
       websiteDomainName: "mileszko.pl",
     },
   },
-  githubToken: {
-    jsonField: "githubToken",
-    secretId: "mileszko-secrets",
-  },
   repository: {
     branch: "main",
+    connectionArn:
+      "arn:aws:codeconnections:eu-central-1:001113062250:connection/edb61b32-d134-4e90-a829-1c947e4fc491",
     name: "mileszko-landing-page",
     owner: "amileszko",
   },
 };
 
-export { config, type Environment, type Repository, type Secret };
+export { config, type Environment, type Repository };

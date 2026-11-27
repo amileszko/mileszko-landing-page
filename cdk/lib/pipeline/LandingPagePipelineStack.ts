@@ -1,4 +1,4 @@
-import { SecretValue, Stack, type StackProps } from "aws-cdk-lib";
+import { Stack, type StackProps } from "aws-cdk-lib";
 import { BuildSpec } from "aws-cdk-lib/aws-codebuild";
 import { PipelineType } from "aws-cdk-lib/aws-codepipeline";
 import {
@@ -9,18 +9,13 @@ import {
 } from "aws-cdk-lib/pipelines";
 import { type Construct } from "constructs";
 
-import {
-  type Environment,
-  type Repository,
-  type Secret,
-} from "../../config/config";
+import { type Environment, type Repository } from "../../config/config";
 import { LandingPageStage } from "../stages/LandingPageStage";
 
 interface LandingPagePipelineStackProps extends StackProps {
   environments: {
     prod: Environment
   }
-  githubToken: Secret
   repository: Repository
 }
 
@@ -54,15 +49,10 @@ class LandingPagePipelineStack extends Stack {
           "pnpm scan:secrets",
           "pnpm cdk:synth",
         ],
-        input: CodePipelineSource.gitHub(
+        input: CodePipelineSource.connection(
           `${props.repository.owner}/${props.repository.name}`,
           props.repository.branch,
-          {
-            authentication: SecretValue.secretsManager(
-              props.githubToken.secretId,
-              { jsonField: props.githubToken.jsonField },
-            ),
-          },
+          { connectionArn: props.repository.connectionArn },
         ),
         partialBuildSpec: BuildSpec.fromObject({
           phases: {
