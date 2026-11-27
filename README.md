@@ -13,14 +13,6 @@ Professional landing page for Amadeusz Mileszko - Senior Full-Stack Architect sp
 
 **Live Site**: [mileszko.pl](https://mileszko.pl)
 
-## Documentation
-
-- [Audit program](docs/audits/README.md)
-- [Architecture overview](docs/architecture/overview.md)
-- [Security and delivery deployment](docs/runbooks/security-deployment.md)
-- [Backup and restore](docs/runbooks/backup-restore.md)
-- [Incident response](docs/runbooks/incident-response.md)
-
 ## 🏗️ Monorepo Structure
 
 This project uses **Turborepo** with **Yarn Workspaces** to manage three main packages:
@@ -167,7 +159,7 @@ yarn test:visual
 - **Templates**: Responsive HTML emails built with Maizzle
 - **Delivery**: AWS SES with DKIM signing
 - **Notifications**: Real-time alerts for new contact messages
-- **Feedback handling**: SES configuration set and feedback topic are implemented in CDK and activate on deployment
+- **Feedback handling**: SES configuration set with a bounce-rate alarm; no feedback SNS topic
 
 ### API Endpoints
 - `POST /contact/messages` - Submit contact form
@@ -200,11 +192,10 @@ yarn cdk:deploy
 ## 📊 Monitoring & Analytics
 
 - **Google Tag Manager**: Consent-aware analytics setup
-- **AWS CloudWatch**: Lambda/API logs, alarms, and SNS alarm actions
-- **SES**: Domain verification, DKIM signing, configuration set, and feedback topic
-- **Audit/edge logs**: CloudTrail, CloudFront access logs, and WAF logs are defined in CDK
-- **Backups**: DynamoDB PITR plus a daily AWS Backup plan and S3 versioning/lifecycle are defined in CDK
-- **Deployment**: these controls activate through `docs/runbooks/security-deployment.md`; production is updated separately.
+- **AWS CloudWatch**: Lambda logs, three contact/API/SES alarms, and one email alarm topic
+- **SES**: Domain verification, DKIM signing, configuration set, and a bounce-rate alarm
+- **Retention**: DynamoDB TTL, deletion protection, and S3 lifecycle; no PITR, AWS Backup, or S3 versioning
+- **Deployment**: production is updated as a separate, approved deployment step.
 
 ## 🔒 Security Features
 
@@ -214,7 +205,7 @@ yarn cdk:deploy
 - **CORS**: Restricted to the production website origin
 - **Private Storage**: S3 public access blocked; DynamoDB/S3 encrypted at rest
 - **Application controls**: CSP/HSTS/security headers, contact-endpoint rate limiting, PII retention, email escaping, and file validation are implemented in source
-- **Edge controls**: CloudFront WAF, OAC, access logs, AAAA records, and a us-east-1 certificate stack are defined in CDK
+- **Edge controls**: OAC, response headers, cache headers, AAAA/CAA records, and a us-east-1 certificate stack are defined in CDK
 - **Deployment**: live production is updated through the deployment runbook, not by this source tree alone.
 
 ## 🧪 Quality Assurance

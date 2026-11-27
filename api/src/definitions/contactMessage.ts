@@ -78,6 +78,8 @@ type ContactMessageResponse = z.infer<typeof ContactMessageResponseSchema>;
 
 export { ContactMessageRequestSchema, ContactMessageResponseSchema };
 
-export type { ContactMessagePayload,
+export type {
+  ContactMessagePayload,
   ContactMessageRequest,
-  ContactMessageResponse };
+  ContactMessageResponse,
+};

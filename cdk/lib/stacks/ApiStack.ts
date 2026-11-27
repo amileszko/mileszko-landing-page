@@ -42,7 +42,6 @@ export class ApiStack extends Stack {
     const functions = createContactFunctions(
       this,
       {
-        contactAsyncDlq: messaging.contactAsyncDlq,
         contactEmail: props.contactEmail,
         contactEmailConfigurationSet: messaging.contactEmailConfigurationSet,
         contactMessagesAttachmentsBucket:
@@ -72,14 +71,8 @@ export class ApiStack extends Stack {
       {
         alarmTopic: messaging.alarmTopic,
         api,
-        contactAsyncDlq: messaging.contactAsyncDlq,
         contactEmailConfigurationSet: messaging.contactEmailConfigurationSet,
-        contactMessageDeliveredEmailHandler:
-          functions.contactMessageDeliveredEmailHandler,
         contactMessageHandler: functions.contactMessageHandler,
-        contactMessageNotificationEmailHandler:
-          functions.contactMessageNotificationEmailHandler,
-        contactMessagesTopic: messaging.contactMessagesTopic,
       },
     );
   }

@@ -31,7 +31,7 @@ const urlEvent = (uri: string, host = "mileszko.pl") => ({
 describe(
   "CloudFront cache headers function",
   () => {
-    const {handler} = loadFunction("./cache-headers-function.js") as {
+    const { handler } = loadFunction("./cache-headers-function.js") as {
       handler: (event: {
         request: { uri: string }
         response: { headers: Record<string, { value: string }> }
@@ -103,7 +103,7 @@ describe(
 describe(
   "CloudFront URL normalization function",
   () => {
-    const {handler} = loadFunction("./url-normalization-function.js") as {
+    const { handler } = loadFunction("./url-normalization-function.js") as {
       handler: (event: {
         request: {
           headers: { host: { value: string } }

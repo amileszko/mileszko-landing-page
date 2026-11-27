@@ -209,9 +209,11 @@ const CtaButtonLabelWithDescription = ({
   );
 };
 
-export { Button,
+export {
+  Button,
   ButtonLoadingIndicator,
   type ButtonProps,
   buttonVariants,
   CtaButtonLabelWithDescription,
-  useButton };
+  useButton,
+};

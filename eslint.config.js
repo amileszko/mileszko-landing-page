@@ -131,34 +131,12 @@ const jsConfig = [
     files: [`**/*.{${allScriptsExtensions.join(",")}}`],
     plugins: { "@stylistic": eslintPluginStylistic },
     rules: {
-      "@stylistic/array-bracket-newline": [
-        "error",
-        {
-          minItems: 2,
-          multiline: true,
-        },
-      ],
-      "@stylistic/array-element-newline": [
-        "error",
-        {
-          minItems: 2,
-          multiline: true,
-        },
-      ],
       "@stylistic/curly-newline": [
         "error",
         {
           minElements: 1,
           multiline: true,
         },
-      ],
-      "@stylistic/function-call-argument-newline": [
-        "error",
-        "always",
-      ],
-      "@stylistic/function-paren-newline": [
-        "error",
-        "multiline-arguments",
       ],
       "@stylistic/indent": [
         "error",
@@ -179,7 +157,22 @@ const jsConfig = [
           html: true,
         },
       ],
-      "@stylistic/list-style": "off",
+      "@stylistic/list-style": [
+        "error",
+        {
+          empty: "ignore",
+          overrides: {
+            "ExportNamedDeclaration": { singleLine: { spacing: "always" } },
+            "ImportDeclaration": { singleLine: { spacing: "always" } },
+            "ObjectPattern": { singleLine: { spacing: "always" } },
+            "{}": { singleLine: { spacing: "always" } },
+          },
+          singleLine: {
+            maxItems: 999,
+            spacing: "never",
+          },
+        },
+      ],
       "@stylistic/max-len": [
         "error",
         {
@@ -198,14 +191,6 @@ const jsConfig = [
         "error",
         { max: 1 },
       ],
-      "@stylistic/object-curly-newline": [
-        "error",
-        {
-          ObjectExpression: { multiline: true },
-          ObjectPattern: { multiline: true },
-        },
-      ],
-      "@stylistic/object-property-newline": "error",
       "@stylistic/operator-linebreak": [
         "error",
         "after",
@@ -331,7 +316,7 @@ const tsConfig = [
 const reactConfig = [
   {
     files: [`**/*.{${allScriptsExtensions.join(",")}}`],
-    languageOptions: {globals: { ...globals.browser }},
+    languageOptions: { globals: { ...globals.browser } },
   },
   {
     extends: [reactHooksConfigs.flat["recommended-latest"]],

@@ -96,16 +96,13 @@ const Page = (): JSX.Element => {
                     title: string
                   }
                   technologies: {
-                    technologies: { icon: string
-                      title: string }[]
+                    technologies: { icon: string, title: string }[]
                     title: string
                   }
                   title: string
                   usages: {
                     title: string
-                    usages: { icon: string
-                      subtitle: string
-                      title: string }[]
+                    usages: { icon: string, subtitle: string, title: string }[]
                   }
                 }[]
               ).map(block => (

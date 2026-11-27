@@ -81,7 +81,6 @@ class LandingPageStage extends Stage {
         env: environment,
         googleTagManagerId: props.googleTagManagerId,
         hostedZone: publicInfrastructureStack.hostedZone,
-        webAclArn: websiteEdgeStack.webAclArn,
         websiteDomainName: props.websiteDomainName,
       },
     );

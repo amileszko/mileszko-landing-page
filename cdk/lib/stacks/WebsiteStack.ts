@@ -13,7 +13,6 @@ import {
   ViewerProtocolPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
 import { S3BucketOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
-import { Effect, PolicyStatement, ServicePrincipal } from "aws-cdk-lib/aws-iam";
 import {
   AaaaRecord,
   ARecord,
@@ -21,13 +20,7 @@ import {
   RecordTarget,
 } from "aws-cdk-lib/aws-route53";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
-import {
-  BlockPublicAccess,
-  Bucket,
-  BucketAccessControl,
-  BucketEncryption,
-  ObjectOwnership,
-} from "aws-cdk-lib/aws-s3";
+import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { type Construct } from "constructs";
 import path from "node:path";
@@ -39,7 +32,6 @@ interface WebsiteStackProps extends StackProps {
   certificate: ICertificate
   googleTagManagerId: string
   hostedZone: IHostedZone
-  webAclArn: string
   websiteDomainName: string
 }
 
@@ -61,22 +53,6 @@ class WebsiteStack extends Stack {
       "DeployBucket",
       {
         accessControl: BucketAccessControl.PRIVATE,
-        lifecycleRules: [{ noncurrentVersionExpiration: Duration.days(30) }],
-        removalPolicy: RemovalPolicy.RETAIN,
-        versioned: true,
-      },
-    );
-
-    const accessLogBucket = new Bucket(
-      this,
-      "AccessLogBucket",
-      {
-        accessControl: BucketAccessControl.LOG_DELIVERY_WRITE,
-        blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
-        encryption: BucketEncryption.S3_MANAGED,
-        enforceSSL: true,
-        lifecycleRules: [{ expiration: Duration.days(90) }],
-        objectOwnership: ObjectOwnership.OBJECT_WRITER,
         removalPolicy: RemovalPolicy.RETAIN,
       },
     );
@@ -202,20 +178,9 @@ class WebsiteStack extends Stack {
             responsePagePath: "/404.html",
           },
         ],
-        logBucket: accessLogBucket,
-        logFilePrefix: "cloudfront/",
         priceClass: PriceClass.PRICE_CLASS_100,
-        webAclId: props.webAclArn,
       },
     );
-
-    accessLogBucket.addToResourcePolicy(new PolicyStatement({
-      actions: ["s3:PutObject"],
-      conditions: { StringEquals: { "AWS:SourceArn": distribution.distributionArn } },
-      effect: Effect.ALLOW,
-      principals: [new ServicePrincipal("cloudfront.amazonaws.com")],
-      resources: [`${accessLogBucket.bucketArn}/*`],
-    }));
 
     new ARecord(
       this,

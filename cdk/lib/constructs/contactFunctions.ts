@@ -4,17 +4,14 @@ import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import {
   Architecture,
   AssetCode,
-  EventInvokeConfig,
   Function,
   Runtime,
 } from "aws-cdk-lib/aws-lambda";
-import { SqsDestination } from "aws-cdk-lib/aws-lambda-destinations";
 import { LogGroup, RetentionDays } from "aws-cdk-lib/aws-logs";
 import { type Bucket } from "aws-cdk-lib/aws-s3";
 import { type ConfigurationSet } from "aws-cdk-lib/aws-ses";
 import { type Topic } from "aws-cdk-lib/aws-sns";
 import { LambdaSubscription } from "aws-cdk-lib/aws-sns-subscriptions";
-import { type Queue } from "aws-cdk-lib/aws-sqs";
 import { type Construct } from "constructs";
 
 import { CONTACT_API_RESERVED_CONCURRENCY } from "../constants/security";
@@ -22,7 +19,6 @@ import { CONTACT_API_RESERVED_CONCURRENCY } from "../constants/security";
 const createContactFunctions = (
   scope: Construct,
   props: {
-    contactAsyncDlq: Queue
     contactEmail: string
     contactEmailConfigurationSet: ConfigurationSet
     contactMessagesAttachmentsBucket: Bucket
@@ -113,28 +109,6 @@ const createContactFunctions = (
     },
   );
 
-  new EventInvokeConfig(
-    scope,
-    "ContactMessageDeliveredEmailInvokeConfig",
-    {
-      function: contactMessageDeliveredEmailHandler,
-      maxEventAge: Duration.hours(6),
-      onFailure: new SqsDestination(props.contactAsyncDlq),
-      retryAttempts: 2,
-    },
-  );
-
-  new EventInvokeConfig(
-    scope,
-    "ContactMessageNotificationEmailInvokeConfig",
-    {
-      function: contactMessageNotificationEmailHandler,
-      maxEventAge: Duration.hours(6),
-      onFailure: new SqsDestination(props.contactAsyncDlq),
-      retryAttempts: 2,
-    },
-  );
-
   props.contactMessagesAttachmentsBucket.grantReadWrite(contactMessageHandler);
   props.contactMessagesAttachmentsBucket
     .grantRead(contactMessageNotificationEmailHandler);
@@ -165,17 +139,11 @@ const createContactFunctions = (
 
   props.contactMessagesTopic
     .addSubscription(
-      new LambdaSubscription(
-        contactMessageDeliveredEmailHandler,
-        { deadLetterQueue: props.contactAsyncDlq },
-      ),
+      new LambdaSubscription(contactMessageDeliveredEmailHandler),
     );
   props.contactMessagesTopic
     .addSubscription(
-      new LambdaSubscription(
-        contactMessageNotificationEmailHandler,
-        { deadLetterQueue: props.contactAsyncDlq },
-      ),
+      new LambdaSubscription(contactMessageNotificationEmailHandler),
     );
 
   return {

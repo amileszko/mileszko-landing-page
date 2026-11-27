@@ -1,12 +1,10 @@
 import { Stack } from "aws-cdk-lib";
 import { type DockerImage } from "aws-cdk-lib";
 import {
-  AccessLogFormat,
   ApiDefinition,
   BasePathMapping,
   Cors,
   DomainName,
-  LogGroupLogDestination,
   MethodLoggingLevel,
   SpecRestApi,
 } from "aws-cdk-lib/aws-apigateway";
@@ -16,14 +14,13 @@ import {
 } from "aws-cdk-lib/aws-certificatemanager";
 import { ServicePrincipal } from "aws-cdk-lib/aws-iam";
 import { type Function } from "aws-cdk-lib/aws-lambda";
-import { LogGroup, RetentionDays } from "aws-cdk-lib/aws-logs";
 import {
   ARecord,
   type IHostedZone,
   RecordTarget,
 } from "aws-cdk-lib/aws-route53";
 import { ApiGatewayDomain } from "aws-cdk-lib/aws-route53-targets";
-import { CfnWebACLAssociation } from "aws-cdk-lib/aws-wafv2";
+import { CfnWebACL, CfnWebACLAssociation } from "aws-cdk-lib/aws-wafv2";
 import { type Construct } from "constructs";
 import fs from "node:fs";
 import path from "node:path";
@@ -36,7 +33,6 @@ import {
   CONTACT_API_THROTTLE_RATE_LIMIT,
   HSTS_MAX_AGE_SECONDS,
 } from "../constants/security";
-import { API_MANAGED_RULE_NAMES, WafWebAcl } from "./waf";
 
 const createContactApi = (
   scope: Construct,
@@ -49,12 +45,6 @@ const createContactApi = (
   },
 ) => {
   const stack = Stack.of(scope);
-  const apiAccessLogGroup = new LogGroup(
-    scope,
-    "ApiAccessLogGroup",
-    { retention: RetentionDays.ONE_MONTH },
-  );
-
   const apiDefinitionDirectory = props.dockerImage.cp("/output/api.json");
   const apiDefinition = JSON.parse(
     fs.readFileSync(
@@ -161,8 +151,6 @@ const createContactApi = (
       apiDefinition: ApiDefinition.fromInline(apiDefinition),
       deploy: true,
       deployOptions: {
-        accessLogDestination: new LogGroupLogDestination(apiAccessLogGroup),
-        accessLogFormat: AccessLogFormat.jsonWithStandardFields(),
         dataTraceEnabled: false,
         loggingLevel: MethodLoggingLevel.ERROR,
         metricsEnabled: true,
@@ -174,20 +162,35 @@ const createContactApi = (
     },
   );
 
-  const contactApiWaf = new WafWebAcl(
+  const wafVisibilityConfig = {
+    cloudWatchMetricsEnabled: true,
+    metricName: "contact-api-waf",
+    sampledRequestsEnabled: true,
+  };
+
+  const contactApiWaf = new CfnWebACL(
     scope,
-    "ContactApiWaf",
+    "ContactApiWebAcl",
     {
-      logGroupName: "aws-waf-logs-contact-api",
-      logRetention: RetentionDays.ONE_MONTH,
-      managedRuleNames: API_MANAGED_RULE_NAMES,
+      defaultAction: { allow: {} },
       name: "contact-api",
-      rateLimit: CONTACT_API_RATE_LIMIT,
-      rateRuleName: "RateLimitContactApi",
-      rateRulePriority: 10,
-      rateWindowSeconds: CONTACT_API_RATE_WINDOW_SECONDS,
+      rules: [
+        {
+          action: { block: {} },
+          name: "RateLimitContactApi",
+          priority: 1,
+          statement: {
+            rateBasedStatement: {
+              aggregateKeyType: "IP",
+              evaluationWindowSec: CONTACT_API_RATE_WINDOW_SECONDS,
+              limit: CONTACT_API_RATE_LIMIT,
+            },
+          },
+          visibilityConfig: wafVisibilityConfig,
+        },
+      ],
       scope: "REGIONAL",
-      visibilityMetricName: "contact-api-waf",
+      visibilityConfig: wafVisibilityConfig,
     },
   );
 
@@ -196,7 +199,7 @@ const createContactApi = (
     "ContactApiWebAclAssociation",
     {
       resourceArn: api.deploymentStage.stageArn,
-      webAclArn: contactApiWaf.webAclArn,
+      webAclArn: contactApiWaf.attrArn,
     },
   );
 

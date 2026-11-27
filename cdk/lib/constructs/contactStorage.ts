@@ -1,5 +1,4 @@
 import { Duration, RemovalPolicy } from "aws-cdk-lib";
-import { BackupPlan, BackupResource } from "aws-cdk-lib/aws-backup";
 import { AttributeType, BillingMode, Table } from "aws-cdk-lib/aws-dynamodb";
 import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
 import { type Construct } from "constructs";
@@ -16,11 +15,9 @@ const createContactStorage = (scope: Construct) => {
         {
           abortIncompleteMultipartUploadAfter: Duration.days(1),
           expiration: Duration.days(CONTACT_DATA_RETENTION_DAYS),
-          noncurrentVersionExpiration: Duration.days(30),
         },
       ],
       removalPolicy: RemovalPolicy.RETAIN,
-      versioned: true,
     },
   );
 
@@ -34,22 +31,8 @@ const createContactStorage = (scope: Construct) => {
         name: "Id",
         type: AttributeType.STRING,
       },
-      pointInTimeRecoverySpecification: {pointInTimeRecoveryEnabled: true},
       removalPolicy: RemovalPolicy.RETAIN,
       timeToLiveAttribute: "ExpiresAt",
-    },
-  );
-
-  const contactBackupPlan = BackupPlan.daily35DayRetention(
-    scope,
-    "ContactBackupPlan",
-  );
-
-  contactBackupPlan.addSelection(
-    "ContactMessagesBackup",
-    {
-      allowRestores: true,
-      resources: [BackupResource.fromDynamoDbTable(contactMessagesTable)],
     },
   );
 
