@@ -51,7 +51,10 @@ class LandingPagePipelineStack extends Stack {
         input: CodePipelineSource.connection(
           `${props.repository.owner}/${props.repository.name}`,
           props.repository.branch,
-          { connectionArn: props.repository.connectionArn },
+          {
+            connectionArn: props.repository.connectionArn,
+            triggerOnPush: true,
+          },
         ),
         partialBuildSpec: BuildSpec.fromObject({
           phases: {
