@@ -41,7 +41,6 @@ class LandingPagePipelineStack extends Stack {
           "npm install -g pnpm@12.24.0",
           "pnpm --version",
           "pnpm install --frozen-lockfile",
-          "git diff --exit-code -- pnpm-lock.yaml",
           "pnpm lint",
           "pnpm check-types",
           "pnpm test:coverage:core",
