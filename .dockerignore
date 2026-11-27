@@ -13,10 +13,6 @@
 .git
 .gitignore
 .gitattributes
-.yarn/*
-!.yarn/releases
-!.yarn/releases/**
-!.yarn/patches
-!.yarn/patches/**
-!.yarn/plugins
-!.yarn/plugins/**
+.pnpm-store
+.pnpm
+pnpm-debug.log*

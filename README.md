@@ -15,7 +15,7 @@ Professional landing page for Amadeusz Mileszko - Senior Full-Stack Architect sp
 
 ## 🏗️ Monorepo Structure
 
-This project uses **Turborepo** with **Yarn Workspaces** to manage three main packages:
+This project uses **Turborepo** with **pnpm workspaces** to manage three main packages:
 
 ```
 ├── website/          # React-based landing page (Vike framework)
@@ -53,7 +53,7 @@ This project uses **Turborepo** with **Yarn Workspaces** to manage three main pa
 
 ### Development Tools
 - **Monorepo**: Turborepo 2.11
-- **Package Manager**: Yarn 4.19 (vendored in `.yarn/releases`)
+- **Package Manager**: pnpm 12.24
 - **Code Quality**: ESLint 10 with type-aware rules
 - **Type Checking**: TypeScript 6 compiler API plus TypeScript 7 native fast check
 - **Tests**: Vitest unit tests and Playwright visual/functional regression
@@ -64,7 +64,7 @@ This project uses **Turborepo** with **Yarn Workspaces** to manage three main pa
 ### Prerequisites
 
 - **Node.js** 26 LTS (see `.nvmrc`; the minimum supported by the package engines is 24)
-- **Yarn** 4.19.0 (vendored via `.yarn/releases`; Corepack is optional)
+- **pnpm** 12.24
 - **AWS CLI** (for deployment)
 - **AWS CDK** v2 (installed locally in the `cdk` workspace)
 
@@ -76,7 +76,7 @@ git clone https://github.com/amileszko/mileszko-landing-page.git
 cd mileszko-landing-page
 
 # Install dependencies for all workspaces
-yarn install
+pnpm install
 ```
 
 ### Environment Setup
@@ -102,7 +102,7 @@ HOST_NAME=https://mileszko.pl
 
 ```bash
 # Start website in development mode
-yarn website:start
+pnpm website:start
 
 # The site will be available at https://localhost:3000
 ```
@@ -111,24 +111,24 @@ yarn website:start
 
 ```bash
 # Build all packages
-yarn build
+pnpm build
 
 # Build specific packages
-yarn website:build
-yarn api:build
+pnpm website:build
+pnpm api:build
 
 # Type checking across all packages
-yarn check-types
+pnpm check-types
 
 # Linting
-yarn lint
+pnpm lint
 
 # Unit tests
-yarn test
+pnpm test
 
 # Visual regression (build first, then compare screenshots)
-yarn website:build
-yarn test:visual
+pnpm website:build
+pnpm test:visual
 ```
 
 ## 🌐 Website Features
@@ -179,10 +179,10 @@ Deployment is handled by the AWS CDK Pipeline (`LandingPagePipeline`) on pushes 
 
 ```bash
 # Validate infrastructure locally (requires Docker)
-yarn cdk:synth
+pnpm cdk:synth
 
 # Manual deployment
-yarn cdk:deploy
+pnpm cdk:deploy
 ```
 
 ### Production Domains
@@ -228,26 +228,26 @@ yarn cdk:deploy
 
 ```bash
 # Development
-yarn website:start       # Start website dev server
-yarn website:preview     # Preview production build
+pnpm website:start       # Start website dev server
+pnpm website:preview     # Preview production build
 
 # Building
-yarn build               # Build all workspaces
-yarn website:build       # Build website for production
-yarn api:build           # Build all Lambda functions
-yarn cdk:synth           # Generate CloudFormation templates
+pnpm build               # Build all workspaces
+pnpm website:build       # Build website for production
+pnpm api:build           # Build all Lambda functions
+pnpm cdk:synth           # Generate CloudFormation templates
 
 # Quality
-yarn lint                # ESLint
-yarn check-types         # TypeScript 6 + TypeScript 7 checks
-yarn check-types:fast    # TypeScript 7 native only
-yarn test                # Vitest unit tests
-yarn test:coverage:core  # Gated coverage for core unit-testable logic
-yarn test:coverage:all   # Full-source informational coverage report
-yarn test:visual         # Playwright visual/functional tests (build first)
+pnpm lint                # ESLint
+pnpm check-types         # TypeScript 6 + TypeScript 7 checks
+pnpm check-types:fast    # TypeScript 7 native only
+pnpm test                # Vitest unit tests
+pnpm test:coverage:core  # Gated coverage for core unit-testable logic
+pnpm test:coverage:all   # Full-source informational coverage report
+pnpm test:visual         # Playwright visual/functional tests (build first)
 
 # Deployment
-yarn cdk:deploy          # Deploy infrastructure to AWS
+pnpm cdk:deploy          # Deploy infrastructure to AWS
 ```
 
 ## 🤝 Contributing

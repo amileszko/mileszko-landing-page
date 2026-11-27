@@ -1,16 +1,11 @@
 {
   "name": "@mileszko-landing-page/monorepo",
   "private": true,
-  "packageManager": "yarn@4.19.0",
+  "packageManager": "pnpm@12.24.0",
   "type": "module",
   "engines": {
     "node": ">=24.0.0"
   },
-  "workspaces": [
-    "cdk",
-    "website",
-    "api"
-  ],
   "scripts": {
     "build": "turbo run build",
     "website:start": "turbo run start --filter=@mileszko-landing-page/website",
@@ -20,14 +15,14 @@
     "api:build": "turbo run build --filter=@mileszko-landing-page/api",
     "cdk:synth": "turbo run synth --filter=@mileszko-landing-page/cdk",
     "cdk:deploy": "turbo run deploy --filter=@mileszko-landing-page/cdk",
-    "check-types": "yarn api:types && yarn check-types:ts6 && yarn check-types:ts7",
-    "check-types:fast": "yarn api:types && yarn check-types:ts7",
+    "check-types": "pnpm api:types && pnpm check-types:ts6 && pnpm check-types:ts7",
+    "check-types:fast": "pnpm api:types && pnpm check-types:ts7",
     "check-types:ts6": "tsc6 --noEmit -p tsconfig.json && tsc6 --noEmit -p cdk/tsconfig.json && tsc6 --noEmit -p website/tsconfig.json && tsc6 --noEmit -p api/tsconfig.json",
     "check-types:ts7": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p cdk/tsconfig.json && tsc --noEmit -p website/tsconfig.json && tsc --noEmit -p api/tsconfig.json",
-    "lint": "yarn api:types && eslint",
+    "lint": "pnpm api:types && eslint",
     "audit:dependencies": "node scripts/audit-dependencies.mjs",
     "scan:secrets": "node scripts/scan-secrets.mjs",
-    "check:build-size": "yarn workspace @mileszko-landing-page/website check-build-size",
+    "check:build-size": "pnpm --filter @mileszko-landing-page/website check-build-size",
     "check:delivery": "node scripts/check-delivery.mjs",
     "test": "vitest run",
     "test:coverage:all": "vitest run --coverage --config vitest.coverage-all.config.ts",
@@ -44,6 +39,7 @@
     "@types/node": "^26.6.10",
     "@typescript-eslint/parser": "^8.74.0",
     "@typescript/native": "npm:typescript@7.0.2",
+    "@typescript/old": "npm:typescript@^6.0.3",
     "@vitest/coverage-v8": "5.1.2",
     "eslint": "^10.15.0",
     "eslint-import-resolver-typescript": "^4.4.5",

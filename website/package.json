@@ -5,7 +5,7 @@
   "sideEffects": false,
   "scripts": {
     "start": "vike dev",
-    "build": "vike build && yarn generate-sitemap && yarn check-build-size",
+    "build": "vike build && pnpm generate-sitemap && pnpm check-build-size",
     "preview": "vike preview",
     "generate-sitemap": "tsx generateSitemap.ts",
     "check-build-size": "node scripts/check-build-size.mjs"

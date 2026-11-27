@@ -14,12 +14,12 @@
       "outputs": ["dist/api.json", "dist/api.types.ts"]
     },
     "start": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build:api-definition"],
       "persistent": true,
       "cache": false
     },
     "preview": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build:api-definition"],
       "persistent": true,
       "cache": false
     },

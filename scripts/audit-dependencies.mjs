@@ -21,12 +21,9 @@ let output;
 
 try {
   output = execFileSync(
-    "yarn",
+    "pnpm",
     [
-      "npm",
       "audit",
-      "-A",
-      "-R",
       "--json",
     ],
     {
@@ -39,20 +36,13 @@ catch (error) {
   output = error.stdout ?? "";
 }
 
-const entries = [];
-for (const line of (output ?? "").trim()
-  .split(/\n+/)) {
-  try {
-    const parsed = JSON.parse(line);
-    if (parsed.value && parsed.children) {
-      entries.push({
-        packageName: parsed.value,
-        severity: parsed.children.Severity,
-      });
-    }
-  }
-  catch { /* Ignore non-JSON log lines. */ }
-}
+const entries = Object.values(
+  JSON.parse(output || "{}").advisories ?? {},
+)
+  .map(advisory => ({
+    packageName: advisory.module_name,
+    severity: advisory.severity,
+  }));
 
 const blocking = entries.filter(entry =>
   (entry.severity === "critical" || entry.severity === "high") &&

@@ -4,8 +4,8 @@ import path from "node:path";
 const root = process.cwd();
 const ignoredDirectories = new Set([
   ".git",
+  ".pnpm-store",
   ".turbo",
-  ".yarn",
   "cdk.out",
   "dist",
   "node_modules",
@@ -41,7 +41,7 @@ const walk = (directory) => {
       continue;
     }
 
-    if (entry.name === "yarn.lock" || entry.name === "package-lock.json") {
+    if (entry.name === "pnpm-lock.yaml" || entry.name === "package-lock.json") {
       continue;
     }
 

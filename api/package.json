@@ -7,7 +7,7 @@
     "./api.json": "./dist/api.json"
   },
   "scripts": {
-    "build": "yarn build:contact-message-handler && yarn build:contact-message-delivered-email-handler && yarn build:contact-message-notification-email-handler && yarn build:templates && yarn build:api-definition",
+    "build": "pnpm build:contact-message-handler && pnpm build:contact-message-delivered-email-handler && pnpm build:contact-message-notification-email-handler && pnpm build:templates && pnpm build:api-definition",
     "build:contact-message-handler": "esbuild src/handlers/contactMessageHandler.ts --bundle --platform=node --target=node26 --format=cjs --outfile=dist/contactMessageHandler/index.js --minify",
     "build:contact-message-delivered-email-handler": "esbuild src/handlers/contactMessageDeliveredEmailHandler.ts --bundle --platform=node --target=node26 --format=cjs --outfile=dist/contactMessageDeliveredEmailHandler/index.js --minify",
     "build:contact-message-notification-email-handler": "esbuild src/handlers/contactMessageNotificationEmailHandler.ts --bundle --platform=node --target=node26 --format=cjs --outfile=dist/contactMessageNotificationEmailHandler/index.js --minify",

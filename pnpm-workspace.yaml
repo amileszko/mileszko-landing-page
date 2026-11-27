@@ -1,0 +1,12 @@
+packages:
+  - api
+  - cdk
+  - website
+
+allowBuilds:
+  "@swc/core": true
+  esbuild: true
+
+permissions:
+  vike:
+    skills: false

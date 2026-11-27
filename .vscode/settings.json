@@ -4,14 +4,14 @@
   },
   "json.schemaDownload.enable": true,
   "search.exclude": {
-    "**/.yarn": true
+    "**/.pnpm-store": true
   },
   "files.exclude": {
     "**/env": true,
     "**/.git": true,
     "**/.gitattributes": true,
-    "**/yarn.lock": true,
-    "**/.yarn": true,
+    "**/pnpm-lock.yaml": true,
+    "**/.pnpm-store": true,
     "**/.turbo": true,
     "**/node_modules": true
   },
