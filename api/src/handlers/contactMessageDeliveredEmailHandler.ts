@@ -15,20 +15,10 @@ const region =
   (() => {
     throw new Error("AWS_REGION is not set");
   })();
-const accessKeyId =
-  process.env.AWS_ACCESS_KEY_ID ??
+const sesConfigurationSetName =
+  process.env.SES_CONFIGURATION_SET_NAME ??
   (() => {
-    throw new Error("AWS_ACCESS_KEY_ID is not set");
-  })();
-const secretAccessKey =
-  process.env.AWS_SECRET_ACCESS_KEY ??
-  (() => {
-    throw new Error("AWS_SECRET_ACCESS_KEY is not set");
-  })();
-const sessionToken =
-  process.env.AWS_SESSION_TOKEN ??
-  (() => {
-    throw new Error("AWS_SESSION_TOKEN is not set");
+    throw new Error("SES_CONFIGURATION_SET_NAME is not set");
   })();
 const sesSenderEmail =
   process.env.SES_SENDER_EMAIL ??
@@ -36,14 +26,7 @@ const sesSenderEmail =
     throw new Error("SES_SENDER_EMAIL is not set");
   })();
 
-const sesClient = new SESv2Client({
-  credentials: {
-    accessKeyId,
-    secretAccessKey,
-    sessionToken,
-  },
-  region,
-});
+const sesClient = new SESv2Client({ region });
 
 const templatesDir = path.join(
   __dirname,
@@ -74,6 +57,7 @@ export const handler: SNSHandler = async (event: SNSEvent): Promise<void> => {
       .getSubjectFromTemplate(contactMessageDeliveredHtmlTemplate);
 
     const emailParams: SendEmailRequest = {
+      ConfigurationSetName: sesConfigurationSetName,
       Content: {
         Simple: {
           Body: {

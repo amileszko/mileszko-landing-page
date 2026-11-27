@@ -28,7 +28,7 @@
           "placeholder": "Podaj swój e-mail.",
           "validation": {
             "required": "E-mail jest wymagany.",
-            "maxLength": "E-mail może mieć maksymalnie 100 znaków.",
+            "maxLength": "E-mail może mieć maksymalnie {{max}} znaków.",
             "email": "Nieprawidłowy format e-mail."
           }
         },
@@ -37,7 +37,7 @@
           "placeholder": "W 1–2 zdaniach: co chcesz osiągnąć?",
           "validation": {
             "required": "Temat jest wymagany.",
-            "maxLength": "Temat może mieć maksymalnie 100 znaków."
+            "maxLength": "Temat może mieć maksymalnie {{max}} znaków."
           }
         },
         "description": {
@@ -45,7 +45,7 @@
           "placeholder": "Co się blokuje? Jaki efekt jest kluczowy? Stack, liczby, bottlenecki – im konkretniej, tym lepiej.",
           "validation": {
             "required": "Opis jest wymagany.",
-            "maxLength": "Opis może mieć maksymalnie 1000 znaków."
+            "maxLength": "Opis może mieć maksymalnie {{max}} znaków."
           }
         },
         "cooperation": {
@@ -65,13 +65,13 @@
         "attachments": {
           "label": "Załączniki (opcjonalnie)",
           "placeholder": "Dodaj pliki: specyfikacja, diagram, kod, dokumenty.",
-          "description": "Maksymalnie 4 pliki, każdy do 2MB (PDF, DOC, DOCX, TXT, obrazy)."
+          "description": "Maksymalnie {{maxFiles}} pliki, każdy do {{maxSizeMb}}MB (PDF, DOC, DOCX, TXT, obrazy)."
         },
         "nda": {
           "label": "Dane do NDA (opcjonalnie)",
           "placeholder": "Potrzebujesz NDA? Podaj dane lub napisz – podpiszę przed wejściem w szczegóły.",
           "validation": {
-            "maxLength": "Dane do NDA mogą mieć maksymalnie 1000 znaków."
+            "maxLength": "Dane do NDA mogą mieć maksymalnie {{max}} znaków."
           }
         }
       },

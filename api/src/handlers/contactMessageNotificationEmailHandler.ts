@@ -11,26 +11,17 @@ import path from "node:path";
 
 import { type ContactMessagePayload } from "../definitions/contactMessage";
 import { emailTemplatesService } from "../utils/emailTemplatesService";
+import { sanitizeFilename } from "../utils/fileValidation";
 
 const region =
   process.env.AWS_REGION ??
   (() => {
     throw new Error("AWS_REGION is not set");
   })();
-const accessKeyId =
-  process.env.AWS_ACCESS_KEY_ID ??
+const sesConfigurationSetName =
+  process.env.SES_CONFIGURATION_SET_NAME ??
   (() => {
-    throw new Error("AWS_ACCESS_KEY_ID is not set");
-  })();
-const secretAccessKey =
-  process.env.AWS_SECRET_ACCESS_KEY ??
-  (() => {
-    throw new Error("AWS_SECRET_ACCESS_KEY is not set");
-  })();
-const sessionToken =
-  process.env.AWS_SESSION_TOKEN ??
-  (() => {
-    throw new Error("AWS_SESSION_TOKEN is not set");
+    throw new Error("SES_CONFIGURATION_SET_NAME is not set");
   })();
 const sesSenderEmail =
   process.env.SES_SENDER_EMAIL ??
@@ -48,23 +39,9 @@ const s3BucketName =
     throw new Error("S3_BUCKET_NAME is not set");
   })();
 
-const sesClient = new SESv2Client({
-  credentials: {
-    accessKeyId,
-    secretAccessKey,
-    sessionToken,
-  },
-  region,
-});
+const sesClient = new SESv2Client({ region });
 
-const s3Client = new S3Client({
-  credentials: {
-    accessKeyId,
-    secretAccessKey,
-    sessionToken,
-  },
-  region,
-});
+const s3Client = new S3Client({ region });
 
 const templatesDir = path.join(
   __dirname,
@@ -108,7 +85,9 @@ const getAttachmentFromS3 = async (
       return undefined;
     }
 
-    const filename = libmime.decodeWords(result.Metadata?.originalname ?? "unknown");
+    const filename = sanitizeFilename(
+      libmime.decodeWords(result.Metadata?.originalname ?? "unknown"),
+    );
     const content = Buffer.from(await result.Body.transformToByteArray());
 
     return {
@@ -140,7 +119,7 @@ export const handler: SNSHandler = async (event: SNSEvent): Promise<void> => {
       [];
 
     const attachmentText = attachments.length > 0 ?
-      `Załączniki: ${attachments.map(attachment => attachment.filename)
+      `Załączniki: ${attachments.map(attachment => sanitizeFilename(attachment.filename))
         .join(", ")}` :
       "Brak załączników";
 
@@ -154,6 +133,7 @@ export const handler: SNSHandler = async (event: SNSEvent): Promise<void> => {
         nda: !message.nda || message.nda.length === 0 ? "Brak danych" : message.nda,
         topic: message.topic,
       },
+      "html",
     );
 
     const emailTextBody = emailTemplatesService.replaceTemplateVariables(
@@ -166,17 +146,19 @@ export const handler: SNSHandler = async (event: SNSEvent): Promise<void> => {
         nda: !message.nda || message.nda.length === 0 ? "Brak danych" : message.nda,
         topic: message.topic,
       },
+      "text",
     );
 
     const sesAttachments = attachments.map(attachment => ({
       ContentDisposition: "ATTACHMENT" as const,
       ContentTransferEncoding: "BASE64" as const,
       ContentType: attachment.contentType,
-      FileName: attachment.filename,
+      FileName: sanitizeFilename(attachment.filename),
       RawContent: new Uint8Array(attachment.content),
     }));
 
     const emailParams: SendEmailRequest = {
+      ConfigurationSetName: sesConfigurationSetName,
       Content: {
         Simple: {
           Attachments: sesAttachments,

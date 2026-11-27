@@ -19,6 +19,21 @@ import {
 
 const registry = new OpenAPIRegistry();
 
+const stringHeader = { schema: { type: "string" as const } };
+
+const commonResponseHeaders = {
+  "Access-Control-Allow-Headers": stringHeader,
+  "Access-Control-Allow-Methods": stringHeader,
+  "Access-Control-Allow-Origin": stringHeader,
+  "Cache-Control": stringHeader,
+  "Permissions-Policy": stringHeader,
+  "Referrer-Policy": stringHeader,
+  "Strict-Transport-Security": stringHeader,
+  "Vary": stringHeader,
+  "X-Content-Type-Options": stringHeader,
+  "X-Frame-Options": stringHeader,
+};
+
 registry.registerPath(
   {
     method: "post",
@@ -41,32 +56,17 @@ registry.registerPath(
               { schema: ContactMessageResponseSchema },
           },
         description: "Message delivered.",
-        headers: {
-          "Access-Control-Allow-Headers": { schema: { type: "string" } },
-          "Access-Control-Allow-Methods": { schema: { type: "string" } },
-          "Access-Control-Allow-Origin": { schema: { type: "string" } },
-          "Vary": { schema: { type: "string" } },
-        },
+        headers: commonResponseHeaders,
       },
       400: {
         content: { "application/json": { schema: { type: "string" } } },
         description: "Bad request.",
-        headers: {
-          "Access-Control-Allow-Headers": { schema: { type: "string" } },
-          "Access-Control-Allow-Methods": { schema: { type: "string" } },
-          "Access-Control-Allow-Origin": { schema: { type: "string" } },
-          "Vary": { schema: { type: "string" } },
-        },
+        headers: commonResponseHeaders,
       },
       500: {
         content: { "application/json": { schema: { type: "string" } } },
         description: "Internal server error.",
-        headers: {
-          "Access-Control-Allow-Headers": { schema: { type: "string" } },
-          "Access-Control-Allow-Methods": { schema: { type: "string" } },
-          "Access-Control-Allow-Origin": { schema: { type: "string" } },
-          "Vary": { schema: { type: "string" } },
-        },
+        headers: commonResponseHeaders,
       },
     },
   },
@@ -79,12 +79,7 @@ registry.registerPath(
     responses: {
       204: {
         description: "CORS preflight response.",
-        headers: {
-          "Access-Control-Allow-Headers": { schema: { type: "string" } },
-          "Access-Control-Allow-Methods": { schema: { type: "string" } },
-          "Access-Control-Allow-Origin": { schema: { type: "string" } },
-          "Vary": { schema: { type: "string" } },
-        },
+        headers: commonResponseHeaders,
       },
     },
   },

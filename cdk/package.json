@@ -11,6 +11,6 @@
   },
   "scripts": {
     "synth": "cdk synth",
-    "deploy": "cdk deploy -a cdk.out --all --require-approval=never --verbose"
+    "deploy": "cdk deploy -a cdk.out --all --verbose"
   }
 }

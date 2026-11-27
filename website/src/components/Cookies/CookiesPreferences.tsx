@@ -1,4 +1,5 @@
 import { animationVariants } from "@utils/animationUtils";
+import { clearTrackingCookies, loadGoogleTagManager } from "@utils/gtmUtils";
 import { getWindow } from "@utils/windowUtils";
 import { AnimatePresence, motion } from "motion/react";
 import {
@@ -158,19 +159,34 @@ const CookiesPreferences = ({ children }: { children: React.ReactNode }) => {
         "cookieConsent",
         consentData,
         {
-          maxAge: 6 * 30 * 24 * 60 * 60,
+          maxAge: 365 * 24 * 60 * 60,
           path: "/",
           sameSite: "lax",
           secure: true,
         },
       );
 
-      updateGtagConsent(acceptedCookiesCategoriesNames);
+      const hasStatisticsConsent = acceptedCookiesCategoriesNames.includes(
+        t("cookies:categories.statistics.name"),
+      );
+      const hasMarketingConsent = acceptedCookiesCategoriesNames.includes(
+        t("cookies:categories.marketing.name"),
+      );
+
+      if (hasStatisticsConsent || hasMarketingConsent) {
+        loadGoogleTagManager();
+      }
+
+      clearTrackingCookies({
+        clearAdvertising: !hasMarketingConsent,
+        clearAnalytics: !hasStatisticsConsent,
+      });
+
       hideCookiesDialog();
     },
     [
       setCookie,
-      updateGtagConsent,
+      t,
       hideCookiesDialog,
     ],
   );
@@ -198,7 +214,25 @@ const CookiesPreferences = ({ children }: { children: React.ReactNode }) => {
   useEffect(
     () => {
       if (cookies.cookieConsent) {
-        updateGtagConsent(cookies.cookieConsent.acceptedCookiesCategoriesNames);
+        const acceptedNames =
+          cookies.cookieConsent.acceptedCookiesCategoriesNames;
+        const hasStatisticsConsent = acceptedNames.includes(
+          t("cookies:categories.statistics.name"),
+        );
+        const hasMarketingConsent = acceptedNames.includes(
+          t("cookies:categories.marketing.name"),
+        );
+
+        if (hasStatisticsConsent || hasMarketingConsent) {
+          loadGoogleTagManager();
+        }
+
+        clearTrackingCookies({
+          clearAdvertising: !hasMarketingConsent,
+          clearAnalytics: !hasStatisticsConsent,
+        });
+
+        updateGtagConsent(acceptedNames);
       }
       else {
         openCookiesDialog();
@@ -207,6 +241,7 @@ const CookiesPreferences = ({ children }: { children: React.ReactNode }) => {
     [
       cookies.cookieConsent,
       openCookiesDialog,
+      t,
       updateGtagConsent,
     ],
   );

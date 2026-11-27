@@ -6,16 +6,25 @@ import {
   type StackProps,
 } from "aws-cdk-lib";
 import {
+  AccessLogFormat,
   ApiDefinition,
   BasePathMapping,
   Cors,
   DomainName,
+  LogGroupLogDestination,
+  MethodLoggingLevel,
   SpecRestApi,
 } from "aws-cdk-lib/aws-apigateway";
 import {
   Certificate,
   CertificateValidation,
 } from "aws-cdk-lib/aws-certificatemanager";
+import {
+  Alarm,
+  ComparisonOperator,
+  Metric,
+  TreatMissingData,
+} from "aws-cdk-lib/aws-cloudwatch";
 import { AttributeType, BillingMode, Table } from "aws-cdk-lib/aws-dynamodb";
 import { Effect, PolicyStatement, ServicePrincipal } from "aws-cdk-lib/aws-iam";
 import {
@@ -24,6 +33,7 @@ import {
   Function,
   Runtime,
 } from "aws-cdk-lib/aws-lambda";
+import { LogGroup, RetentionDays } from "aws-cdk-lib/aws-logs";
 import {
   ARecord,
   type IHostedZone,
@@ -31,12 +41,39 @@ import {
 } from "aws-cdk-lib/aws-route53";
 import { ApiGatewayDomain } from "aws-cdk-lib/aws-route53-targets";
 import { Bucket, BucketAccessControl } from "aws-cdk-lib/aws-s3";
+import {
+  ConfigurationSet,
+  ConfigurationSetEventDestination,
+  ConfigurationSetTlsPolicy,
+  EmailSendingEvent,
+  EventDestination,
+} from "aws-cdk-lib/aws-ses";
 import { Topic } from "aws-cdk-lib/aws-sns";
-import { LambdaSubscription } from "aws-cdk-lib/aws-sns-subscriptions";
+import {
+  EmailSubscription,
+  LambdaSubscription,
+} from "aws-cdk-lib/aws-sns-subscriptions";
+import {
+  CfnLoggingConfiguration,
+  CfnWebACL,
+  CfnWebACLAssociation,
+} from "aws-cdk-lib/aws-wafv2";
 import { type Construct } from "constructs";
 import fs from "node:fs";
 import path from "node:path";
 import { type OpenAPIObject } from "openapi3-ts/oas30";
+
+import {
+  CONTACT_API_RATE_LIMIT,
+  CONTACT_API_RATE_WINDOW_SECONDS,
+  CONTACT_API_RESERVED_CONCURRENCY,
+  CONTACT_API_THROTTLE_BURST_LIMIT,
+  CONTACT_API_THROTTLE_RATE_LIMIT,
+  CONTACT_DATA_RETENTION_DAYS,
+  HSTS_MAX_AGE_SECONDS,
+  SES_BOUNCE_RATE_THRESHOLD,
+  SES_COMPLAINT_RATE_THRESHOLD,
+} from "../constants/security";
 
 interface ApiStackProps extends StackProps {
   apiDomainName: string
@@ -58,7 +95,10 @@ export class ApiStack extends Stack {
     super(
       scope,
       id,
-      props,
+      {
+        ...props,
+        terminationProtection: true,
+      },
     );
 
     const contactMessagesAttachmentsBucket = new Bucket(
@@ -66,8 +106,15 @@ export class ApiStack extends Stack {
       "ContactMessagesAttachmentsBucket",
       {
         accessControl: BucketAccessControl.PRIVATE,
-        autoDeleteObjects: true,
-        removalPolicy: RemovalPolicy.DESTROY,
+        lifecycleRules: [
+          {
+            abortIncompleteMultipartUploadAfter: Duration.days(1),
+            expiration: Duration.days(CONTACT_DATA_RETENTION_DAYS),
+            noncurrentVersionExpiration: Duration.days(30),
+          },
+        ],
+        removalPolicy: RemovalPolicy.RETAIN,
+        versioned: true,
       },
     );
 
@@ -76,17 +123,76 @@ export class ApiStack extends Stack {
       "ContactMessagesTable",
       {
         billingMode: BillingMode.PAY_PER_REQUEST,
+        deletionProtection: true,
         partitionKey: {
           name: "Id",
           type: AttributeType.STRING,
         },
-        removalPolicy: RemovalPolicy.DESTROY,
+        pointInTimeRecoverySpecification: {pointInTimeRecoveryEnabled: true},
+        removalPolicy: RemovalPolicy.RETAIN,
+        timeToLiveAttribute: "ExpiresAt",
       },
     );
 
     const contactMessagesTopic = new Topic(
       this,
       "ContactMessagesTopic",
+    );
+
+    const emailFeedbackTopic = new Topic(
+      this,
+      "EmailFeedbackTopic",
+    );
+
+    const contactEmailConfigurationSet = new ConfigurationSet(
+      this,
+      "ContactEmailConfigurationSet",
+      {
+        reputationMetrics: true,
+        sendingEnabled: true,
+        tlsPolicy: ConfigurationSetTlsPolicy.REQUIRE,
+      },
+    );
+
+    new ConfigurationSetEventDestination(
+      this,
+      "ContactEmailFeedbackDestination",
+      {
+        configurationSet: contactEmailConfigurationSet,
+        destination: EventDestination.snsTopic(emailFeedbackTopic),
+        events: [
+          EmailSendingEvent.BOUNCE,
+          EmailSendingEvent.COMPLAINT,
+          EmailSendingEvent.DELIVERY,
+          EmailSendingEvent.REJECT,
+        ],
+      },
+    );
+
+    emailFeedbackTopic.addSubscription(
+      new EmailSubscription(props.notificationRecipientEmail),
+    );
+
+    const contactMessageLogGroup = new LogGroup(
+      this,
+      "ContactMessageLogGroup",
+      { retention: RetentionDays.THREE_MONTHS },
+    );
+    const contactMessageDeliveredEmailLogGroup = new LogGroup(
+      this,
+      "ContactMessageDeliveredEmailLogGroup",
+      { retention: RetentionDays.THREE_MONTHS },
+    );
+    const contactMessageNotificationEmailLogGroup = new LogGroup(
+      this,
+      "ContactMessageNotificationEmailLogGroup",
+      { retention: RetentionDays.THREE_MONTHS },
+    );
+
+    const apiAccessLogGroup = new LogGroup(
+      this,
+      "ApiAccessLogGroup",
+      { retention: RetentionDays.ONE_MONTH },
     );
 
     const dockerImage = DockerImage.fromBuild(
@@ -106,6 +212,8 @@ export class ApiStack extends Stack {
           SNS_TOPIC_ARN: contactMessagesTopic.topicArn,
         },
         handler: "index.handler",
+        logGroup: contactMessageLogGroup,
+        reservedConcurrentExecutions: CONTACT_API_RESERVED_CONCURRENCY,
         runtime: Runtime.NODEJS_26_X,
         timeout: Duration.seconds(30),
       },
@@ -117,8 +225,13 @@ export class ApiStack extends Stack {
       {
         architecture: Architecture.ARM_64,
         code: new AssetCode(dockerImage.cp("/output/contactMessageDeliveredEmailHandler/.")),
-        environment: { SES_SENDER_EMAIL: `"${props.contactName}" <${props.contactEmail}>` },
+        environment: {
+          SES_CONFIGURATION_SET_NAME:
+            contactEmailConfigurationSet.configurationSetName,
+          SES_SENDER_EMAIL: `"${props.contactName}" <${props.contactEmail}>`,
+        },
         handler: "index.handler",
+        logGroup: contactMessageDeliveredEmailLogGroup,
         runtime: Runtime.NODEJS_26_X,
         timeout: Duration.seconds(30),
       },
@@ -132,10 +245,13 @@ export class ApiStack extends Stack {
         code: new AssetCode(dockerImage.cp("/output/contactMessageNotificationEmailHandler/.")),
         environment: {
           S3_BUCKET_NAME: contactMessagesAttachmentsBucket.bucketName,
+          SES_CONFIGURATION_SET_NAME:
+            contactEmailConfigurationSet.configurationSetName,
           SES_RECIPIENT_EMAIL: props.notificationRecipientEmail,
           SES_SENDER_EMAIL: `"${props.notificationSenderName}" <${props.notificationSenderEmail}>`,
         },
         handler: "index.handler",
+        logGroup: contactMessageNotificationEmailLogGroup,
         runtime: Runtime.NODEJS_26_X,
         timeout: Duration.seconds(30),
       },
@@ -147,13 +263,22 @@ export class ApiStack extends Stack {
     contactMessagesTable.grantReadWriteData(contactMessageHandler);
     contactMessagesTopic.grantPublish(contactMessageHandler);
 
+    const sesIdentityArn = `arn:aws:ses:${this.region}:${this.account}:identity/${props.websiteDomainName}`;
+    const sesConfigurationSetArn = this.formatArn({
+      resource: "configuration-set",
+      resourceName: contactEmailConfigurationSet.configurationSetName,
+      service: "ses",
+    });
     const sesPolicy = new PolicyStatement({
       actions: [
         "ses:SendEmail",
         "ses:SendRawEmail",
       ],
       effect: Effect.ALLOW,
-      resources: ["*"],
+      resources: [
+        sesIdentityArn,
+        sesConfigurationSetArn,
+      ],
     });
 
     contactMessageDeliveredEmailHandler.addToRolePolicy(sesPolicy);
@@ -182,6 +307,20 @@ export class ApiStack extends Stack {
 
     apiDefinition["x-amazon-apigateway-binary-media-types"] = ["multipart/form-data"];
 
+    const apiResponseParameters = {
+      "method.response.header.Access-Control-Allow-Headers": `'${Cors.DEFAULT_HEADERS.join(",")}'`,
+      "method.response.header.Access-Control-Allow-Methods": "'POST,OPTIONS'",
+      "method.response.header.Access-Control-Allow-Origin": `'https://${props.websiteDomainName}'`,
+      "method.response.header.Cache-Control": "'no-store'",
+      "method.response.header.Permissions-Policy": "'camera=(), microphone=(), geolocation=()'",
+      "method.response.header.Referrer-Policy": "'strict-origin-when-cross-origin'",
+      "method.response.header.Strict-Transport-Security":
+        `'max-age=${HSTS_MAX_AGE_SECONDS}'`,
+      "method.response.header.Vary": "'Origin'",
+      "method.response.header.X-Content-Type-Options": "'nosniff'",
+      "method.response.header.X-Frame-Options": "'DENY'",
+    };
+
     const contactMessagesPath = apiDefinition.paths["/contact/messages"];
 
     if (contactMessagesPath.post) {
@@ -205,38 +344,25 @@ export class ApiStack extends Stack {
         },
         responses: {
           "": {
-            responseParameters: {
-              "method.response.header.Access-Control-Allow-Headers": `'${Cors.DEFAULT_HEADERS.join(",")}'`,
-              "method.response.header.Access-Control-Allow-Methods": "'POST,OPTIONS'",
-              "method.response.header.Access-Control-Allow-Origin": `'https://${props.websiteDomainName}'`,
-              "method.response.header.Vary": "'Origin'",
-            },
+            responseParameters: apiResponseParameters,
             statusCode: "200",
           },
           "Internal error.*": {
-            responseParameters: {
-              "method.response.header.Access-Control-Allow-Headers": `'${Cors.DEFAULT_HEADERS.join(",")}'`,
-              "method.response.header.Access-Control-Allow-Methods": "'POST,OPTIONS'",
-              "method.response.header.Access-Control-Allow-Origin": `'https://${props.websiteDomainName}'`,
-              "method.response.header.Vary": "'Origin'",
-            },
+            responseParameters: apiResponseParameters,
             responseTemplates: {
               "application/json": `{
-                "errorMessage": $input.json('$.errorMessage')
+                "errorMessage": "Internal error",
+                "requestId": "$context.requestId"
               }`,
             },
             statusCode: "500",
           },
           "Invalid input data.*": {
-            responseParameters: {
-              "method.response.header.Access-Control-Allow-Headers": `'${Cors.DEFAULT_HEADERS.join(",")}'`,
-              "method.response.header.Access-Control-Allow-Methods": "'POST,OPTIONS'",
-              "method.response.header.Access-Control-Allow-Origin": `'https://${props.websiteDomainName}'`,
-              "method.response.header.Vary": "'Origin'",
-            },
+            responseParameters: apiResponseParameters,
             responseTemplates: {
               "application/json": `{
-                "errorMessage": $input.json('$.errorMessage')
+                "errorMessage": "Invalid input data",
+                "requestId": "$context.requestId"
               }`,
             },
             statusCode: "400",
@@ -256,12 +382,7 @@ export class ApiStack extends Stack {
         requestTemplates: { "application/json": "{ statusCode: 200 }" },
         responses: {
           "": {
-            responseParameters: {
-              "method.response.header.Access-Control-Allow-Headers": `'${Cors.DEFAULT_HEADERS.join(",")}'`,
-              "method.response.header.Access-Control-Allow-Methods": "'POST,OPTIONS'",
-              "method.response.header.Access-Control-Allow-Origin": `'https://${props.websiteDomainName}'`,
-              "method.response.header.Vary": "'Origin'",
-            },
+            responseParameters: apiResponseParameters,
             statusCode: "204",
           },
         },
@@ -278,6 +399,201 @@ export class ApiStack extends Stack {
       {
         apiDefinition: ApiDefinition.fromInline(apiDefinition),
         deploy: true,
+        deployOptions: {
+          accessLogDestination: new LogGroupLogDestination(apiAccessLogGroup),
+          accessLogFormat: AccessLogFormat.jsonWithStandardFields(),
+          dataTraceEnabled: false,
+          loggingLevel: MethodLoggingLevel.ERROR,
+          metricsEnabled: true,
+          stageName: "prod",
+          throttlingBurstLimit: CONTACT_API_THROTTLE_BURST_LIMIT,
+          throttlingRateLimit: CONTACT_API_THROTTLE_RATE_LIMIT,
+        },
+        disableExecuteApiEndpoint: true,
+      },
+    );
+
+    const wafVisibilityConfig = {
+      cloudWatchMetricsEnabled: true,
+      metricName: "contact-api-waf",
+      sampledRequestsEnabled: true,
+    };
+
+    const webAcl = new CfnWebACL(
+      this,
+      "ContactApiWebAcl",
+      {
+        defaultAction: { allow: {} },
+        rules: [
+          {
+            name: "AWSManagedRulesCommonRuleSet",
+            overrideAction: { none: {} },
+            priority: 0,
+            statement: {
+              managedRuleGroupStatement: {
+                name: "AWSManagedRulesCommonRuleSet",
+                vendorName: "AWS",
+              },
+            },
+            visibilityConfig: wafVisibilityConfig,
+          },
+          {
+            name: "AWSManagedRulesKnownBadInputsRuleSet",
+            overrideAction: { none: {} },
+            priority: 1,
+            statement: {
+              managedRuleGroupStatement: {
+                name: "AWSManagedRulesKnownBadInputsRuleSet",
+                vendorName: "AWS",
+              },
+            },
+            visibilityConfig: wafVisibilityConfig,
+          },
+          {
+            name: "AWSManagedRulesAmazonIpReputationList",
+            overrideAction: { none: {} },
+            priority: 2,
+            statement: {
+              managedRuleGroupStatement: {
+                name: "AWSManagedRulesAmazonIpReputationList",
+                vendorName: "AWS",
+              },
+            },
+            visibilityConfig: wafVisibilityConfig,
+          },
+          {
+            name: "AWSManagedRulesAnonymousIpList",
+            overrideAction: { none: {} },
+            priority: 3,
+            statement: {
+              managedRuleGroupStatement: {
+                name: "AWSManagedRulesAnonymousIpList",
+                vendorName: "AWS",
+              },
+            },
+            visibilityConfig: wafVisibilityConfig,
+          },
+          {
+            action: { block: {} },
+            name: "RateLimitContactApi",
+            priority: 10,
+            statement: {
+              rateBasedStatement: {
+                aggregateKeyType: "IP",
+                evaluationWindowSec: CONTACT_API_RATE_WINDOW_SECONDS,
+                limit: CONTACT_API_RATE_LIMIT,
+              },
+            },
+            visibilityConfig: wafVisibilityConfig,
+          },
+        ],
+        scope: "REGIONAL",
+        visibilityConfig: wafVisibilityConfig,
+      },
+    );
+
+    new CfnWebACLAssociation(
+      this,
+      "ContactApiWebAclAssociation",
+      {
+        resourceArn: api.deploymentStage.stageArn,
+        webAclArn: webAcl.attrArn,
+      },
+    );
+
+    const wafLogGroup = new LogGroup(
+      this,
+      "ContactApiWafLogGroup",
+      {
+        logGroupName: "aws-waf-logs-contact-api",
+        retention: RetentionDays.ONE_MONTH,
+      },
+    );
+
+    new CfnLoggingConfiguration(
+      this,
+      "ContactApiWafLogging",
+      {
+        logDestinationConfigs: [wafLogGroup.logGroupArn],
+        resourceArn: webAcl.attrArn,
+      },
+    );
+
+    new Alarm(
+      this,
+      "ContactHandlerErrorsAlarm",
+      {
+        alarmDescription: "Contact message handler is returning errors.",
+        comparisonOperator:
+          ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+        evaluationPeriods: 1,
+        metric: contactMessageHandler.metricErrors({
+          period: Duration.minutes(5),
+          statistic: "Sum",
+        }),
+        threshold: 1,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
+      },
+    );
+
+    new Alarm(
+      this,
+      "ContactApiServerErrorsAlarm",
+      {
+        alarmDescription: "Contact API is returning server errors.",
+        comparisonOperator:
+          ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+        evaluationPeriods: 1,
+        metric: api.metricServerError({
+          period: Duration.minutes(5),
+          statistic: "Sum",
+        }),
+        threshold: 1,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
+      },
+    );
+
+    new Alarm(
+      this,
+      "SesBounceRateAlarm",
+      {
+        alarmDescription: `SES bounce rate is above ${SES_BOUNCE_RATE_THRESHOLD * 100}%.`,
+        comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+        evaluationPeriods: 1,
+        metric: new Metric({
+          dimensionsMap: {
+            ConfigurationSet:
+              contactEmailConfigurationSet.configurationSetName,
+          },
+          metricName: "Reputation.BounceRate",
+          namespace: "AWS/SES",
+          period: Duration.minutes(5),
+          statistic: "Average",
+        }),
+        threshold: SES_BOUNCE_RATE_THRESHOLD,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
+      },
+    );
+
+    new Alarm(
+      this,
+      "SesComplaintRateAlarm",
+      {
+        alarmDescription: `SES complaint rate is above ${SES_COMPLAINT_RATE_THRESHOLD * 100}%.`,
+        comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+        evaluationPeriods: 1,
+        metric: new Metric({
+          dimensionsMap: {
+            ConfigurationSet:
+              contactEmailConfigurationSet.configurationSetName,
+          },
+          metricName: "Reputation.ComplaintRate",
+          namespace: "AWS/SES",
+          period: Duration.minutes(5),
+          statistic: "Average",
+        }),
+        threshold: SES_COMPLAINT_RATE_THRESHOLD,
+        treatMissingData: TreatMissingData.NOT_BREACHING,
       },
     );
 

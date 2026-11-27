@@ -1,4 +1,4 @@
-import { RemovalPolicy, type StackProps } from "aws-cdk-lib";
+import { Duration, RemovalPolicy, type StackProps } from "aws-cdk-lib";
 import { DockerImage, Stack } from "aws-cdk-lib";
 import {
   CertificateValidation,
@@ -9,8 +9,11 @@ import {
   Distribution,
   FunctionCode,
   FunctionEventType,
+  HeadersFrameOption,
+  HeadersReferrerPolicy,
   OriginAccessIdentity,
   PriceClass,
+  ResponseHeadersPolicy,
   ViewerProtocolPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
 import { S3BucketOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
@@ -26,6 +29,8 @@ import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { type Construct } from "constructs";
 import path from "node:path";
 
+import { HSTS_MAX_AGE_SECONDS } from "../constants/security";
+
 interface WebsiteStackProps extends StackProps {
   apiDomainName: string
   googleTagManagerId: string
@@ -38,7 +43,10 @@ class WebsiteStack extends Stack {
     super(
       scope,
       id,
-      props,
+      {
+        ...props,
+        terminationProtection: true,
+      },
     );
 
     const wwwWebsiteDomainName = `www.${props.websiteDomainName}`;
@@ -61,8 +69,9 @@ class WebsiteStack extends Stack {
       "DeployBucket",
       {
         accessControl: BucketAccessControl.PRIVATE,
-        autoDeleteObjects: true,
-        removalPolicy: RemovalPolicy.DESTROY,
+        lifecycleRules: [{ noncurrentVersionExpiration: Duration.days(30) }],
+        removalPolicy: RemovalPolicy.RETAIN,
+        versioned: true,
       },
     );
 
@@ -96,6 +105,60 @@ class WebsiteStack extends Stack {
       },
     );
 
+    const cspReportOnly = [
+      "default-src 'self'",
+      "base-uri 'none'",
+      "object-src 'none'",
+      "frame-ancestors 'none'",
+      "form-action 'self'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com",
+      "font-src 'self'",
+      `connect-src 'self' https://${props.apiDomainName} https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com`,
+      "frame-src https://www.googletagmanager.com",
+      "upgrade-insecure-requests",
+    ].join("; ");
+
+    const responseHeadersPolicy = new ResponseHeadersPolicy(
+      this,
+      "ResponseHeadersPolicy",
+      {
+        customHeadersBehavior: {
+          customHeaders: [
+            {
+              header: "Content-Security-Policy-Report-Only",
+              override: true,
+              value: cspReportOnly,
+            },
+            {
+              header: "Permissions-Policy",
+              override: true,
+              value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+            },
+          ],
+        },
+        securityHeadersBehavior: {
+          contentTypeOptions: { override: true },
+          frameOptions: {
+            frameOption: HeadersFrameOption.DENY,
+            override: true,
+          },
+          referrerPolicy: {
+            override: true,
+            referrerPolicy:
+              HeadersReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN,
+          },
+          strictTransportSecurity: {
+            accessControlMaxAge: Duration.seconds(HSTS_MAX_AGE_SECONDS),
+            includeSubdomains: true,
+            override: true,
+            preload: false,
+          },
+        },
+      },
+    );
+
     const distribution = new Distribution(
       this,
       "Distribution",
@@ -112,6 +175,7 @@ class WebsiteStack extends Stack {
             deployBucket,
             { originAccessIdentity },
           ),
+          responseHeadersPolicy: responseHeadersPolicy,
           viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         },
         defaultRootObject: "index.html",

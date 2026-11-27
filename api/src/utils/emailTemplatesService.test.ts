@@ -22,6 +22,46 @@ describe(
     );
 
     it(
+      "escapes HTML values in HTML mode",
+      () => {
+        const template = "<p>{{ topic }}</p>";
+
+        expect(emailTemplatesService.replaceTemplateVariables(
+          template,
+          { topic: '<img src=x onerror="alert(1)">' },
+          "html",
+        ))
+          .toBe("<p>&lt;img src=x onerror=&quot;alert(1)&quot;&gt;</p>");
+      },
+    );
+
+    it(
+      "does not expand replacement patterns",
+      () => {
+        const template = "A{{ topic }}B";
+
+        expect(emailTemplatesService.replaceTemplateVariables(
+          template,
+          { topic: "$` $& $' $1" },
+          "html",
+        ))
+          .toBe("A$` $&amp; $&#39; $1B");
+      },
+    );
+
+    it(
+      "normalizes line endings in text mode",
+      () => {
+        expect(emailTemplatesService.replaceTemplateVariables(
+          "{{ description }}",
+          { description: "line one\r\nline two\rline three" },
+          "text",
+        ))
+          .toBe("line one\nline two\nline three");
+      },
+    );
+
+    it(
       "leaves unknown placeholders untouched",
       () => {
         expect(emailTemplatesService.replaceTemplateVariables(

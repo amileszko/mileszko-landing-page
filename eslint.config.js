@@ -81,8 +81,12 @@ const jsConfig = [
     },
   },
   {
-    files: ["tests/**/*.mjs"],
+    files: [
+      "tests/**/*.mjs",
+      "scripts/**/*.mjs",
+    ],
     languageOptions: { globals: { ...globals.node } },
+    rules: { "unicorn/no-process-exit": "off" },
   },
   {
     extends: [eslintPluginUnicorn.configs.recommended],
@@ -384,4 +388,8 @@ export default tseslint.config(
   ...reactConfig,
   ...internationalizationConfig,
   ...tailwindConfig,
+  {
+    files: ["scripts/**/*.mjs"],
+    rules: { "unicorn/no-process-exit": "off" },
+  },
 );

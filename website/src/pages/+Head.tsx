@@ -6,43 +6,6 @@ const Head = () => {
 
   return (
     <>
-      {
-        import.meta.env.VITE_GOOGLE_TAG_MANAGER_ID && (
-          <>
-            <script
-              // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
-              dangerouslySetInnerHTML={
-                {
-                  __html:
-                    `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-
-gtag('consent', 'default', {
-  'ad_storage': 'denied',
-  'ad_user_data': 'denied',
-  'ad_personalization': 'denied',
-  'analytics_storage': 'denied'
-});
-`,
-                }
-              }
-            />
-            <script
-              // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
-              dangerouslySetInnerHTML={
-                {
-                  __html:
-                    `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${import.meta.env.VITE_GOOGLE_TAG_MANAGER_ID}');`,
-                }
-              }
-            />
-          </>
-        )
-      }
       <meta content="/image.webp" property="og:image" />
       <meta content="/image.webp" name="twitter:image" />
       <meta content="summary_large_image" name="twitter:card" />
@@ -75,35 +38,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <meta content="#FAFAFA" name="theme-color" />
       <link href="/site.webmanifest" rel="manifest" />
       <link
-        crossOrigin="anonymous"
-        href="https://fonts.gstatic.com"
-        rel="preconnect"
-      />
-      <link
         as="font"
-        crossOrigin="anonymous"
-        href="https://fonts.gstatic.com/s/inter/v19/UcCm3FwrK3iLTcvnUwoT9mI1F55MKw.woff2"
+        href="/fonts/inter-italic-latin-ext.woff2"
         rel="preload"
         type="font/woff2"
       />
       <link
         as="font"
-        crossOrigin="anonymous"
-        href="https://fonts.gstatic.com/s/inter/v19/UcCm3FwrK3iLTcvnUwQT9mI1F54.woff2"
+        href="/fonts/inter-italic-latin.woff2"
         rel="preload"
         type="font/woff2"
       />
       <link
         as="font"
-        crossOrigin="anonymous"
-        href="https://fonts.gstatic.com/s/inter/v19/UcCo3FwrK3iLTcvsYwYZ8UA3J58.woff2"
+        href="/fonts/inter-normal-latin-ext.woff2"
         rel="preload"
         type="font/woff2"
       />
       <link
         as="font"
-        crossOrigin="anonymous"
-        href="https://fonts.gstatic.com/s/inter/v19/UcCo3FwrK3iLTcviYwYZ8UA3.woff2"
+        href="/fonts/inter-normal-latin.woff2"
         rel="preload"
         type="font/woff2"
       />

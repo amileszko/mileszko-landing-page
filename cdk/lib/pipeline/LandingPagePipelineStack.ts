@@ -5,6 +5,7 @@ import {
   CodeBuildStep,
   CodePipeline,
   CodePipelineSource,
+  ManualApprovalStep,
 } from "aws-cdk-lib/pipelines";
 import { type Construct } from "constructs";
 
@@ -32,7 +33,10 @@ class LandingPagePipelineStack extends Stack {
     super(
       scope,
       id,
-      props,
+      {
+        ...props,
+        terminationProtection: true,
+      },
     );
 
     const synth = new CodeBuildStep(
@@ -42,8 +46,13 @@ class LandingPagePipelineStack extends Stack {
           "cp .yarn/releases/yarn-4.19.0.cjs /usr/local/bin/yarn",
           "chmod +x /usr/local/bin/yarn",
           "yarn --version",
-          "yarn workspaces focus @mileszko-landing-page/monorepo @mileszko-landing-page/cdk",
+          "yarn workspaces focus @mileszko-landing-page/monorepo @mileszko-landing-page/website @mileszko-landing-page/api @mileszko-landing-page/cdk",
           "git diff --exit-code -- yarn.lock",
+          "yarn lint",
+          "yarn check-types",
+          "yarn test",
+          "yarn audit:dependencies",
+          "yarn scan:secrets",
           "yarn cdk:synth",
         ],
         input: CodePipelineSource.gitHub(
@@ -70,23 +79,27 @@ class LandingPagePipelineStack extends Stack {
       },
     );
 
-    landingPagePipeline.addStage(new LandingPageStage(
-      this,
-      "prod",
-      {
-        apiDomainName: props.environments.prod.apiDomainName,
-        contactEmail: props.environments.prod.contactEmail,
-        contactName: props.environments.prod.contactName,
-        googleTagManagerId: props.environments.prod.googleTagManagerId,
-        notificationRecipientEmail:
-          props.environments.prod.notificationRecipientEmail,
-        notificationSenderEmail:
-          props.environments.prod.notificationSenderEmail,
-        notificationSenderName: props.environments.prod.notificationSenderName,
-        rootDomainName: props.environments.prod.rootDomainName,
-        websiteDomainName: props.environments.prod.websiteDomainName,
-      },
-    ));
+    landingPagePipeline.addStage(
+      new LandingPageStage(
+        this,
+        "prod",
+        {
+          apiDomainName: props.environments.prod.apiDomainName,
+          contactEmail: props.environments.prod.contactEmail,
+          contactName: props.environments.prod.contactName,
+          googleTagManagerId: props.environments.prod.googleTagManagerId,
+          notificationRecipientEmail:
+            props.environments.prod.notificationRecipientEmail,
+          notificationSenderEmail:
+            props.environments.prod.notificationSenderEmail,
+          notificationSenderName:
+            props.environments.prod.notificationSenderName,
+          rootDomainName: props.environments.prod.rootDomainName,
+          websiteDomainName: props.environments.prod.websiteDomainName,
+        },
+      ),
+      { pre: [new ManualApprovalStep("ApproveProdDeployment")] },
+    );
   }
 }
 

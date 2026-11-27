@@ -1,5 +1,13 @@
 import * as z from "zod";
 
+import {
+  MAX_ATTACHMENTS,
+  MAX_DESCRIPTION_LENGTH,
+  MAX_EMAIL_LENGTH,
+  MAX_NDA_LENGTH,
+  MAX_TOPIC_LENGTH,
+} from "../constants/contact";
+
 enum CooperationType {
   AUDIT = "AUDIT",
   MENTORING = "MENTORING",
@@ -13,7 +21,11 @@ const ContactMessageRequestSchema = z.object({
     .meta({
       format: "binary",
       type: "string",
-    })),
+    }))
+    .max(
+      MAX_ATTACHMENTS,
+      `Maximum ${MAX_ATTACHMENTS} files allowed.`,
+    ),
   cooperation: z.enum(
     CooperationType,
     "Cooperation type is required.",
@@ -22,19 +34,19 @@ const ContactMessageRequestSchema = z.object({
     .string()
     .nonempty("Description is required.")
     .max(
-      1000,
+      MAX_DESCRIPTION_LENGTH,
       "Description is too long.",
     ),
   email: z
     .email("Invalid email format.")
     .nonempty("Email is required.")
     .max(
-      50,
+      MAX_EMAIL_LENGTH,
       "Email is too long.",
     ),
   nda: z.string()
     .max(
-      1000,
+      MAX_NDA_LENGTH,
       "NDA is too long.",
     )
     .optional(),
@@ -42,7 +54,7 @@ const ContactMessageRequestSchema = z.object({
     .string()
     .nonempty("Topic is required.")
     .max(
-      100,
+      MAX_TOPIC_LENGTH,
       "Topic is too long.",
     ),
 });

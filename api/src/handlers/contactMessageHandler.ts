@@ -4,35 +4,32 @@ import { PublishCommand, SNSClient } from "@aws-sdk/client-sns";
 import { DynamoDBDocument, PutCommand } from "@aws-sdk/lib-dynamodb";
 import {
   getMultipartBoundary,
+  MaxFileSizeExceededError,
+  MultipartParseError,
   parseMultipart,
 } from "@mjackson/multipart-parser";
 import { randomUUID } from "node:crypto";
 
 import {
+  CONTACT_RETENTION_SECONDS,
+  MAX_ATTACHMENT_SIZE,
+  MAX_ATTACHMENT_SIZE_MB,
+  MAX_ATTACHMENTS,
+} from "../constants/contact";
+import {
   type ContactMessagePayload,
   ContactMessageRequestSchema,
   type ContactMessageResponse,
 } from "../definitions/contactMessage";
+import {
+  AttachmentValidationError,
+  validateAttachment,
+} from "../utils/fileValidation";
 
 const region =
   process.env.AWS_REGION ??
   (() => {
     throw new Error("AWS_REGION is not set");
-  })();
-const accessKeyId =
-  process.env.AWS_ACCESS_KEY_ID ??
-  (() => {
-    throw new Error("AWS_ACCESS_KEY_ID is not set");
-  })();
-const secretAccessKey =
-  process.env.AWS_SECRET_ACCESS_KEY ??
-  (() => {
-    throw new Error("AWS_SECRET_ACCESS_KEY is not set");
-  })();
-const sessionToken =
-  process.env.AWS_SESSION_TOKEN ??
-  (() => {
-    throw new Error("AWS_SESSION_TOKEN is not set");
   })();
 const dynamoDbTableName =
   process.env.DYNAMODB_TABLE_NAME ??
@@ -50,50 +47,32 @@ const s3BucketName =
     throw new Error("S3_BUCKET_NAME is not set");
   })();
 
-const ddbClient = new DynamoDBClient({
-  credentials: {
-    accessKeyId,
-    secretAccessKey,
-    sessionToken,
-  },
-  region,
-});
+const ddbClient = new DynamoDBClient({ region });
 const ddbDocClient = DynamoDBDocument.from(ddbClient);
-const snsClient = new SNSClient({
-  credentials: {
-    accessKeyId,
-    secretAccessKey,
-    sessionToken,
-  },
-  region,
-});
-const s3Client = new S3Client({
-  credentials: {
-    accessKeyId,
-    secretAccessKey,
-    sessionToken,
-  },
-  region,
-});
+const snsClient = new SNSClient({ region });
+const s3Client = new S3Client({ region });
 
 const uploadAttachmentToS3 = async (
   file: File,
   messageId: string,
 ): Promise<string> => {
   const attachmentId = randomUUID();
-  const key = `attachments/${messageId}/${attachmentId}-${file.name}`;
-
-  const buffer = Buffer.from(await file.arrayBuffer());
+  const {
+    buffer,
+    contentType,
+    filename,
+  } = await validateAttachment(file);
+  const key = `attachments/${messageId}/${attachmentId}-${filename}`;
 
   const putObjectParams = {
     Body: buffer,
     Bucket: s3BucketName,
-    ContentType: file.type,
+    ContentType: contentType,
     Key: key,
     Metadata: {
       attachmentId,
       messageId,
-      originalName: file.name,
+      originalName: filename,
     },
   };
 
@@ -131,26 +110,46 @@ const handler = async (event: ContactMessageMultipartRequest):
     const fields: Record<string, string> = {};
     const files: File[] = [];
 
-    for (const part of parseMultipart(
-      Buffer.from(
-        event.body,
-        "base64",
-      ),
-      { boundary },
-    )) {
-      if (part.isFile && part.filename) {
-        if (files.length >= 4) {
-          throw new ValidationError("Invalid input data: Maximum 4 files allowed.");
-        }
+    try {
+      for (const part of parseMultipart(
+        Buffer.from(
+          event.body,
+          "base64",
+        ),
+        {
+          boundary,
+          maxFileSize: MAX_ATTACHMENT_SIZE,
+        },
+      )) {
+        if (part.isFile && part.filename) {
+          if (files.length >= MAX_ATTACHMENTS) {
+            throw new ValidationError(
+              `Invalid input data: Maximum ${MAX_ATTACHMENTS} files allowed.`,
+            );
+          }
 
-        files.push(new File(
-          [part.arrayBuffer],
-          part.filename,
-        ));
+          files.push(new File(
+            [part.arrayBuffer],
+            part.filename,
+          ));
+        }
+        else if (part.name) {
+          fields[part.name] = part.text;
+        }
       }
-      else if (part.name) {
-        fields[part.name] = part.text;
+    }
+    catch (error) {
+      if (error instanceof MaxFileSizeExceededError) {
+        throw new ValidationError(
+          `Invalid input data: Attachment exceeds ${MAX_ATTACHMENT_SIZE_MB} MB.`,
+        );
       }
+
+      if (error instanceof MultipartParseError) {
+        throw new ValidationError("Invalid input data: Malformed multipart request.");
+      }
+
+      throw error;
     }
 
     const request = {
@@ -183,12 +182,25 @@ const handler = async (event: ContactMessageMultipartRequest):
       .toISOString();
     const messageId = randomUUID();
 
-    const attachmentsKeys = attachments.length > 0 ?
-      await Promise.all(attachments.map(file => uploadAttachmentToS3(
-        file,
-        messageId,
-      ))) :
-      [];
+    let attachmentsKeys: string[] = [];
+
+    if (attachments.length > 0) {
+      try {
+        attachmentsKeys = await Promise.all(
+          attachments.map(file => uploadAttachmentToS3(
+            file,
+            messageId,
+          )),
+        );
+      }
+      catch (error) {
+        if (error instanceof AttachmentValidationError) {
+          throw new ValidationError(`Invalid input data: ${error.message}`);
+        }
+
+        throw error;
+      }
+    }
 
     const messageItem = {
       AttachmentsKeys: attachmentsKeys,
@@ -196,6 +208,7 @@ const handler = async (event: ContactMessageMultipartRequest):
       CreatedAt: now,
       Description: description,
       Email: email,
+      ExpiresAt: Math.floor(Date.now() / 1000) + CONTACT_RETENTION_SECONDS,
       Id: messageId,
       Nda: nda,
       Topic: topic,
@@ -232,13 +245,13 @@ const handler = async (event: ContactMessageMultipartRequest):
     if (error instanceof ValidationError) {
       throw error;
     }
-    else {
-      const errorMessage = error instanceof Error ?
-        error.message :
-        "Unknown error";
 
-      throw new InternalError(`Internal error: ${errorMessage}`);
-    }
+    console.error(
+      "Contact message processing failed:",
+      error instanceof Error ? error.name : "Unknown error",
+    );
+
+    throw new InternalError();
   }
 };
 

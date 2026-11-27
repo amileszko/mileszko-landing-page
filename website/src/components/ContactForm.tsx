@@ -6,6 +6,14 @@ import { useTranslation } from "react-i18next";
 import { usePageContext } from "vike-react/usePageContext";
 import { z } from "zod";
 
+import {
+  MAX_ATTACHMENT_SIZE_MB,
+  MAX_ATTACHMENTS,
+  MAX_DESCRIPTION_LENGTH,
+  MAX_EMAIL_LENGTH,
+  MAX_NDA_LENGTH,
+  MAX_TOPIC_LENGTH,
+} from "../constants/contact";
 import { useSendContactMessageMutation } from "../features/contact/api";
 import { AlertDescription } from "./Alert/AlertDescription";
 import { AnimatedAlert } from "./Alert/AnimatedAlert";
@@ -73,7 +81,8 @@ const ContactForm = () => {
   const formSchema = useMemo(
     () =>
       z.object({
-        attachments: z.array(z.instanceof(File)),
+        attachments: z.array(z.instanceof(File))
+          .max(MAX_ATTACHMENTS),
         cooperation: z.enum(
           CooperationType,
           t("contact:sections.brief.fields.cooperation.validation.required"),
@@ -82,28 +91,40 @@ const ContactForm = () => {
           .string()
           .nonempty(t("contact:sections.brief.fields.description.validation.required"))
           .max(
-            1000,
-            t("contact:sections.brief.fields.description.validation.maxLength"),
+            MAX_DESCRIPTION_LENGTH,
+            t(
+              "contact:sections.brief.fields.description.validation.maxLength",
+              { max: MAX_DESCRIPTION_LENGTH },
+            ),
           ),
         email: z
           .email(t("contact:sections.brief.fields.email.validation.email"))
           .nonempty(t("contact:sections.brief.fields.email.validation.required"))
           .max(
-            50,
-            t("contact:sections.brief.fields.email.validation.maxLength"),
+            MAX_EMAIL_LENGTH,
+            t(
+              "contact:sections.brief.fields.email.validation.maxLength",
+              { max: MAX_EMAIL_LENGTH },
+            ),
           ),
         nda: z.string()
           .max(
-            1000,
-            t("contact:sections.brief.fields.nda.validation.maxLength"),
+            MAX_NDA_LENGTH,
+            t(
+              "contact:sections.brief.fields.nda.validation.maxLength",
+              { max: MAX_NDA_LENGTH },
+            ),
           )
           .optional(),
         topic: z
           .string()
           .nonempty(t("contact:sections.brief.fields.topic.validation.required"))
           .max(
-            100,
-            t("contact:sections.brief.fields.topic.validation.maxLength"),
+            MAX_TOPIC_LENGTH,
+            t(
+              "contact:sections.brief.fields.topic.validation.maxLength",
+              { max: MAX_TOPIC_LENGTH },
+            ),
           ),
       }),
     [t],
@@ -301,7 +322,15 @@ const ContactForm = () => {
               <FormLabel>{t("contact:sections.brief.fields.attachments.label")}</FormLabel>
               <FormControl>
                 <FileUpload
-                  description={t("contact:sections.brief.fields.attachments.description")}
+                  description={
+                    t(
+                      "contact:sections.brief.fields.attachments.description",
+                      {
+                        maxFiles: MAX_ATTACHMENTS,
+                        maxSizeMb: MAX_ATTACHMENT_SIZE_MB,
+                      },
+                    )
+                  }
                   onFilesChange={field.onChange}
                   placeholder={t("contact:sections.brief.fields.attachments.placeholder")}
                   value={field.value}

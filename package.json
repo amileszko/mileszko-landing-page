@@ -25,6 +25,8 @@
     "check-types:ts6": "tsc6 --noEmit -p tsconfig.json && tsc6 --noEmit -p cdk/tsconfig.json && tsc6 --noEmit -p website/tsconfig.json && tsc6 --noEmit -p api/tsconfig.json",
     "check-types:ts7": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p cdk/tsconfig.json && tsc --noEmit -p website/tsconfig.json && tsc --noEmit -p api/tsconfig.json",
     "lint": "yarn api:types && eslint",
+    "audit:dependencies": "node scripts/audit-dependencies.mjs",
+    "scan:secrets": "node scripts/scan-secrets.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:visual": "playwright test",

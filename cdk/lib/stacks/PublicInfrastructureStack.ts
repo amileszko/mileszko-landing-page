@@ -1,5 +1,7 @@
 import { Stack, type StackProps } from "aws-cdk-lib";
 import {
+  CaaRecord,
+  CaaTag,
   type IHostedZone,
   PublicHostedZone,
   TxtRecord,
@@ -22,7 +24,10 @@ export class PublicInfrastructureStack extends Stack {
     super(
       scope,
       id,
-      props,
+      {
+        ...props,
+        terminationProtection: true,
+      },
     );
 
     this.hostedZone = new PublicHostedZone(
@@ -64,7 +69,22 @@ export class PublicInfrastructureStack extends Stack {
       this,
       "SpfRecord",
       {
-        values: ["v=spf1 include:amazonses.com ~all"],
+        values: ["v=spf1 include:amazonses.com include:icloud.com ~all"],
+        zone: this.hostedZone,
+      },
+    );
+
+    new CaaRecord(
+      this,
+      "CaaRecord",
+      {
+        values: [
+          {
+            flag: 0,
+            tag: CaaTag.ISSUE,
+            value: "amazon.com",
+          },
+        ],
         zone: this.hostedZone,
       },
     );

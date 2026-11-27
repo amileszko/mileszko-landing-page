@@ -3,6 +3,7 @@ import { useCallback, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { usePageContext } from "vike-react/usePageContext";
 
+import { MAX_ATTACHMENT_SIZE, MAX_ATTACHMENTS } from "../constants/contact";
 import { MediumBlock, SmallBlock } from "./Block";
 import { Button } from "./Button/Button";
 import { H4 } from "./Header";
@@ -22,8 +23,8 @@ const FileUpload = ({
   accept = ".pdf,.doc,.docx,.txt,.md,.jpg,.jpeg,.png,.gif,.webp",
   description,
   disabled = false,
-  maxFiles = 4,
-  maxSize = 2 * 1024 * 1024,
+  maxFiles = MAX_ATTACHMENTS,
+  maxSize = MAX_ATTACHMENT_SIZE,
   onFilesChange,
   placeholder,
   value,
