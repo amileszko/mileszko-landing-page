@@ -39,7 +39,7 @@
     "react-i18next": "^18.0.3",
     "react-markdown": "^10.1.0",
     "react-remove-scroll": "^2.7.2",
-    "react-streaming": "^0.4.27",
+    "react-streaming": "^0.4.28",
     "remark-gfm": "^4.0.1",
     "schema-dts": "^2.1.0",
     "tailwind-merge": "^3.7.1",

@@ -12,6 +12,7 @@
     "website:build": "turbo run build --filter=@mileszko-landing-page/website",
     "website:preview": "turbo run preview --filter=@mileszko-landing-page/website",
     "api:types": "turbo run build:api-definition --filter=@mileszko-landing-page/api",
+    "api:templates": "pnpm --filter @mileszko-landing-page/api build:templates",
     "api:build": "turbo run build --filter=@mileszko-landing-page/api",
     "cdk:synth": "turbo run synth --filter=@mileszko-landing-page/cdk",
     "cdk:deploy": "turbo run deploy --filter=@mileszko-landing-page/cdk",
@@ -28,8 +29,8 @@
     "test:coverage:all": "vitest run --coverage --config vitest.coverage-all.config.ts",
     "test:coverage:core": "vitest run --coverage",
     "test:watch": "vitest",
-    "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots"
+    "test:visual": "pnpm api:templates && playwright test",
+    "test:visual:update": "pnpm api:templates && playwright test --update-snapshots"
   },
   "devDependencies": {
     "@eslint-react/eslint-plugin": "^5.30.6",

@@ -3,6 +3,23 @@ import http from "node:http";
 import path from "node:path";
 
 const root = path.resolve("website/dist/client");
+const emailRoot = path.resolve("api/dist");
+const emailFiles = new Map([
+  [
+    "/emails/contact-message-delivered",
+    path.join(
+      emailRoot,
+      "contactMessageDeliveredEmailHandler/templates/contact-message-delivered.html",
+    ),
+  ],
+  [
+    "/emails/contact-message-notification",
+    path.join(
+      emailRoot,
+      "contactMessageNotificationEmailHandler/templates/contact-message-notification.html",
+    ),
+  ],
+]);
 const port = Number(process.env.VISUAL_TEST_PORT ?? 4173);
 
 const contentTypes = new Map([
@@ -109,7 +126,7 @@ const server = http.createServer((request, response) => {
     request.url ?? "/",
     `http://localhost:${port}`,
   );
-  let file = resolveFile(url.pathname);
+  let file = emailFiles.get(url.pathname) ?? resolveFile(url.pathname);
   let status = 200;
 
   if (!file) {

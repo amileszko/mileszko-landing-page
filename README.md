@@ -40,7 +40,7 @@ This project uses **Turborepo** with **pnpm workspaces** to manage three main pa
 - **Runtime**: AWS Lambda (Node.js 26)
 - **Language**: TypeScript
 - **Build Tool**: esbuild 0.28
-- **Email Templates**: Maizzle 5 (legacy template syntax; v6 migration tracked separately)
+- **Email Templates**: React Email with Tailwind CSS 4
 - **API**: OpenAPI 3.0 with Zod schema validation
 - **AWS Services**: SES, SNS, DynamoDB, S3
 
@@ -156,7 +156,7 @@ pnpm test:visual
 - SNS notifications for new messages
 
 ### Email System
-- **Templates**: Responsive HTML emails built with Maizzle
+- **Templates**: Responsive HTML emails built with React Email and Tailwind CSS 4
 - **Delivery**: AWS SES with DKIM signing
 - **Notifications**: Real-time alerts for new contact messages
 - **Feedback handling**: SES configuration set with a bounce-rate alarm; no feedback SNS topic
