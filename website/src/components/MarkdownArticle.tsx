@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex -- Scrollable tables need a keyboard focus target (WCAG 2.1.1). */
 import { cn } from "@utils/classNameUtils";
+import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { usePageContext } from "vike-react/usePageContext";
 
 import { BlockQuote } from "./BlockQuote";
 import { H1, H2, H3, H4 } from "./Header";
@@ -18,6 +21,12 @@ const MarkdownArticle = ({
   markdown,
   ...props
 }: MarkdownArticleProps) => {
+  const { locale } = usePageContext();
+  const { t } = useTranslation(
+    undefined,
+    { lng: locale },
+  );
+
   return (
     <article
       className={
@@ -100,7 +109,12 @@ const MarkdownArticle = ({
             ),
             strong: ({ children }) => <Strong>{children}</Strong>,
             table: ({ children }) => (
-              <div className="w-full overflow-x-auto">
+              <div
+                aria-label={t("common:markdown.table")}
+                className="w-full overflow-x-auto"
+                role="region"
+                tabIndex={0}
+              >
                 <table className="w-full">
                   {children}
                 </table>

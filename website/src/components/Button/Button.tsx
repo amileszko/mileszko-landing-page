@@ -29,42 +29,42 @@ const buttonVariants = cva(
     variants: {
       variant: {
         "cta-link": `
-          text-brand-500
+          text-brand-600
           after:absolute after:bottom-0 after:left-0 after:h-px after:w-full
           after:bg-transparent after:transition-colors after:duration-200 after:ease-in-out
-          hover:text-brand-600
-          hover:after:bg-brand-600
-          disabled:hover:text-brand-500
+          hover:text-brand-700
+          hover:after:bg-brand-700
+          disabled:hover:text-brand-600
           disabled:hover:after:bg-transparent
         `,
         "cta-primary": `
-          rounded-md border-1 border-brand-500 bg-brand-500 px-6
+          rounded-md border-1 border-brand-600 bg-brand-600 px-6
           py-3 font-semibold text-neutral-50
-          hover:border-brand-600 hover:bg-brand-600
-          disabled:hover:border-brand-500 disabled:hover:bg-brand-500
+          hover:border-brand-700 hover:bg-brand-700
+          disabled:hover:border-brand-600 disabled:hover:bg-brand-600
           md:max-w-[356px]
         `,
         "cta-primary-with-description": `
           flex-row justify-start gap-1 rounded-md border-1
-          border-brand-500 bg-brand-500 px-4 py-2 text-left
+          border-brand-600 bg-brand-600 px-4 py-2 text-left
           font-semibold text-neutral-50
-          hover:border-brand-600 hover:bg-brand-600
-          disabled:hover:border-brand-500 disabled:hover:bg-brand-500
+          hover:border-brand-700 hover:bg-brand-700
+          disabled:hover:border-brand-600 disabled:hover:bg-brand-600
           md:max-w-[356px]
         `,
         "cta-secondary": `
-          rounded-md border-1 border-brand-500 bg-neutral-50 px-6
-          py-3 font-semibold text-brand-500
-          hover:border-brand-600 hover:text-brand-600
-          disabled:hover:border-brand-500 disabled:hover:text-brand-500
+          rounded-md border-1 border-brand-600 bg-neutral-50 px-6
+          py-3 font-semibold text-brand-600
+          hover:border-brand-700 hover:text-brand-700
+          disabled:hover:border-brand-600 disabled:hover:text-brand-600
           md:max-w-[356px]
         `,
         "cta-secondary-with-description": `
           flex-row justify-start gap-1 rounded-md border-1
-          border-brand-500 bg-neutral-50 px-4 py-2 text-left
-          font-semibold text-brand-500
-          hover:border-brand-600 hover:text-brand-600
-          disabled:hover:border-brand-500 disabled:hover:text-brand-500
+          border-brand-600 bg-neutral-50 px-4 py-2 text-left
+          font-semibold text-brand-600
+          hover:border-brand-700 hover:text-brand-700
+          disabled:hover:border-brand-600 disabled:hover:text-brand-600
           md:max-w-[356px]
         `,
         "footer-link": `
@@ -199,7 +199,7 @@ const CtaButtonLabelWithDescription = ({
       {
         description && (
           <span
-            className="text-xs leading-tight font-normal opacity-80"
+            className="text-xs leading-tight font-normal"
           >
             {description}
           </span>

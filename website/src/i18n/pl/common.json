@@ -1,4 +1,5 @@
 {
+  "skipToContent": "Przejdź do treści",
   "dialog": {
     "closeButtonTitle": "zamknij"
   },
@@ -31,6 +32,9 @@
     "selectedFiles": "Wybrane pliki",
     "removeFile": "usuń",
     "dropFiles": "Upuść pliki tutaj..."
+  },
+  "markdown": {
+    "table": "Przewijana tabela"
   },
   "structuredData": {
     "owner": {

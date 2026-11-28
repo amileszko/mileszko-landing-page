@@ -29,10 +29,12 @@
     "test:coverage:all": "vitest run --coverage --config vitest.coverage-all.config.ts",
     "test:coverage:core": "vitest run --coverage",
     "test:watch": "vitest",
+    "test:a11y": "playwright test tests/visual/accessibility.spec.ts",
     "test:visual": "pnpm api:templates && playwright test",
     "test:visual:update": "pnpm api:templates && playwright test --update-snapshots"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.1",
     "@eslint-react/eslint-plugin": "^5.30.6",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.65.1",

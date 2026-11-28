@@ -186,17 +186,6 @@ const FileUpload = ({
     [isUploadDisabled],
   );
 
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-
-        handleClick();
-      }
-    },
-    [handleClick],
-  );
-
   const formatFileSize = useCallback(
     (bytes: number): string => {
       if (bytes === 0) {
@@ -246,14 +235,12 @@ const FileUpload = ({
   return (
     <SmallBlock>
       <div
-        aria-label={placeholder}
         className={
           cn(
             `
-              relative flex min-h-36 w-full cursor-pointer
-              items-center justify-center rounded-md border border-dashed
-              border-neutral-400 p-4 text-neutral-500 transition-all duration-200
-              ease-in-out
+              relative flex min-h-36 w-full items-center
+              justify-center rounded-md border border-dashed border-neutral-400
+              p-4 text-neutral-500 transition-all duration-200 ease-in-out
               md:p-6
             `,
             isDragActive && "border-neutral-500",
@@ -261,13 +248,9 @@ const FileUpload = ({
             "cursor-not-allowed border-neutral-300 text-neutral-400",
           )
         }
-        onClick={handleClick}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
-        onKeyDown={handleKeyDown}
-        role="button"
-        tabIndex={isUploadDisabled ? -1 : 0}
       >
         <input
           accept={accept}
@@ -285,7 +268,13 @@ const FileUpload = ({
           </SmallBlock>
           {
             !isDragActive && (
-              <Button className="px-4 py-2 text-xs" disabled={isUploadDisabled} type="button" variant="cta-secondary">
+              <Button
+                className="px-4 py-2 text-xs"
+                disabled={isUploadDisabled}
+                onClick={handleClick}
+                type="button"
+                variant="cta-secondary"
+              >
                 {t("common:fileUpload.selectFiles")}
               </Button>
             )

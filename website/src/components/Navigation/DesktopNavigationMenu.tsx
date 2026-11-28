@@ -61,7 +61,7 @@ const DesktopNavigationMenu = ({
         <NavigationMenuItem value="home">
           <NavigationMenuLink asChild href={t("paths:home")}>
             <Link
-              aria-label={t("navigation:logo.label")}
+              aria-label={`${t("navigation:logo.title")} — ${t("navigation:logo.label")}`}
               className="text-inherit"
               href={t("paths:home")}
               variant="navigation-link"
@@ -71,23 +71,25 @@ const DesktopNavigationMenu = ({
           </NavigationMenuLink>
         </NavigationMenuItem>
 
-        <ul className="flex gap-6">
-          {
-            links.map(link => (
-              <NavigationMenuItem key={link.name} value={link.name}>
-                <NavigationMenuLink asChild href={link.path}>
-                  <Link
-                    className="text-inherit"
-                    href={link.path}
-                    variant="navigation-link"
-                  >
-                    {link.name}
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            ))
-          }
-        </ul>
+        <li className="flex gap-6">
+          <ul className="flex gap-6">
+            {
+              links.map(link => (
+                <NavigationMenuItem key={link.name} value={link.name}>
+                  <NavigationMenuLink asChild href={link.path}>
+                    <Link
+                      className="text-inherit"
+                      href={link.path}
+                      variant="navigation-link"
+                    >
+                      {link.name}
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))
+            }
+          </ul>
+        </li>
       </NavigationMenuList>
     </NavigationMenu>
   );

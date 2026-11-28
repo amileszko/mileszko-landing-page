@@ -22,7 +22,7 @@ const Page = (): JSX.Element => {
 
   return (
     <div className="flex min-h-screen flex-col justify-center bg-neutral-50">
-      <main>
+      <div>
         <Content>
           <Section>
             <LargeBlock>
@@ -50,7 +50,7 @@ const Page = (): JSX.Element => {
             </LargeBlock>
           </Section>
         </Content>
-      </main>
+      </div>
     </div>
   );
 };

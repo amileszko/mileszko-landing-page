@@ -87,7 +87,7 @@ const MobileNavigationMenu = ({
         <NavigationMenuItem value="home">
           <NavigationMenuLink asChild href={t("paths:home")}>
             <Link
-              aria-label={t("navigation:logo.label")}
+              aria-label={`${t("navigation:logo.title")} — ${t("navigation:logo.label")}`}
               className="text-inherit"
               href={t("paths:home")}
               onClick={
